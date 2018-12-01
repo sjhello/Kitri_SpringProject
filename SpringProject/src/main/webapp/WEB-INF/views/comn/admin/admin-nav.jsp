@@ -26,7 +26,7 @@
 	    </li>
 	    <li><a href="#dropdown-exercise" aria-expanded="false" data-toggle="collapse"><i class="la la-bicycle"></i><span>운동법</span></a>
 	        <ul id="dropdown-exercise" class="collapse list-unstyled pt-0">
-	            <li><a href="adExercise.do">운동등록</a></li>
+	            <li><a href="adExerciseWrite.do">운동등록</a></li>
 	            <li><a href="adExercise.do">운동조회</a></li>
 	        </ul>
 	    </li>
