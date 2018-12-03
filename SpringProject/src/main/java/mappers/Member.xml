@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kitri.project.member.MemberDao">
+	<resultMap id="memResult" type="com.kitri.project.member.Member">
+		<result column="id" property="id" />
+		<result column="pwd" property="pwd" />
+		<result column="name" property="name" />
+		<result column="tel" property="tel" />
+		<result column="address" property="address" />
+		<result column="email" property="email" />
+		<result column="f_level" property="f_level" />
+		<result column="w_level" property="w_level" />
+		<result column="admin_confirm" property="admin_confirm" />
+		<result column="sex" property="sex" />
+	</resultMap>
+	
+	<insert id="insert" parameterType="com.kitri.project.member.Member">
+		insert into member values(#{id},#{pwd},#{name},#{tel},#{address},#{email},default,default,default,#{sex})
+	</insert>
+	
+	
+	
+</mapper>
