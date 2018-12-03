@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <script src="assets/js/components/datepicker/datepicker.js"></script>
 <script src="assets/vendors/js/datepicker/moment.min.js"></script>
-  <script src="assets/vendors/js/datepicker/daterangepicker.js"></script>
+<script src="assets/vendors/js/datepicker/daterangepicker.js"></script>
 
 <!-- include summernote css/js -->
 <link href="css/summernote.css" rel="stylesheet">
