@@ -1,5 +1,15 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: qkrsh
 Build-Jdk: 1.8.0_171
+=======
+<<<<<<< HEAD
+Built-By: KITRI
+Build-Jdk: 1.8.0_191
+=======
+Built-By: sjhello
+Build-Jdk: 1.8.0_181
+>>>>>>> 0348f478ab4afed515716587c0cf0c3cfbb494eb
+>>>>>>> 03f3cb182ade0ca3c69397c81443e1f4be619130
 Created-By: Maven Integration for Eclipse
 

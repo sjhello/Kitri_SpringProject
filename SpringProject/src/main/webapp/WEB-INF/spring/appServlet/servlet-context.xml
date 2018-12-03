@@ -48,5 +48,51 @@
 	
 	<context:component-scan base-package="com.kitri.project" />
 	
+<<<<<<< HEAD
+=======
+	<!-- dataSource -->
+	<beans:bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName">
+			<beans:value>oracle.jdbc.driver.OracleDriver</beans:value>
+		</beans:property>
+		<beans:property name="url">
+			<beans:value>jdbc:oracle:thin:@localhost:1521:XE</beans:value>
+		</beans:property>
+		<beans:property name="username">
+			<beans:value>anyfit</beans:value>
+		</beans:property>
+		<beans:property name="password">
+			<beans:value>anyfit</beans:value>
+		</beans:property>
+	</beans:bean>
+	
+	<!-- transactionManager -->
+	<beans:bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<beans:property name="dataSource" ref="dataSource" />
+	</beans:bean>
+	
+	<!-- sqlSessionFactory -->
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="typeAliasesPackage" value="mybatis" />
+		<beans:property name="mapperLocations" value="classpath:/mappers/*.xml" />
+	</beans:bean>
+	
+	<!-- sqlSession -->
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
+	</beans:bean>
+	
+>>>>>>> 03f3cb182ade0ca3c69397c81443e1f4be619130
 	
 </beans:beans>
+
+
+
+
+
+
+

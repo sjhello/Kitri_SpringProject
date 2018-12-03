@@ -10,8 +10,17 @@
         		
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> d8a80c580eaaa79f5e4fdf7ede4c6e13f714169e
+>>>>>>> 03f3cb182ade0ca3c69397c81443e1f4be619130
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+=======
+>>>>>>> ksj
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
 >>>>>>> 0348f478ab4afed515716587c0cf0c3cfbb494eb
         		
