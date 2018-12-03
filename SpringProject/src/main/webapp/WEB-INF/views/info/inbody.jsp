@@ -45,19 +45,19 @@
 		return {
 			type: 'line',
 			data: {
-				labels: ["January", "February", "March", "April", "May", "June", "July"],
+				labels: ["1월", "2월", "March", "April", "May", "June", "July"],
 				datasets: [{
-					label: "나",
+					label: "평균",
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
-					data: [1, 30, 39, 20, 25, 34, 0],
+					data: [70, 70, 70, 70, 70, 70, 70],
 					fill: false,
 				}, {
-					label: "평균",
+					label: "회원",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: [2, 33, 22, 19, 11, 39, 30],
+					data: [120, 110, 105, 100, 90, 95, 89],
 				}]
 			},
 			options: {
@@ -73,8 +73,8 @@
 					yAxes: [{
 						gridLines: gridlines,
 						ticks: {
-							min: 0,
-							max: 100,
+							min: 30,
+							max: 150,
 							stepSize: 10
 						}
 					}]
@@ -255,7 +255,7 @@
 		var container = document.querySelector('.chart1');
 		
 		[{
-			title: 'BMI',
+			title: '몸무게',
 			gridLines: {
 				display: false
 			}
@@ -275,7 +275,7 @@
 		var container = document.querySelector('.chart1');
 		
 		[{
-			title: '몸무게',
+			title: '골격근량',
 			gridLines: {
 				display: false
 			}
@@ -295,7 +295,7 @@
 		var container = document.querySelector('.chart1');
 		
 		[{
-			title: '골격근량',
+			title: '체지방',
 			gridLines: {
 				display: false
 			}
@@ -315,7 +315,7 @@
 var container = document.querySelector('.chart1');
 		
 		[{
-			title: '체지방',
+			title: '체지방률',
 			gridLines: {
 				display: false
 			}
@@ -335,7 +335,7 @@ var container = document.querySelector('.chart1');
 var container = document.querySelector('.chart1');
 		
 		[{
-			title: '체지방률',
+			title: 'BMI',
 			gridLines: {
 				display: false
 			}

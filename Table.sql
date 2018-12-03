@@ -19,6 +19,8 @@ create table member(
     admin_confirm varchar(10) default 'x'
 );
 
+insert into inbody values('kgi', 'kgi', 'kgi', 81.9, 38.1, 15.3, 24.7);
+
 
 create table employee(
     id varchar2(20) primary key,
@@ -59,7 +61,11 @@ create table inbody(
     bmi number(3,1)
 );
 
-drop table fittest;
+select * from inbody;
+
+insert into inbody values('kgi', sysdate, 182, 81.9, 38.1, 15.3, 24.7);
+
+commit;
 
 create table fittest(
     id varchar2(20) references member(id) on delete cascade,
