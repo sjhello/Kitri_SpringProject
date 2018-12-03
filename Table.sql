@@ -59,21 +59,17 @@ create table inbody(
     bmi number(3,1)
 );
 
+drop table fittest;
+
 create table fittest(
     id varchar2(20) references member(id) on delete cascade,
     fit_date date,
-    situp number,
     pushup number,
+    pullup number,
     squat number,
+    situp number,
     burpee number
 );
+
+
 commit; 
-
-
-
-
-
-
-
-
-
