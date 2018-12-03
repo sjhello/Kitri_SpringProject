@@ -1,8 +1,6 @@
 package com.kitri.project.inbody;
 
-import org.springframework.stereotype.Controller;
 
-@Controller
 public class InbodyController {
 //	@Resource(name="InbodyService")
 //	private InbodyService service;
