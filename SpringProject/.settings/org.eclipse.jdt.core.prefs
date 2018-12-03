@@ -1,6 +1,10 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
+<<<<<<< HEAD
 >>>>>>>=master
+=======
+>>>>>>>=a619f9146f668ea3052c978e2b39951d84cdb57c
+>>>>>>> master
 eclipse.preferences.version=1
 org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.6
