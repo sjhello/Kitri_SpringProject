@@ -26,6 +26,7 @@
 							<li><a href="way.do"><div>오시는길</div></a></li>
 						</ul>
 					</li>
+					<li class="current"><a href="#" data-toggle="modal" data-target="#myModal"><div>공지사항</div></a>
 					<li class="current"><a href="#" data-toggle="modal" data-target="#myModal"><div>로그인</div></a>
 					</li>
 					<li class="current"><a href="qa11.do"><div>1:1문의</div></a>

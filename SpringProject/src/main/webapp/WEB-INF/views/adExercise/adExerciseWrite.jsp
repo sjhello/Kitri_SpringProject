@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- include libraries(jQuery, bootstrap) -->
+<script src="assets/js/components/datepicker/datepicker.js"></script>
+<script src="assets/vendors/js/datepicker/moment.min.js"></script>
+  <script src="assets/vendors/js/datepicker/daterangepicker.js"></script>
 
 <!-- include summernote css/js -->
 <link href="css/summernote.css" rel="stylesheet">
@@ -29,8 +31,15 @@
                     <div class="form-group row d-flex align-items-center mb-5 has-info">
                         <label class="col-lg-3 form-control-label">등록날짜</label>
                         <div class="col-lg-9">
-                            <input type="text" class="form-control">
-                        </div>
+	                        <div class="form-group">
+	                            <div class="input-group">
+	                                <span class="input-group-addon">
+	                                    <i class="la la-calendar"></i>
+	                                </span>
+	                                <input type="text" class="form-control" id="date" placeholder="Select value">
+	                            </div>
+	                        </div>
+	                    </div>
                     </div>
                     <div class="form-group row d-flex align-items-center mb-5 has-info">
                         <label class="col-lg-3 form-control-label">아이콘</label>
