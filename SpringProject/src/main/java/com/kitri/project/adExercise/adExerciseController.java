@@ -9,4 +9,9 @@ public class adExerciseController {
 	public String adExercise() {
 		return "adExercise/adExercise.admin";
 	}
+	
+	@RequestMapping(value = "adExerciseWrite.do")
+	public String adExerciseWrite() {
+		return "adExercise/adExerciseWrite.admin";
+	}
 }

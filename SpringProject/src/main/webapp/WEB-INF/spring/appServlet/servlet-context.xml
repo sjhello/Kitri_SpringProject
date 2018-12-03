@@ -22,6 +22,7 @@
 	<resources mapping="/js/**" location="/resources/js/" /> 
 	<resources mapping="/less/**" location="/resources/less/" /> 
 	<resources mapping="/sass/**" location="/resources/sass/" /> 
+	<resources mapping="/lang/**" location="/resources/lang/" /> 
 	
 	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
