@@ -1,8 +1,0 @@
-<<<<<<< HEAD
-/target/
-=======
-target/
-.settings/
-.classpath
->>>>>>> master
-*.class
