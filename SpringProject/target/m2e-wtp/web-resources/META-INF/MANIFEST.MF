@@ -1,26 +1,5 @@
 Manifest-Version: 1.0
 Built-By: KITRI
 Build-Jdk: 1.8.0_191
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
-Built-By: qkrsh
-Build-Jdk: 1.8.0_171
-=======
-<<<<<<< HEAD
-Built-By: KITRI
-Build-Jdk: 1.8.0_191
-=======
-Built-By: sjhello
-Build-Jdk: 1.8.0_181
->>>>>>> 0348f478ab4afed515716587c0cf0c3cfbb494eb
-<<<<<<< HEAD
->>>>>>> 03f3cb182ade0ca3c69397c81443e1f4be619130
-=======
->>>>>>> d8a80c580eaaa79f5e4fdf7ede4c6e13f714169e
->>>>>>> park
->>>>>>> a619f9146f668ea3052c978e2b39951d84cdb57c
->>>>>>> master
 Created-By: Maven Integration for Eclipse
 
