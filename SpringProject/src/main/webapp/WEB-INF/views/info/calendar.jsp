@@ -32,7 +32,7 @@
 		</section>
 		
 		
-<!-- 	<script src="js/jquery.calendario.js"></script> -->
+	<script src="js/jquery.calendario.js"></script>
 	<script src="js/events-data.js"></script>
 	<script>
 
