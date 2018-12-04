@@ -8,7 +8,7 @@
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="main.do">Home</a></li>
 					<li class="breadcrumb-item"><a href="#">ANIFIT</a></li>
-					<li class="breadcrumb-item active" aria-current="page"><a href="qa.do">Q&A</a></li>
+					<li class="breadcrumb-item active" aria-current="page"><a href="qa.do">1:1문의</a></li>
 				</ol>
 			</div>
 
@@ -19,7 +19,7 @@
 		<section id="content">
 			<div class="content-wrap">
 				<div class="container clearfix" style="margin-bottom: 175px;">
-					<h4>Q&A</h4>
+					<h4>공지사항</h4>
 					<div class="col_one">
 						<table class="table table-bordered">
 						  <thead>
@@ -42,9 +42,8 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-									<a href="qa.do" class="btn btn-secondary btn-sm fright" style=" margin-left: 3px; ">작성</a>
-									<a href="qa.do" class="btn btn-secondary btn-sm fright" style=" margin-left: 3px; ">삭제</a>
-									<a href="qa.do" class="btn btn-secondary btn-sm fright" style=" margin-left: 3px; ">취소</a>
+									<a href="qa11.do" class="btn btn-secondary btn-sm fright" style=" margin-left: 3px; ">작성</a>
+									<a href="qa11.do" class="btn btn-secondary btn-sm fright" style=" margin-left: 3px; ">취소</a>
 								</td>
 							</tr>
 						  </tbody>

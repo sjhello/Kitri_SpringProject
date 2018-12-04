@@ -73,3 +73,7 @@ create table fittest(
 
 
 commit; 
+
+
+alter table notice add reg_date DATE not null; 
+alter table notice add hits int not null; 
