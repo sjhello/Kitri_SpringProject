@@ -33,9 +33,17 @@ public class MemberServiceImpl implements MemberService{
 	}
 	@Override
 	public ArrayList<Member> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.selectAll();
 	}
-	
-	
+
+	@Override
+	public boolean login(Member m) {
+		dao = sqlSession.getMapper(MemberDao.class);
+		Member m2 = dao.select(m.getId());
+		if(m2!=null && m2.getPwd().equals(m.getPwd())) {	//&& m2.getAdmin_confirm().equals('o')
+			return true;
+		}
+		return false;
+	}
 }

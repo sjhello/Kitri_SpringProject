@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <header id="header" class="transparent-header full-header" data-sticky-class="not-dark">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 	<div id="header-wrap">
-	
+	<c:set var="id" value="${sessionScope.id }" />
 		<div class="container clearfix">
 	
 			<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
@@ -45,9 +46,9 @@
 					</li>
 					<li class="current"><a href="qa.do"><div>Q&A</div></a>
 					</li>
-					<li class="current"><a href="admin.do"><div>ADMIN</div></a>
+					<li class="current"><a href="admin.do"><div>${id }</div></a>
 					</li>
-					<li class="current"><a href="logout.do"><div>로그아웃</div></a>
+					<li class="current"><a href=${pageContext.request.contextPath}/memberLogout><div>로그아웃</div></a>
 					</li>
 				</ul>
 			</nav><!-- #primary-menu end -->

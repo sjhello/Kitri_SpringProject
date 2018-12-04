@@ -4,7 +4,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#btnAdd').click(function(){
-			$('#f').attr('action', '${pageContext.request.contextPath}/member/add');
+			$('#f').attr('action', '${pageContext.request.contextPath}/memberAdd');
 			$('#f').submit();
 		});
 		
@@ -90,8 +90,22 @@
 							</div>
 							<div class="form-group">
 								<label for="exampleInputSex">성별</label>
-								<input type="text" class="form-control" id="sex" name="sex" placeholder="Sex">
+								<select name="sex" class="custom-select form-control">
+                                    <option>남성</option>
+                                    <option>여성</option>
+                                </select>
 							</div>
+							<div class="form-group">
+                                <label for="exampleAge">연령</label>
+                                <select name="age" class="custom-select form-control">
+                                    <option>10대</option>
+                                    <option>20대</option>
+                                    <option>30대</option>
+                                    <option>40대</option>
+                                    <option>50대</option>
+                                    <option>60대</option>
+                                </select>
+                            </div>
 							<div class="form-group">
 								<label for="exampleInputEmail">이메일</label>
 								<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email">
@@ -102,7 +116,7 @@
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail">주소</label>
-								<input type="email" class="form-control" id="address" name="address" aria-describedby="emailHelp" placeholder="Email">
+								<input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp" placeholder="Email">
 								<br>
 								<div class="style-msg alertmsg">
 									<div class="sb-msg"><i class="icon-warning-sign"></i><strong>경고!</strong> 이미 존재하는 이메일 입니다.</div> 

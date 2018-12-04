@@ -7,6 +7,12 @@
 		$('#signUp1').click(function() {
 			location.href = "signUp.do";
 		});
+		
+		$('#btnLogin').click(function(){
+			$('#f').attr('action', '${pageContext.request.contextPath}/memberLogin');
+			$('#f').submit();
+		});
+		
 	});
 </script>
 <footer id="footer" class="dark">
@@ -172,17 +178,17 @@
        <div class="modal-body">
          	<div>
 				<h4 class="uppercase ls1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">로그인</font></font></h4>
-				<form action="login.do" class="clearfix" style="max-width: 300px;">
+				<form class="clearfix" style="max-width: 300px;" method="post" id="f">
 					<div class="col_full">
 						<label for="" class="capitalize t600"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">아이디</font></font></label>
-						<input type="text" name="template-op-form-email" value="" class="sm-form-control" autocomplete=off>
+						<input type="text" name="id" id="id" class="sm-form-control" autocomplete=off>
 					</div>
 					<div class="col_full">
 						<label for="" class="capitalize t600"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">비밀번호</font></font></label>
-						<input type="password" id="template-op-form-password" name="template-op-form-password" value="" class="sm-form-control" autocomplete=off>
+						<input type="password" id="pwd"" name="pwd" class="sm-form-control" autocomplete=off>
 					</div>
 					<div class="col_full nobottommargin">
-						<button type="submit" class="button button-rounded button-small button-dark nomargin" value="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">로그인</font></font></button>
+						<button id="btnLogin" type="submit" class="button button-rounded button-small button-dark nomargin" value="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">로그인</font></font></button>
 						<button id="signUp1" type="button" class="button button-rounded button-small button-dark nomargin" value="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">신청하러가기</font></font></button>
 					</div>
 				</form>
