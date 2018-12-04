@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-/target/
-=======
 target/
 .settings/
 .classpath
->>>>>>> master
 *.class
+target/m2e-wtp/web-resources/META-INF/maven/com.kitri/project/pom.properties
