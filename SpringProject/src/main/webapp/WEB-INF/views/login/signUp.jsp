@@ -4,7 +4,12 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#btnAdd').click(function(){
-			$('#f').attr('action', '${pageContext.request.contextPath}/member/add');
+			var id = $('#id').val();
+			if(id=='' || id==null){
+				alert('id를 입력하세요');
+				return ;
+			}
+			$('#f').attr('action', '${pageContext.request.contextPath}/memberAdd');
 			$('#f').submit();
 		});
 		
@@ -19,7 +24,6 @@
 				$('#check').css('display','');
 			}
 		});
-		
 		$('#pwdCheck').change(function() {
 			var pwd = $('#pwd').val();
 			var pwdCheck = $('#pwdCheck').val();
@@ -29,6 +33,28 @@
 			}else {
 				$('#check').css('display','');
 			}
+		});
+		
+		/* id 중복체크 */
+		$('#id').change(function(){
+			var id = $('#id').val();
+			var param = "id="+id;
+			
+			$.ajax({
+				type:"POST",
+				url:"${pageContext.request.contextPath}/memberIdCheck",
+				data:param,
+				success:function(data){
+					var obj = eval('('+data+')');
+					if(obj.flag){	// 사용 가능한 아이디
+						$('#idCheckSuccess').css('display','');
+						$('#idCheckFail').css('display','none');
+					} else {	// 중복된 아이디
+						$('#idCheckFail').css('display','');
+						$('#idCheckSuccess').css('display','none');
+					}
+				}
+			});
 		});
 		
 	});
@@ -55,16 +81,15 @@
 
 					<div class="col_one">
 						<h3>신청 하기</h3>
-
 						<form style="max-width: 25rem;" id="f" method="post">
 							<div class="form-group">
 								<label for="exampleInputId">아이디</label>
 								<input id="id" name="id" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter id">
 								<br>
-								<div class="style-msg alertmsg">
+								<div class="style-msg alertmsg" style="display:none;" id="idCheckFail">
 									<div class="sb-msg"><i class="icon-warning-sign"></i><strong>경고!</strong> 이미 존재하는 아이디입니다.</div> 
 								</div>
-								<div class="style-msg successmsg">
+								<div class="style-msg successmsg" style="display:none;" id="idCheckSuccess">
 									<div class="sb-msg"><i class="icon-thumbs-up"></i><strong>사용가능</strong> 사용할 수 있는 아이디입니다.</div>
 								</div>
 							</div>
@@ -90,8 +115,22 @@
 							</div>
 							<div class="form-group">
 								<label for="exampleInputSex">성별</label>
-								<input type="text" class="form-control" id="sex" name="sex" placeholder="Sex">
+								<select name="sex" class="custom-select form-control">
+                                    <option>남성</option>
+                                    <option>여성</option>
+                                </select>
 							</div>
+							<div class="form-group">
+                                <label for="exampleAge">연령</label>
+                                <select name="age" class="custom-select form-control">
+                                    <option>10대</option>
+                                    <option>20대</option>
+                                    <option>30대</option>
+                                    <option>40대</option>
+                                    <option>50대</option>
+                                    <option>60대</option>
+                                </select>
+                            </div>
 							<div class="form-group">
 								<label for="exampleInputEmail">이메일</label>
 								<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email">
@@ -102,7 +141,7 @@
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail">주소</label>
-								<input type="email" class="form-control" id="address" name="address" aria-describedby="emailHelp" placeholder="Email">
+								<input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp" placeholder="Email">
 								<br>
 								<div class="style-msg alertmsg">
 									<div class="sb-msg"><i class="icon-warning-sign"></i><strong>경고!</strong> 이미 존재하는 이메일 입니다.</div> 
