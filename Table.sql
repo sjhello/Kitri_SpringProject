@@ -14,11 +14,22 @@ create table member(
     tel varchar2(20) not null,
     address varchar(200) not null,
     email varchar2(50) not null,
-    f_level varchar2(20),
-    w_level varchar2(20),
-    admin_confirm varchar(10) default 'x'
+    f_level varchar2(20) default 'no',
+    w_level varchar2(20) default 'no',
+    admin_confirm varchar(10) default 'x',
+    sex varchar2(20) not null,
+    age varchar2(20) not null
 );
+select * from member;
 
+insert into inbody values('kgi', 'kgi', 'kgi', 81.9, 38.1, 15.3, 24.7);
+
+--alter table member add(age varchar2(20));
+--alter table member modify(age not null);
+--alter table member modify(sex varchar2(20));
+--select * from member;
+--update member set age='20´ë' where pwd='1234';
+commit;
 
 create table employee(
     id varchar2(20) primary key,
@@ -33,7 +44,7 @@ create table employee(
 
 create table food(
     f_level varchar2(20),
-    f_date date,
+    f_date varchar2(8),
     mealtime varchar2(20),
     f1 varchar2(50),
     f2 varchar2(50),
@@ -59,21 +70,36 @@ create table inbody(
     bmi number(3,1)
 );
 
-drop table fittest;
+select * from inbody;
+
+insert into inbody values('kgi', sysdate, 182, 81.9, 38.1, 15.3, 24.7);
+
+commit;
 
 create table fittest(
     id varchar2(20) references member(id) on delete cascade,
     fit_date date,
+    situp number,
     pushup number,
     pullup number,
     squat number,
-    situp number,
     burpee number
 );
+commit; 
+alter table fittest add(pullup number);
 
 
+
+
+
+
+
+
+<<<<<<< HEAD
 commit; 
 
 
 alter table notice add reg_date DATE not null; 
 alter table notice add hits int not null; 
+=======
+>>>>>>> a45715629279ca37b128e1173fc37a32cd24bb85
