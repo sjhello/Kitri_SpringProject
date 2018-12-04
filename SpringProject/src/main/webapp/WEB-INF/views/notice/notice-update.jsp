@@ -19,7 +19,7 @@
 		<section id="content">
 			<div class="content-wrap">
 				<div class="container clearfix" style="margin-bottom: 175px;">
-					<h4>1:1 문의</h4>
+					<h4>공지사항</h4>
 					<div class="col_one">
 						<table class="table table-bordered">
 						  <thead>

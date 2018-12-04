@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+ 
+    
 <section id="page-title" class="page-title-parallax page-title-dark" style="padding: 250px 0; background-image: url('images/about/parallax.jpg'); background-size: cover; background-position: center center;" data-bottom-top="background-position:0px 400px;" data-top-bottom="background-position:0px -500px;">
 
 			<div class="container clearfix">
@@ -25,35 +29,23 @@
 						  <thead>
 							<tr>
 							  <th>no</th>
-							  <th>Name</th>
-							  <th>Title</th>
-							  <th>Date</th>
+							  <th>title</th>
+							  <th>date</th>
+							  <th>hits</th>
 							</tr>
 						  </thead>
 						  <tbody>
+						    <c:forEach var="list" items="${list }">
 							<tr>
-							  <td>1</td>
-							  <td>Mark</td>
-							  <td><a href="qaDetail11.do">Otto</a></td>
-							  <td>@mdo</td>
+							  <td>${list.num}</td>
+							  <td><a href="noticeDetail.do?num=${list.num }">${list.title}</a></td>
+							  <td>${list.reg_date}</td>
+							  <td>${list.hits}</td>
 							</tr>
-							<tr>
-							  <td>2</td>
-							  <td>Jacob</td>
-							  <td>Thornton</td>
-							  <td>@fat</td>
-							</tr>
-							<tr>
-							  <td>3</td>
-							  <td>Larry</td>
-							  <td>the Bird</td>
-							  <td>@twitter</td>
-							</tr>
-							<tr>
-								<td colspan="4"><a href="qaWrite.do" class="btn btn-secondary btn-sm fright">작성하기</a></td>
-							</tr>
+						    </c:forEach>
 						  </tbody>
 						</table>
+						<a href="notice-write.do" class="btn btn-secondary btn-sm fright">작성하기</a>
 						<nav aria-label="Page navigation example">
 						  <ul class="pagination">
 						    <li class="page-item disabled">
