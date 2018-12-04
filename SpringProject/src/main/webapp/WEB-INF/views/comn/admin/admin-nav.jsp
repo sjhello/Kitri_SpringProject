@@ -28,6 +28,7 @@
 	        <ul id="dropdown-exercise" class="collapse list-unstyled pt-0">
 	            <li><a href="adExerciseWrite.do">운동등록</a></li>
 	            <li><a href="adExercise.do">운동조회</a></li>
+	            <li><a href="adExerciseSelect.do">날짜조회</a></li>
 	        </ul>
 	    </li>
 	</ul>
