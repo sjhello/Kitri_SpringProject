@@ -15,7 +15,6 @@ public class MemberServiceImpl implements MemberService{
 	public void setSqlSession(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}
-	
 	@Override
 	public void join(Member m) {
 		dao = sqlSession.getMapper(MemberDao.class);
