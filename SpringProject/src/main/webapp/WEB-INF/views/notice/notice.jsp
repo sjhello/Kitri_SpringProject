@@ -45,7 +45,9 @@
 						    </c:forEach>
 						  </tbody>
 						</table>
+						<c:if test="${id == 'admin' }">
 						<a href="notice-writeForm.do" class="btn btn-secondary btn-sm fright">작성하기</a>
+						</c:if>
 						<nav aria-label="Page navigation example">
 						  <ul class="pagination">
 						    <li class="page-item disabled">
