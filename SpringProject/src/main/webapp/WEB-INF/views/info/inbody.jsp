@@ -41,24 +41,48 @@
 <script src="js/chart-utils.js"></script>
 <script src="js/components/moment.js"></script>
 
+<%
+	int [] weight = new int[12];
+	
+%>
+
+<table border="1">
+	<tr>
+		<th>weight</th>
+		<th>muscle</th>
+	</tr>
+	<c:forEach var="i" items="${list }">
+		<tr>
+			<td>${i.weight }</td>
+			<td>${i.muscle }</td>
+		</tr>
+	</c:forEach>
+	<tr>
+		<td>aaa</td>
+		<td>bbb</td>
+	</tr>
+</table>
+
+
+
 <script>
 	function createConfig(gridlines, title) {
 		return {
 			type: 'line',
 			data: {
-				labels: ["1월", "2월", "March", "April", "May", "June", "July"],
+				labels: ["1월", "2월", "3월", "April", "May", "June", "July"],
 				datasets: [{
 					label: "평균",
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
-					data: [70, 70, 70, 70, 70, 70, 70],
+					data: [<%=weight[0] %>, 70, 70, 70, 70, 70, 70],
 					fill: false,
 				}, {
-					label: "회원",
+					label: "1",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: [120, 110, 105, 100, 90, 95, 89],
+					data: [<%=weight[1] %>, <%=weight[2] %>,<%=weight[3] %>, <%=weight[4] %>, 90, 95, 89],
 				}]
 			},
 			options: {
@@ -96,11 +120,11 @@
 					data: [3, 30, 39, 20, 25, 34, 0],
 					fill: false,
 				}, {
-					label: "평균",
+					label: "2",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: [4, 33, 22, 19, 11, 39, 30],
+					data: [10, 10, 10, 10, 10, 10, 10],
 				}]
 			},
 			options: {
@@ -135,10 +159,10 @@
 					label: "나",
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
-					data: [5, 30, 39, 20, 25, 34, 0],
+					data: [20, 20, 20, 20, 20, 20, 20],
 					fill: false,
 				}, {
-					label: "평균",
+					label: "3",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
@@ -180,11 +204,11 @@
 					data: [7, 30, 39, 20, 25, 34, 0],
 					fill: false,
 				}, {
-					label: "평균",
+					label: "4",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: [8, 33, 22, 19, 11, 39, 30],
+					data: [30, 30, 30, 30, 30, 30, 30],
 				}]
 			},
 			options: {
@@ -222,11 +246,11 @@
 					data: [9, 30, 39, 20, 25, 34, 0],
 					fill: false,
 				}, {
-					label: "평균",
+					label: "5",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: [10, 33, 22, 19, 11, 39, 30],
+					data: [40, 40, 40, 40, 40, 40, 40],
 				}]
 			},
 			options: {
@@ -313,7 +337,7 @@
 			new Chart(ctx, config);
 		});
 		
-var container = document.querySelector('.chart1');
+		var container = document.querySelector('.chart1');
 		
 		[{
 			title: '체지방률',
@@ -333,7 +357,7 @@ var container = document.querySelector('.chart1');
 			new Chart(ctx, config);
 		});
 		
-var container = document.querySelector('.chart1');
+		var container = document.querySelector('.chart1');
 		
 		[{
 			title: 'BMI',

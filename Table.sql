@@ -73,6 +73,9 @@ create table inbody(
 select * from inbody;
 
 insert into inbody values('kgi', sysdate, 182, 81.9, 38.1, 15.3, 24.7);
+insert into inbody values('kgi', TO_DATE(TO_CHAR(18/12/04)), 182, 81.9, 38.1, 15.3, 24.7);
+insert into inbody values('kgi', sysdate, 182, 81.9, 38.1, 15.3, 24.7);
+insert into inbody values('kgi', sysdate, 182, 81.9, 38.1, 15.3, 24.7);
 
 commit;
 
