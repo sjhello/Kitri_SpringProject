@@ -7,5 +7,6 @@ public interface MemberService {
 	public boolean login(Member m);
 	public void edit(Member m);	//update
 	public void out(String id);	// delete
+	Member getMyInfo(String id);
 	ArrayList<Member> getAll();	// selectAll
 }

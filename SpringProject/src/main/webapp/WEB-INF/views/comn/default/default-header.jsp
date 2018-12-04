@@ -27,8 +27,10 @@
 							<li><a href="way.do"><div>오시는길</div></a></li>
 						</ul>
 					</li>
-					<li class="current"><a href="#" data-toggle="modal" data-target="#myModal"><div>로그인</div></a>
-					</li>
+					<c:if test="${id==null }">
+						<li class="current"><a href="#" data-toggle="modal" data-target="#myModal"><div>로그인</div></a>
+						</li>
+					</c:if>
 					<li class="current"><a href="qa11.do"><div>1:1문의</div></a>
 					</li>
 					<li class="current"><a href="signUp.do"><div>신청 및 회원가입</div></a>
@@ -37,19 +39,23 @@
 					</li>
 					<li class="current"><a href="exercise.do"><div>운동법</div></a>
 					</li>
-					<li class="current"><a href="calendar.do"><div>내상태보기</div></a>
-						<ul>
-							<li><a href="calendar.do"><div>캘린더</div></a></li>
-							<li><a href="inbody.do"><div>인바디</div></a></li>
-							<li><a href="fitTest.do"><div>체력검정</div></a></li>
-						</ul>
-					</li>
+					<c:if test="${id!=null }">
+						<li class="current"><a href="calendar.do"><div>내상태보기</div></a>
+							<ul>
+								<li><a href="calendar.do"><div>캘린더</div></a></li>
+								<li><a href="inbody.do"><div>인바디</div></a></li>
+								<li><a href="fitTest.do"><div>체력검정</div></a></li>
+							</ul>
+						</li>
+					</c:if>
 					<li class="current"><a href="qa.do"><div>Q&A</div></a>
 					</li>
 					<li class="current"><a href="admin.do"><div>${id }</div></a>
 					</li>
-					<li class="current"><a href=${pageContext.request.contextPath}/memberLogout><div>로그아웃</div></a>
-					</li>
+					<c:if test="${id!=null }">
+						<li class="current"><a href=${pageContext.request.contextPath}/memberLogout><div>로그아웃</div></a>
+						</li>
+					</c:if>
 				</ul>
 			</nav><!-- #primary-menu end -->
 	
