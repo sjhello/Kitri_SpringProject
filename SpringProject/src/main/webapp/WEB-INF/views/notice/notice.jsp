@@ -12,7 +12,7 @@
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="main.do">Home</a></li>
 					<li class="breadcrumb-item"><a href="#">ANIFIT</a></li>
-					<li class="breadcrumb-item active" aria-current="page"><a href="qa.do">1:1문의</a></li>
+					<li class="breadcrumb-item active" aria-current="page"><a href="qa.do">공지사항</a></li>
 				</ol>
 			</div>
 
@@ -23,7 +23,7 @@
 		<section id="content">
 			<div class="content-wrap">
 				<div class="container clearfix" style="margin-bottom: 175px;">
-					<h4>1:1 문의</h4>
+					<h4>공지사항</h4>
 					<div class="col_one">
 						<table class="table table-striped">
 						  <thead>
@@ -45,7 +45,7 @@
 						    </c:forEach>
 						  </tbody>
 						</table>
-						<a href="notice-write.do" class="btn btn-secondary btn-sm fright">작성하기</a>
+						<a href="notice-writeForm.do" class="btn btn-secondary btn-sm fright">작성하기</a>
 						<nav aria-label="Page navigation example">
 						  <ul class="pagination">
 						    <li class="page-item disabled">

@@ -34,7 +34,7 @@
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="main.do">Home</a></li>
 					<li class="breadcrumb-item"><a href="#">ANIFIT</a></li>
-					<li class="breadcrumb-item active" aria-current="page"><a href="qa.do">1:1문의</a></li>
+					<li class="breadcrumb-item active" aria-current="page"><a href="qa.do">공지사항</a></li>
 				</ol>
 			</div>
 
@@ -51,7 +51,7 @@
 						<table class="table table-bordered">
 						  <thead>
 							<tr>
-							 	<th colspan="2">공지사항작성하기</th>
+							 	<th colspan="2">공지사항 작성</th>
 							</tr>
 						  </thead>
 						  <tbody>

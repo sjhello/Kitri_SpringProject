@@ -28,7 +28,7 @@
 	                    <div class="form-group row d-flex align-items-center mb-5">
 	                        <label class="col-lg-3 form-control-label">아이디</label>
 	                        <div class="col-lg-9">
-								해도해도계속나와
+								세션아이디
 	                        </div>
 	                    </div>
 	                    <div class="form-group row d-flex align-items-center mb-5">
