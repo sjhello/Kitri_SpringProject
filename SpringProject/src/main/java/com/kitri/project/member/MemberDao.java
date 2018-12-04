@@ -6,5 +6,6 @@ public interface MemberDao {
 	public void insert(Member m);
 	public void update(Member m);
 	public void delete(String id);
+	Member select(String id);
 	ArrayList<Member> selectAll();
 }

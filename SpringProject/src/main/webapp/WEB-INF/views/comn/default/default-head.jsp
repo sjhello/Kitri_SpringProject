@@ -18,6 +18,9 @@
 <link rel="stylesheet" href="css/responsive.css" type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+<!-- taglib -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!-- Document Title
 ============================================= -->
 <title>애니핏</title>
