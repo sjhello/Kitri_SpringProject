@@ -26,7 +26,7 @@ select * from member;
 --alter table member modify(age not null);
 --alter table member modify(sex varchar2(20));
 --select * from member;
---update member set age='20´ë' where pwd='1234';
+--update member set age='20Â´Ã«' where pwd='1234';
 commit;
 
 create table employee(
@@ -42,7 +42,7 @@ create table employee(
 
 create table food(
     f_level varchar2(20),
-    f_date date,
+    f_date varchar2(8),
     mealtime varchar2(20),
     f1 varchar2(50),
     f2 varchar2(50),
