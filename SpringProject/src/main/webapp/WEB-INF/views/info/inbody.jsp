@@ -30,7 +30,8 @@
 <section id="content">
 	<div class="content-wrap">
 		<div class="container clearfix" style="margin-bottom: 175px;">
-			<h2 style=" color: mediumvioletred; ">박노율 고객님의 측정 인바디</h2>
+			<h2 style=" color: mediumvioletred; ">박노율 고객님의 측정 인바디 </h2>
+			<h3>키: 성별: 나이: </h3>
 			<div class="row charts-container chart1"></div>
 		</div>
 		<div class="line"></div>
@@ -42,12 +43,6 @@
 <script src="js/chart-utils.js"></script>
 <script src="js/components/moment.js"></script>
 
-<%-- <c:set var="i_date" value="${fn:split(list.ylpgTel,'-')}"/> --%>
-<%-- <c:forEach var="i_date" items="${list }" varStatus="i"> --%>
-<%-- 	<c:if test="${i.count == 2 }">${telNum }</c:if> --%>
-<%-- 	<c:if test="${i.last}">-${telNum }</c:if> --%>
-<%-- </c:forEach> --%>
-
 
 
 <script>
@@ -58,7 +53,7 @@
 			data: {
 				labels: [
 						<c:forEach var="i" items="${list }">
-							"${i.i_date }월",
+							"${i.i_date }",
 						</c:forEach>
 					],
 				datasets: [{
@@ -76,7 +71,11 @@
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: [90, 100, 90, 95, 90, 95, 89],
+					data: [
+						<c:forEach var="i" items="${list }">
+							${i.weight },
+						</c:forEach>
+						],
 				}]
 			},
 			options: {
@@ -92,8 +91,8 @@
 					yAxes: [{
 						gridLines: gridlines,
 						ticks: {
-							min: 50,
-							max: 120,
+							min: 60,
+							max: 100,
 							stepSize: 10
 						}
 					}]
@@ -106,19 +105,31 @@
 		return {
 			type: 'line',
 			data: {
-				labels: ["January", "February", "March", "April", "May", "June", "July"],
+				labels: [
+					<c:forEach var="i" items="${list }">
+						"${i.i_date }",
+					</c:forEach>
+				],
 				datasets: [{
-					label: "나",
+					label: "평균",
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
-					data: [3, 30, 39, 20, 25, 34, 0],
+					data: [
+						<c:forEach var="i" items="${list }">
+							${i.weight }*0.45,
+						</c:forEach>
+						],
 					fill: false,
 				}, {
-					label: "2",
+					label: "회원",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: [10, 10, 10, 10, 10, 10, 10],
+					data: [
+						<c:forEach var="i" items="${list }">
+							${i.muscle },
+						</c:forEach>
+						],
 				}]
 			},
 			options: {
@@ -134,9 +145,9 @@
 					yAxes: [{
 						gridLines: gridlines,
 						ticks: {
-							min: 0,
-							max: 100,
-							stepSize: 10
+							min: 30,
+							max: 50,
+							stepSize: 5
 						}
 					}]
 				}
@@ -148,19 +159,31 @@
 		return {
 			type: 'line',
 			data: {
-				labels: ["January", "February", "March", "April", "May", "June", "July"],
+				labels: [
+					<c:forEach var="i" items="${list }">
+						"${i.i_date }",
+					</c:forEach>
+				],
 				datasets: [{
-					label: "나",
+					label: "평균",
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
-					data: [20, 20, 20, 20, 20, 20, 20],
+					data: [
+						<c:forEach var="i" items="${list }">
+							${i.weight }*0.15,
+						</c:forEach>
+						],
 					fill: false,
 				}, {
-					label: "3",
+					label: "회원",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: [6, 33, 22, 19, 11, 39, 30],
+					data: [
+						<c:forEach var="i" items="${list }">
+							${i.fat },
+						</c:forEach>
+						],
 				}]
 			},
 			options: {
@@ -177,32 +200,46 @@
 						gridLines: gridlines,
 						ticks: {
 							min: 0,
-							max: 100,
-							stepSize: 10
+							max: 40,
+							stepSize: 5
 						}
 					}]
 				}
 			}
 		};
 	}
+	
+	
 	
 	function createConfig4(gridlines, title) {
 		return {
 			type: 'line',
 			data: {
-				labels: ["January", "February", "March", "April", "May", "June", "July"],
+				labels: [
+					<c:forEach var="i" items="${list }">
+						"${i.i_date }",
+					</c:forEach>
+				],
 				datasets: [{
-					label: "나",
+					label: "평균",
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
-					data: [7, 30, 39, 20, 25, 34, 0],
+					data: [
+						<c:forEach var="i" items="${list }">
+							22,
+						</c:forEach>
+						],
 					fill: false,
 				}, {
-					label: "4",
+					label: "회원",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: [30, 30, 30, 30, 30, 30, 30],
+					data: [
+						<c:forEach var="i" items="${list }">
+							${i.bmi },
+						</c:forEach>
+						],
 				}]
 			},
 			options: {
@@ -218,51 +255,9 @@
 					yAxes: [{
 						gridLines: gridlines,
 						ticks: {
-							min: 0,
-							max: 100,
-							stepSize: 10
-						}
-					}]
-				}
-			}
-		};
-	}
-	
-	function createConfig5(gridlines, title) {
-		return {
-			type: 'line',
-			data: {
-				labels: ["January", "February", "March", "April", "May", "June", "July"],
-				datasets: [{
-					label: "나",
-					backgroundColor: window.chartColors.red,
-					borderColor: window.chartColors.red,
-					data: [9, 30, 39, 20, 25, 34, 0],
-					fill: false,
-				}, {
-					label: "5",
-					fill: false,
-					backgroundColor: window.chartColors.blue,
-					borderColor: window.chartColors.blue,
-					data: [40, 40, 40, 40, 40, 40, 40],
-				}]
-			},
-			options: {
-				responsive: true,
-				title:{
-					display: true,
-					text: title
-				},
-				scales: {
-					xAxes: [{
-						gridLines: gridlines
-					}],
-					yAxes: [{
-						gridLines: gridlines,
-						ticks: {
-							min: 0,
-							max: 100,
-							stepSize: 10
+							min: 10,
+							max: 35,
+							stepSize: 5
 						}
 					}]
 				}
@@ -334,7 +329,7 @@
 		var container = document.querySelector('.chart1');
 		
 		[{
-			title: '체지방률',
+			title: 'BMI',
 			gridLines: {
 				display: false
 			}
@@ -351,24 +346,6 @@
 			new Chart(ctx, config);
 		});
 		
-		var container = document.querySelector('.chart1');
 		
-		[{
-			title: 'BMI',
-			gridLines: {
-				display: false
-			}
-		}].forEach(function(details) {
-			var div = document.createElement('div');
-			div.classList.add('col-md-6');
-
-			var canvas = document.createElement('canvas');
-			div.appendChild(canvas);
-			container.appendChild(div);
-
-			var ctx = canvas.getContext('2d');
-			var config = createConfig5(details.gridLines, details.title);
-			new Chart(ctx, config);
-		});
 	};
 </script>
