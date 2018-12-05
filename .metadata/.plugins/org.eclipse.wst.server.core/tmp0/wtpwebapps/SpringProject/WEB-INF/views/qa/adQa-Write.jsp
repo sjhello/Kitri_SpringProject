@@ -31,13 +31,13 @@
 	                    <div class="form-group row d-flex align-items-center mb-5 has-info">
 	                        <label class="col-lg-3 form-control-label">제목</label>
 	                        <div class="col-lg-9">
-	                            <input type="text" name="title" class="form-control">
+	                            <input type="text" name="title" class="form-control" maxlength="100">
 	                        </div>
 	                    </div>
 	                    <div class="form-group row d-flex align-items-center mb-5 has-info">
 	                        <label class="col-lg-3 form-control-label">내용</label>
 	                        <div class="col-lg-9">
-	                            <textarea class="form-control" name="content" style=" height: 186px; "></textarea>
+	                            <textarea class="form-control" name="content" style=" height: 186px; " maxlength="4000"></textarea>
 	                        </div>
 	                    </div>
 	                    <button id="qaWrite" type="button" class="btn btn-success btn-square mr-1 mb-2">작성</button>

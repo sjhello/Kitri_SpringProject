@@ -1,9 +1,0 @@
-package com.kitri.project.notice.service.impl;
-
-import com.kitri.project.notice.web.Notice;
-
-public interface NoticeMapper {
-
-	void insertNotice(Notice n);
-
-}

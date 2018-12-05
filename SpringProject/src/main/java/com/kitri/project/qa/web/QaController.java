@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kitri.project.qa.service.QaService;
 
@@ -18,7 +19,6 @@ public class QaController {
 	@RequestMapping(value = "qa.do")
 	public String qa(Model model) {
 		ArrayList<Qa> list = qaService.selectQaList(); 
-		System.out.println(list);
 		model.addAttribute("list", list);
 		return "qa/qa.tiles";
 	}
@@ -36,20 +36,25 @@ public class QaController {
 	}
 	
 	@RequestMapping(value = "qaUpdateForm.do")
-	public String qaUpdateForm() {
-		
-		return "qa/adQa-Update.tiles";
+	public String qaUpdateForm(@RequestParam("q_num")int q_num, Model model) {
+		Qa list = qaService.selectQa(q_num);
+		model.addAttribute("list", list);
+		return "qa/adQa-Update.admin";
 	}
 	
 	@RequestMapping(value = "qaUpdate.do")
-	public String qaUpdate() {
-		
+	public String qaUpdate(Qa q) {
+		System.out.println(q);
+		qaService.updateQa(q);
 		return "redirect:admin.do";
 	}
 	
 	@RequestMapping(value = "qaDelete.do")
-	public String qaDelete() {
-		
-		return "redirect:admin.do";
+	public String qaDelete(@RequestParam("q_num")int q_num, Model model) {
+//		qaService.deleteQa(q_num);
+		ArrayList<Qa> list = qaService.selectQaList(); 
+		System.out.println(list);
+		model.addAttribute("list", list);
+		return "qa/qaAjax";
 	}
 }

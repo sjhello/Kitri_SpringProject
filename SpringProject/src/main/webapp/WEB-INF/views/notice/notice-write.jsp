@@ -57,7 +57,7 @@
 						  <tbody>
 							<tr>
 							  <td>제목</td>
-							  <td><input type="text" id="title" name="title" style="width:487px" autocomplete=off/></td>
+							  <td><input type="text" id="title" name="title" style="width:487px" autocomplete=off maxlength="100"/></td>
 							</tr>
 							<tr>
 							  <td>아이디</td>
@@ -65,7 +65,7 @@
 							</tr>
 							<tr>
 							  <td>내용</td>
-							  <td style=" height: 386px; "><textarea rows="25" cols="61" style="resize: none;" id="content1" name="content"  autocomplete=off></textarea></td>
+							  <td style=" height: 386px; "><textarea rows="25" cols="61" style="resize: none;" id="content1" name="content" maxlength="4000"  autocomplete=off></textarea></td>
 							</tr>
 							<tr>
 								<td colspan="2">

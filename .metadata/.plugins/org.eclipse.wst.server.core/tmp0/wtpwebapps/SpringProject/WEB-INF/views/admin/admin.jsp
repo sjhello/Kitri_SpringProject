@@ -293,4 +293,4 @@
     </div>
 </div>
 </div>
-<script src="assets/js/dashboard/db-default.js"></script>
+<script src="assets/js/dashboard/db-default2.js"></script>

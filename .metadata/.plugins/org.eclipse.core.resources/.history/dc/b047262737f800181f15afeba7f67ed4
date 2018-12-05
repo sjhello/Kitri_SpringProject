@@ -1,7 +1,0 @@
-package com.kitri.project.qa.Service.impl;
-
-import com.kitri.project.qa.Service.QaService;
-
-public class QaServiceImpl implements QaService{
-
-}

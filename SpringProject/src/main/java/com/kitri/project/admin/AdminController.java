@@ -20,7 +20,6 @@ public class AdminController {
 	@RequestMapping(value = "admin.do")
 	public String admin(Model model) {
 		ArrayList<Qa> qaList = qaService.selectQaList();
-		System.out.println(qaList);
 		model.addAttribute("qaList", qaList);
 		return "admin/admin.admin";
 	}
