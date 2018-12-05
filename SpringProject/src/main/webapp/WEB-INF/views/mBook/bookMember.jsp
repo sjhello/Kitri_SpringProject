@@ -39,7 +39,7 @@
                                 <th>전화번호</th>
                                 <th>성별</th>
                                 <th>이메일</th>
-                                <th>인바디 / 체력측정 / 등록 / 휴먼</th>
+                                <th>회원관리  / 휴먼</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -51,7 +51,7 @@
                                 <td>${m.sex }</td>
                                 <td>${m.email }</td>
                                 <td class="td-actions">
-                                    <a href="mInsert.do"><i class="la la-edit edit"></i></a>
+                                    <a href="mInsert.do?id=${m.id }"><i class="la la-edit edit"></i></a>
                                     <a href="adQa-Delete11.do"><i class="la la-close delete"></i></a>
                                 </td>
                             </tr>
