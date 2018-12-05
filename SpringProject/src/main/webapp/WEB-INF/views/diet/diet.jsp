@@ -1,16 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<script>
-	$(document).ready(function() {
-	});
-</script>
+
 <section id="page-title" class="page-title-parallax page-title-dark"
 	style="padding: 250px 0; background-image: url('images/about/parallax.jpg'); background-size: cover; background-position: center center;"
 	data-bottom-top="background-position:0px 400px;"
 	data-top-bottom="background-position:0px -500px;">
 
 	<div class="container clearfix">
-		<h1>ANIFIX</h1>
+		<h1>ANIFIT</h1>
 		<span>최고의 가성비로 누구나 건강을 관리할 수 있습니다.</span>
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="main.do">Home</a></li>
@@ -38,10 +35,11 @@
 			          staticPos:true,
 			          finalOpacity:90                  
 			          };           
+			  
+			 
 			  datePickerController.createDatePicker(opts);
 			// ]]>
 			</script>
-			
 			<div style="float:left;width: 743px;margin-left: 49px;">
 				<div class="tabs tabs-bordered clearfix" id="tab-2">
 		

@@ -22,6 +22,8 @@ create table member(
 );
 select * from member;
 
+insert into inbody values('kgi', 'kgi', 'kgi', 81.9, 38.1, 15.3, 24.7);
+
 --alter table member add(age varchar2(20));
 --alter table member modify(age not null);
 --alter table member modify(sex varchar2(20));
@@ -68,6 +70,12 @@ create table inbody(
     bmi number(3,1)
 );
 
+select * from inbody;
+
+insert into inbody values('kgi', sysdate, 182, 81.9, 38.1, 15.3, 24.7);
+
+commit;
+
 create table fittest(
     id varchar2(20) references member(id) on delete cascade,
     fit_date date,
@@ -87,3 +95,11 @@ alter table fittest add(pullup number);
 
 
 
+<<<<<<< HEAD
+commit; 
+
+
+alter table notice add reg_date DATE not null; 
+alter table notice add hits int not null; 
+=======
+>>>>>>> a45715629279ca37b128e1173fc37a32cd24bb85
