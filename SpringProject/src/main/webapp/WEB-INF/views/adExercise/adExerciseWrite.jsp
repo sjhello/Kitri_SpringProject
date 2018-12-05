@@ -1,142 +1,74 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="assets/js/components/datepicker/datepicker.js"></script>
+<script src="assets/vendors/js/datepicker/moment.min.js"></script>
+<script src="assets/vendors/js/datepicker/daterangepicker.js"></script>
+
+<!-- include summernote css/js -->
+<link href="css/summernote.css" rel="stylesheet">
+<script src="js/summernote.js"></script>
+
+<!-- include summernote-ko-KR -->
+<script src="lang/summernote-ko-KR.js"></script>
+
 <div class="container-fluid">
-    <div class="row no-margin">
-        <div class="col-xl-12">
-            <!-- Begin Widget -->
-            <div class="row widget has-shadow">
-                <div class="widget-header bordered d-flex align-items-center">
-                    <h2>Calendar</h2>
-                    <div class="widget-body">
-                        <div class="form-group">
-                            <div class="btn-group" role="group" aria-label="Buttons Group">
-                                <button type="button" class="btn btn-info mb-2">초급</button>
-                                <button type="button" class="btn btn-warning mb-2">중급</button>
-                                <button type="button" class="btn btn-danger mb-2">고급</button>
-                            </div>
+	<div class="row flex-row">
+	    <div class="col-12">
+	        <!-- Form -->
+	        <div class="widget has-shadow">
+	            <div class="widget-header bordered no-actions d-flex align-items-center">
+	                <h4 style=" color: red; ">식단 등록</h4>
+	            </div>
+	            <form class="form-horizontal">
+	            <input type="hidden" name="className" value="fc-bg-default">
+	            <div class="widget-body">
+                    <div class="form-group row d-flex align-items-center mb-5 has-info">
+                        <label class="col-lg-3 form-control-label">제목</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control">
                         </div>
                     </div>
-                </div>
-                <!-- End Widget Header -->
-                <!-- Begin Widget Body -->
-                <div class="widget-body">
-                    <!-- Begin Calendar -->
-                    <div id="demo-calendar"></div>
-                    <!-- End Calendar -->
-                </div>
-                <!-- End Widget Body -->
-            </div>
-            <!-- End Widget -->
-        </div>
-        <!-- End Col -->
-    </div>
+                    <div class="form-group row d-flex align-items-center mb-5 has-info">
+                        <label class="col-lg-3 form-control-label">등록날짜</label>
+                        <div class="col-lg-9">
+	                        <div class="form-group">
+	                            <div class="input-group">
+	                                <span class="input-group-addon">
+	                                    <i class="la la-calendar"></i>
+	                                </span>
+	                                <input type="text" class="form-control" id="date" placeholder="Select value">
+	                            </div>
+	                        </div>
+	                    </div>
+                    </div>
+                    <div class="form-group row d-flex align-items-center mb-5 has-info">
+                        <label class="col-lg-3 form-control-label">아이콘</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row d-flex align-items-center mb-5 has-info">
+                        <label class="col-lg-3 form-control-label">내용</label>
+                        <div class="col-lg-9">
+                           	<div id="summernote" style="height:300px"><p>Hello Summernote</p></div>
+							<script>
+							    $(document).ready(function() {
+							        $('#summernote').summernote({
+						        	    lang : 'ko-KR'
+							        });
+							    });
+							</script>
+                        </div>
+                    </div>
+                    <a href="bookMember.do"><button type="button" class="btn btn-success btn-square mr-1 mb-2">작성</button></a>
+                    <a href="bookMember.do"><button type="button" class="btn btn-secondary btn-square mr-1 mb-2">취소</button></a>
+	            </div>
+            	</form>
+	            </div>
+	        </div>
+	        <!-- End Form -->
+	    </div>
+	</div>
+	<!-- End Row -->
 </div>
 
-<script>
-	(function ($) {
-	
-		
-		$('.circle-orders').circleProgress({
-			value: 0.43,
-			size: 120,
-			startAngle: -Math.PI / 2,
-			thickness: 6,
-			lineCap: 'round',
-			emptyFill: '#e4e8f0',
-			fill: {
-				gradient: ['#0087a4', '#08a6c3']
-			}
-		}).on('circle-animation-progress', function (event, progress) {
-			$(this).find('.percent-orders').html(Math.round(43 * progress) + '<i>%</i>');
-		});
-	
-	    // ------------------------------------------------------- //
-	    // Calendar
-	    // ------------------------------------------------------ //
-		$(function() {
-			// page is ready
-			$('#demo-calendar').fullCalendar({
-				// emphasizes business hours
-				businessHours: true,
-				defaultView: 'month',
-				// event dragging & resizing
-				editable: true,
-				// header
-				header: {
-					left: 'title',
-					center: 'month,agendaWeek,agendaDay',
-					right: 'today prev,next'
-				},
-				events: [
-					{
-						title: '어께',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-						start: '2018-11-29',
-						end: '2018-11-30',
-						className: 'fc-bg-violet',
-						icon : "calendar"
-					}, 
-					{
-						title: '하체',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-						start: '2018-11-29',
-						end: '2018-11-30',
-						className: 'fc-bg-default',
-						icon : "child"
-					},
-					{
-						title: '등',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-						start: '2018-11-29',
-						end: '2018-11-30',
-						className: 'fc-bg-default',
-						icon : "birthday-cake"
-					},
-					{
-						title: 'test',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-						start: '2018-11-29',
-						end: '2018-11-30',
-						className: 'fc-bg-default',
-						icon : "birthday-cake"
-					}
-					],
-				eventRender: function(event, element) {
-					if(event.icon){          
-						element.find(".fc-title").prepend("<i class='la la-"+event.icon+"'></i>");
-					}
-				  },
-				eventClick: function(event, jsEvent, view) {
-				        $('.event-icon').html("<i class='la la-"+event.icon+"'></i>");
-						$('.event-title').html(event.title);
-						$('.event-body').html(event.description);
-						$('.eventUrl').attr('href',event.url);
-						$('#modal-view-event').modal();
-				},
-			})
-		});
-		
-	    // ------------------------------------------------------- //
-	    // Files
-	    // ------------------------------------------------------ //
-		$('.widget20').owlCarousel({
-			dots: true,
-			nav: false,
-			loop: true,
-			responsiveClass:true,
-			navText: ['<i class="la la-angle-left" aria-hidden="true"></i>', '<i class="la la-angle-right" aria-hidden="true"></i>'],
-			responsive:{
-				0:{
-					items:1
-				},
-				600:{
-					items:2
-				},
-				1000:{
-					items:2
-				}
-			}
-		});
-	
-	})(jQuery);
-</script>

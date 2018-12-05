@@ -167,10 +167,6 @@
       ].join(''));
   });
   var popover = renderer.create([
-      '<div class="note-popover popover in">',
-      '  <div class="arrow"/>',
-      '  <div class="popover-content note-children-container"/>',
-      '</div>'
   ].join(''), function ($node, options) {
       var direction = typeof options.direction !== 'undefined' ? options.direction : 'bottom';
       $node.addClass(direction);

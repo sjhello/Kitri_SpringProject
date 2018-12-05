@@ -18,16 +18,17 @@
     </ul>
     <span class="heading">건강</span>
     <ul class="list-unstyled">
-	    <li><a href="#dropdown-health" aria-expanded="false" data-toggle="collapse"><i class="la ti-apple"></i><span>UI Elements</span></a>
+	    <li><a href="#dropdown-health" aria-expanded="false" data-toggle="collapse"><i class="la ti-apple"></i><span>식단</span></a>
 	        <ul id="dropdown-health" class="collapse list-unstyled pt-0">
 	            <li><a href="adDietWrite.do">식단등록</a></li>
 	            <li><a href="adDiet.do">식단조회</a></li>
 	        </ul>
 	    </li>
-	    <li><a href="#dropdown-exercise" aria-expanded="false" data-toggle="collapse"><i class="la la-bicycle"></i><span>Icons</span></a>
+	    <li><a href="#dropdown-exercise" aria-expanded="false" data-toggle="collapse"><i class="la la-bicycle"></i><span>운동법</span></a>
 	        <ul id="dropdown-exercise" class="collapse list-unstyled pt-0">
-	            <li><a href="adExercise.do">운동등록</a></li>
+	            <li><a href="adExerciseWrite.do">운동등록</a></li>
 	            <li><a href="adExercise.do">운동조회</a></li>
+	            <li><a href="adExerciseSelect.do">날짜조회</a></li>
 	        </ul>
 	    </li>
 	</ul>
