@@ -67,6 +67,11 @@ public class MemberController {
 		x.addAttribute("flag",flag);
 		return "ajax/memberIdCheck";	// ajax page
 	}
+	
+	@RequestMapping(value="myInfo.do")
+	public String myInfo() {
+		return "login/myInfo.tiles";
+	}
 }
 
 

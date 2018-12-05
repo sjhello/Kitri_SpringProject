@@ -41,7 +41,7 @@
 						  <tbody>
 							<tr>
 							  <td>제목</td>
-							  <td><input name="title" type="text" style="width:487px" value="${list.title }"/></td>
+							  <td><input name="title" type="text" style="width:487px" value="${list.title }" maxlength="100"/></td>
 							</tr>
 							<tr>
 							  <td>아이디</td>
@@ -49,7 +49,7 @@
 							</tr>
 							<tr>
 							  <td>내용</td>
-							  <td style=" height: 386px; "><textarea name="content" rows="25" cols="61" style="resize: none;" >${list.content }</textarea></td>
+							  <td style=" height: 386px; "><textarea name="content" rows="25" cols="61" style="resize: none;"  maxlength="4000">${list.content }</textarea></td>
 							</tr>
 							<tr>
 								<td colspan="2">
