@@ -1,0 +1,9 @@
+package com.kitri.project.qa.Service.impl;
+
+import com.kitri.project.qa.web.Qa;
+
+public interface QaMapper {
+
+	void insertQa(Qa q);
+
+}

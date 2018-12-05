@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="container-fluid">
 <!-- Begin Page Header-->
 <div class="row">
@@ -33,125 +34,28 @@
                     <table class="table table-hover mb-0">
                         <thead>
                             <tr>
-                            	<th>번호</th>
                                 <th>아이디</th>
                                 <th>이름</th>
-                                <th>주소</th>
-                                <th>타입</th>
-                                <th>수정 / 취소</th>
+                                <th>전화번호</th>
+                                <th>성별</th>
+                                <th>이메일</th>
+                                <th>회원관리  / 휴먼</th>
                             </tr>
                         </thead>
                         <tbody>
+                        <c:forEach var="m" items="${list }">
                             <tr>
-                                <td><span class="text-primary">054-01-FR</span></td>
-                                <td>Lori Baker</td>
-                                <td>10/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td>10/21/2017</td>
+                                <td>${m.id }</td>
+                                <td>${m.name }</td>
+                                <td>${m.tel }</td>
+                                <td>${m.sex }</td>
+                                <td>${m.email }</td>
                                 <td class="td-actions">
-                                    <a href="mUpdate.do"><i class="la la-edit edit"></i></a>
-                                    <a href="mdelete.do"><i class="la la-close delete"></i></a>
+                                    <a href="mInsert.do?id=${m.id }"><i class="la la-edit edit"></i></a>
+                                    <a href="adQa-Delete11.do"><i class="la la-close delete"></i></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td><span class="text-primary">021-12-US</span></td>
-                                <td>Lawrence Crawford</td>
-                                <td>10/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td class="td-actions">
-                                    <a href="#"><i class="la la-edit edit"></i></a>
-                                    <a href="#"><i class="la la-close delete"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text-primary">189-01-RU</span></td>
-                                <td>Samuel Walker</td>
-                                <td>08/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td class="td-actions">
-                                    <a href="#"><i class="la la-edit edit"></i></a>
-                                    <a href="#"><i class="la la-close delete"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text-primary">092-06-FR</span></td>
-                                <td>Angela Walters</td>
-                                <td>08/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td class="td-actions">
-                                    <a href="#"><i class="la la-edit edit"></i></a>
-                                    <a href="#"><i class="la la-close delete"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text-primary">021-09-US</span></td>
-                                <td>Ryan Hanson</td>
-                                <td>07/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td class="td-actions">
-                                    <a href="#"><i class="la la-edit edit"></i></a>
-                                    <a href="#"><i class="la la-close delete"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text-primary">054-01-FR</span></td>
-                                <td>Evelyn Black</td>
-                                <td>10/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td class="td-actions">
-                                    <a href="#"><i class="la la-edit edit"></i></a>
-                                    <a href="#"><i class="la la-close delete"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text-primary">021-12-US</span></td>
-                                <td>James Morris</td>
-                                <td>10/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td class="td-actions">
-                                    <a href="#"><i class="la la-edit edit"></i></a>
-                                    <a href="#"><i class="la la-close delete"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text-primary">189-01-RU</span></td>
-                                <td>Valentin H.</td>
-                                <td>08/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td class="td-actions">
-                                    <a href="#"><i class="la la-edit edit"></i></a>
-                                    <a href="#"><i class="la la-close delete"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text-primary">092-06-FR</span></td>
-                                <td>Beverly Matthews</td>
-                                <td>08/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td class="td-actions">
-                                    <a href="#"><i class="la la-edit edit"></i></a>
-                                    <a href="#"><i class="la la-close delete"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text-primary">021-09-US</span></td>
-                                <td>Jeffrey Arnold</td>
-                                <td>07/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td>10/21/2017</td>
-                                <td class="td-actions">
-                                    <a href="#"><i class="la la-edit edit"></i></a>
-                                    <a href="#"><i class="la la-close delete"></i></a>
-                                </td>
-                            </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>

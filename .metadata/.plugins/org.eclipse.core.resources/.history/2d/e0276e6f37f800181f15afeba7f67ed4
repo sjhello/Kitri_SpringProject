@@ -1,0 +1,16 @@
+package com.kitri.project.qa.Service.impl;
+
+import org.springframework.stereotype.Service;
+
+import com.kitri.project.qa.Service.QaService;
+import com.kitri.project.qa.web.Qa;
+
+@Service("qaService")
+public class QaServiceImpl implements QaService{
+
+	@Override
+	public void insertQa(Qa q) {
+		
+	}
+
+}

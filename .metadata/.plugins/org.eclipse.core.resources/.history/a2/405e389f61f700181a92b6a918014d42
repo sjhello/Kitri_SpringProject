@@ -1,0 +1,20 @@
+package com.kitri.project.notice.service.impl;
+
+import javax.annotation.Resource;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Service;
+
+import com.kitri.project.notice.service.NoticeService;
+
+@Service("noticeService")
+public class NoticeServiceImpl implements NoticeService{
+	@Resource(name="sqlSession")
+	private SqlSession sqlSession;
+	
+	@Override
+	public void insertNotice() {
+		// TODO Auto-generated method stub
+		
+	}
+}

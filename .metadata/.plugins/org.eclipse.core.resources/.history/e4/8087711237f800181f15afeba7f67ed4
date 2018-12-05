@@ -1,0 +1,7 @@
+package com.kitri.project.qa.Service;
+
+import com.kitri.project.qa.web.Qa;
+
+public interface QaService {
+
+}

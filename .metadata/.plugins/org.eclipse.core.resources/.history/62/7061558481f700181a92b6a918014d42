@@ -1,0 +1,13 @@
+package com.kitri.project.notice.service;
+
+import java.util.ArrayList;
+
+import com.kitri.project.notice.web.Notice;
+
+public interface NoticeService {
+
+	void insertNotice(Notice n);
+
+	ArrayList<Notice> selectNoticeList();
+
+}

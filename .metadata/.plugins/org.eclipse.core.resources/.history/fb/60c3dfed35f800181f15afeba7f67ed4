@@ -1,0 +1,25 @@
+package com.kitri.project.qa.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class QaController {
+	@RequestMapping(value = "qaWriteForm.do")
+	public String qaWriteForm() {
+		
+		return "qa/adQa-Write.admin";
+	}
+	
+	@RequestMapping(value = "qaWrite.do")
+	public String qaWrite(Qa q) {
+		
+		return "redirect:admin.do";
+	}
+	
+	@RequestMapping(value = "qaUpdate.do")
+	public String qaUpdate() {
+		
+		return "qa/update-qa.tiles";
+	}
+}

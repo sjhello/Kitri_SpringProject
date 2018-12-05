@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+	<definition name="main" template="/WEB-INF/views/comn/default/default-layout.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/comn/default/default-head.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/views/comn/default/default-header.jsp"/>
+		<put-attribute name="content" />
+		<put-attribute name="footer" value="/WEB-INF/views/comn/default/default-footer.jsp"/>
+	</definition>
+	
+	<definition name="*/*.tiles" extends="main">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+	</definition>
+
+	<definition name="main1" template="/WEB-INF/views/main/main-layout.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/comn/default/default-head.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/views/comn/default/default-header.jsp"/>
+		<put-attribute name="slide" value=""/>
+		<put-attribute name="content" />
+		<put-attribute name="footer" value="/WEB-INF/views/comn/default/default-footer.jsp"/>
+	</definition>
+	
+	<definition name="*/*.mTiles" extends="main1">
+		<put-attribute name="slide" value="/WEB-INF/views/main/main-slide.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+	</definition>
+	
+</tiles-definitions>

@@ -1,0 +1,15 @@
+package com.kitri.project.notice.service.impl;
+
+import org.springframework.stereotype.Service;
+
+import com.kitri.project.notice.service.NoticeService;
+
+@Service("noticeService")
+public class NoticeServiceImpl implements NoticeService{
+
+	@Override
+	public void insertNotice() {
+		// TODO Auto-generated method stub
+		
+	}
+}

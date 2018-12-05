@@ -1,0 +1,10 @@
+package com.kitri.project.notice.service;
+
+import com.kitri.project.notice.web.Notice;
+
+public interface NoticeService {
+
+	void insertNotice(Notice n);
+
+	Notice selectNotice();
+}
