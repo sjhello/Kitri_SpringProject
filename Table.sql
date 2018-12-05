@@ -1,4 +1,4 @@
-create table notice(
+﻿create table notice(
     num number primary key,
     title varchar2(20) not null,
     content varchar2(4000) not null
@@ -89,17 +89,14 @@ commit;
 alter table fittest add(pullup number);
 
 
-
-
-
-
-
-
-<<<<<<< HEAD
-commit; 
-
-
 alter table notice add reg_date DATE not null; 
 alter table notice add hits int not null; 
-=======
->>>>>>> a45715629279ca37b128e1173fc37a32cd24bb85
+
+create table qa(
+    q_num number primary key,
+    title varchar2(20) not null,
+    content varchar2(4000) not null,
+    reg_date DATE not null
+);
+
+create sequence seq_qa_num;
