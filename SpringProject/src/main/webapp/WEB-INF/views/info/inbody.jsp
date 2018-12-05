@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <script>
 	$(document).ready(function() {
@@ -41,48 +42,41 @@
 <script src="js/chart-utils.js"></script>
 <script src="js/components/moment.js"></script>
 
-<%
-	int [] weight = new int[12];
-	
-%>
-
-<table border="1">
-	<tr>
-		<th>weight</th>
-		<th>muscle</th>
-	</tr>
-	<c:forEach var="i" items="${list }">
-		<tr>
-			<td>${i.weight }</td>
-			<td>${i.muscle }</td>
-		</tr>
-	</c:forEach>
-	<tr>
-		<td>aaa</td>
-		<td>bbb</td>
-	</tr>
-</table>
+<%-- <c:set var="i_date" value="${fn:split(list.ylpgTel,'-')}"/> --%>
+<%-- <c:forEach var="i_date" items="${list }" varStatus="i"> --%>
+<%-- 	<c:if test="${i.count == 2 }">${telNum }</c:if> --%>
+<%-- 	<c:if test="${i.last}">-${telNum }</c:if> --%>
+<%-- </c:forEach> --%>
 
 
 
 <script>
 	function createConfig(gridlines, title) {
+		
 		return {
 			type: 'line',
 			data: {
-				labels: ["1월", "2월", "3월", "April", "May", "June", "July"],
+				labels: [
+						<c:forEach var="i" items="${list }">
+							"${i.i_date }월",
+						</c:forEach>
+					],
 				datasets: [{
 					label: "평균",
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
-					data: [<%=weight[0] %>, 70, 70, 70, 70, 70, 70],
+					data: [
+						<c:forEach var="i" items="${list }">
+							${i.height }-100,
+						</c:forEach>
+						],
 					fill: false,
 				}, {
-					label: "1",
+					label: "회원",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: [<%=weight[1] %>, <%=weight[2] %>,<%=weight[3] %>, <%=weight[4] %>, 90, 95, 89],
+					data: [90, 100, 90, 95, 90, 95, 89],
 				}]
 			},
 			options: {
@@ -98,8 +92,8 @@
 					yAxes: [{
 						gridLines: gridlines,
 						ticks: {
-							min: 30,
-							max: 150,
+							min: 50,
+							max: 120,
 							stepSize: 10
 						}
 					}]
