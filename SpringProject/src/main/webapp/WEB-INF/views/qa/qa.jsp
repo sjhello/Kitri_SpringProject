@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+
 <section id="page-title" class="page-title-parallax page-title-dark" style="padding: 250px 0; background-image: url('images/about/parallax.jpg'); background-size: cover; background-position: center center;" data-bottom-top="background-position:0px 400px;" data-top-bottom="background-position:0px -500px;">
 
 			<div class="container clearfix">
@@ -20,57 +23,44 @@
 			<div class="content-wrap">
 				<div class="container clearfix" style="margin-bottom: 175px;">
 					<h4>Q&A</h4>
-					<div class="col_one">
+					<div class="col_One">
 						<div id="accordion">
-						  <div class="card">
-						    <div class="card-header" id="headingOne">
+						  <c:forEach var="list" items="${list }" varStatus="status">
+						  <c:if test="${status.index == 0}">
+						  	<div class="card">
+						    <div class="card-header" id="heading${list.q_num }">
 						      <h5 class="mb-0">
-						        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						          Collapsible Group Item #1
+						        <button class="btn btn-link show" data-toggle="collapse" data-target="#collapse${list.q_num }" aria-expanded="true" aria-controls="collapse${list.q_num }">
+						          ${list.title }
 						        </button>
 						      </h5>
 						    </div>
-						
-						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+						    <div id="collapse${list.q_num }" class="collapse show" aria-labelledby="heading${list.q_num }" data-parent="#accordion">
 						      <div class="card-body">
-						        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-						      	<a href="qaUpdate.do" class="btn btn-secondary btn-sm fright" style=" margin: 10px; ">수정하기</a>
+								${list.content }
 						      </div>
 						    </div>
 						  </div>
-						  <div class="card">
-						    <div class="card-header" id="headingTwo">
+						  </c:if>
+						  <c:if test="${status.index != 0}">
+						  	<div class="card">
+						    <div class="card-header" id="heading${list.q_num }">
 						      <h5 class="mb-0">
-						        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-						          Collapsible Group Item #2
+						        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse${list.q_num }" aria-expanded="true" aria-controls="collapse${list.q_num }">
+						          ${list.title }
 						        </button>
 						      </h5>
 						    </div>
-						    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+						    <div id="collapse${list.q_num }" class="collapse collapsed" aria-labelledby="heading${list.q_num }" data-parent="#accordion">
 						      <div class="card-body">
-						        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-						      	<a href="qaUpdate.do" class="btn btn-secondary btn-sm fright" style=" margin: 10px; ">수정하기</a>
+								${list.content }
 						      </div>
 						    </div>
 						  </div>
-						  <div class="card">
-						    <div class="card-header" id="headingThree">
-						      <h5 class="mb-0">
-						        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-						          Collapsible Group Item #3
-						        </button>
-						      </h5>
-						    </div>
-						    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-						      <div class="card-body">
-						        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-						      	<a href="qaUpdate.do" class="btn btn-secondary btn-sm fright" style=" margin: 10px; ">수정하기</a>
-						      </div>
-						    </div>
-						  </div>
+						  </c:if>
+						  </c:forEach>
 						</div>
 					</div>
-					<a href="qaWrite.do" class="btn btn-secondary btn-sm fright" style=" margin: 10px; ">작성하기</a>
 				</div>
 			</div>
 		</section><!-- #content end -->
