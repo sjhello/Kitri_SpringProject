@@ -16,10 +16,10 @@ public class MemberController {
 	
 	public void setService(MemberService memberService) { this.memberService = memberService; }
 	
-	@RequestMapping(value = "memberList.do")
+	/*@RequestMapping(value = "memberList.do")
 	public String memberList() {
 		return "member/memberList.admin";
-	}
+	}*/
 	
 	@RequestMapping(value = "mUpdate.do")
 	public String mUpdate() {
