@@ -33,8 +33,10 @@
 					</c:if>
 					<li class="current"><a href="qa11.do"><div>1:1문의</div></a>
 					</li>
-					<li class="current"><a href="signUp.do"><div>신청 및 회원가입</div></a>
-					</li>
+					<c:if test="${id==null }">
+						<li class="current"><a href="signUp.do"><div>신청 및 회원가입</div></a>
+						</li>
+					</c:if>
 					<li class="current"><a href="diet.do"><div>식단</div></a>
 					</li>
 					<li class="current"><a href="exercise.do"><div>운동법</div></a>
