@@ -92,13 +92,15 @@ create table fittest(
     burpee number
 );
 
-insert into inbody values('kgi', TO_DATE('19/01/01'), 40, 5, 60, 10, 10);
-insert into inbody values('kgi', TO_DATE('19/02/01'), 50, 8, 65, 15, 15);
-insert into inbody values('kgi', TO_DATE('19/03/01'), 60, 9, 60, 30, 20);
-insert into inbody values('kgi', TO_DATE('19/04/01'), 70, 10, 80, 50, 21);
-insert into inbody values('kgi', TO_DATE('19/05/01'), 80, 8, 70, 60, 22);
-insert into inbody values('kgi', TO_DATE('19/06/01'), 100, 12, 75, 80, 20);
+insert into fittest values('kgi', TO_DATE('19/01/01'), 40, 5, 60, 10, 10);
+insert into fittest values('kgi', TO_DATE('19/02/01'), 50, 8, 65, 15, 15);
+insert into fittest values('kgi', TO_DATE('19/03/01'), 60, 9, 60, 30, 20);
+insert into fittest values('kgi', TO_DATE('19/04/01'), 70, 10, 80, 50, 21);
+insert into fittest values('kgi', TO_DATE('19/05/01'), 80, 8, 70, 60, 22);
+insert into fittest values('kgi', TO_DATE('19/06/01'), 100, 12, 75, 80, 20);
 select * from fittest;
+
+commit;
 
 
 commit; 

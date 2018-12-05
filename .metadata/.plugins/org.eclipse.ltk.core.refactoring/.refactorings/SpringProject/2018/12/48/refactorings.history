@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SpringProject/src/main/webapp/resources/css/leng&apos; to &apos;lang&apos;" description="Rename resource &apos;leng&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/resources/css/leng" name="lang" stamp="1543671909430" updateReferences="true"/>
+</session>
