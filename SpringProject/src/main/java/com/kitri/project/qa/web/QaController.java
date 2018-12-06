@@ -51,7 +51,7 @@ public class QaController {
 	
 	@RequestMapping(value = "qaDelete.do")
 	public String qaDelete(@RequestParam("q_num")int q_num, Model model) {
-//		qaService.deleteQa(q_num);
+		qaService.deleteQa(q_num);
 		ArrayList<Qa> list = qaService.selectQaList(); 
 		System.out.println(list);
 		model.addAttribute("list", list);
