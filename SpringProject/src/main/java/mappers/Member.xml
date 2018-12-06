@@ -15,10 +15,11 @@
 		<result column="admin_confirm" property="admin_confirm" />
 		<result column="sex" property="sex" />
 		<result column="age" property="age" />
+		<result column="postnum" property="postnum" />
 	</resultMap>
 	
 	<insert id="insert" parameterType="com.kitri.project.member.Member">
-		insert into member values(#{id},#{pwd},#{name},#{tel},#{address},#{email},default,default,default,#{sex},#{age})
+		insert into member values(#{id},#{pwd},#{name},#{tel},#{address},#{email},default,default,default,#{sex},#{age},#{postnum})
 	</insert>
 	
 	<update id="adminConfirm" parameterType="String">
@@ -31,6 +32,10 @@
 	
 	<select id="select" parameterType="com.kitri.project.member.Member" resultMap="memResult">
 		select * from member where id=#{id}
+	</select>
+	
+	<select id="selectEmail" parameterType="com.kitri.project.member.Member" resultMap="memResult">
+		select * from member where email=#{email}
 	</select>
 	
 	<select id="selectReservation" resultMap="memResult">

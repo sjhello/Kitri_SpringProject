@@ -43,6 +43,7 @@
 <script src="js/components/moment.js"></script>
 
 <script>
+
 	function createConfig(gridlines, title) {
 		return {
 			type: 'line',
