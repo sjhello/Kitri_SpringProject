@@ -12,10 +12,11 @@ public class Member {
 	private String admin_confirm;
 	private String sex;
 	private String age;
+	private int postnum;
 	
 	public Member() {}
 	public Member(String id, String pwd, String name, String tel, String address, String email, String f_level,
-			String w_level, String admin_confirm, String sex, String age) {
+			String w_level, String admin_confirm, String sex, String age, int postnum) {
 		this.id = id;
 		this.pwd = pwd;
 		this.name = name;
@@ -27,6 +28,7 @@ public class Member {
 		this.admin_confirm = admin_confirm;
 		this.sex = sex;
 		this.age = age;
+		this.postnum = postnum;
 	}
 	public String getId() {
 		return id;
@@ -88,18 +90,22 @@ public class Member {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	
 	public String getAge() {
 		return age;
 	}
 	public void setAge(String age) {
 		this.age = age;
 	}
+	public int getPostnum() {
+		return postnum;
+	}
+	public void setPostnum(int postnum) {
+		this.postnum = postnum;
+	}
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", pwd=" + pwd + ", name=" + name + ", tel=" + tel + ", address=" + address
 				+ ", email=" + email + ", f_level=" + f_level + ", w_level=" + w_level + ", admin_confirm="
-				+ admin_confirm + ", sex=" + sex + ", age=" + age + "]";
+				+ admin_confirm + ", sex=" + sex + ", age=" + age + ", postnum=" + postnum + "]";
 	}
-	
 }

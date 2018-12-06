@@ -16,11 +16,6 @@ public class MemberController {
 	
 	public void setService(MemberService memberService) { this.memberService = memberService; }
 	
-	/*@RequestMapping(value = "memberList.do")
-	public String memberList() {
-		return "member/memberList.admin";
-	}*/
-	
 	@RequestMapping(value = "mUpdate.do")
 	public String mUpdate() {
 		return "member/memberUpdate.admin";
@@ -32,7 +27,12 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="memberAdd")
-	public String add(Member m) {
+	public String add(Member m, HttpServletRequest request) {
+		String add1 = request.getParameter("signAddress1");
+		String add2 = request.getParameter("signAddress1");
+		String address = add1 + "/ " + add2;
+		m.setAddress(address);
+		
 		memberService.join(m);
 		return "main/main.mTiles";
 	}
@@ -66,6 +66,21 @@ public class MemberController {
 		}
 		x.addAttribute("flag",flag);
 		return "ajax/memberIdCheck";	// ajax page
+	}
+	
+	@RequestMapping(value="memberEmailCheck")
+	public String emailCheck(@RequestParam(value="email")String email, Model x) {
+		Member m = memberService.getEmail(email);
+		
+		System.out.println(email);
+		System.out.println(m);
+		
+		boolean flag = false;	// 중복된 이메일 -> 가입 못함
+		if(m==null) {
+			flag = true; // 중복되지 않는 이메일 -> 가입 가능함
+		}
+		x.addAttribute("flag",flag);
+		return "ajax/memberEmailCheck";
 	}
 }
 

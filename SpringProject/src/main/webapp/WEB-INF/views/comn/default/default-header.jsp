@@ -54,8 +54,14 @@
 					</c:if>
 					<li class="current"><a href="qa.do"><div>Q&A</div></a>
 					</li>
-					<li class="current"><a href="admin.do"><div>${id }</div></a>
-					</li>
+					<c:if test="${id=='admin' }">
+						<li class="current"><a href="admin.do"><div>${id }</div></a>
+						</li>
+					</c:if>
+					<c:if test="${id!='admin' }">
+						<li class="current"><a href="#"><div>${id }</div></a>
+						</li>
+					</c:if>
 					<c:if test="${id!=null }">
 						<li class="current"><a href=${pageContext.request.contextPath}/memberLogout><div>로그아웃</div></a>
 						</li>
