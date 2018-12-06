@@ -9,6 +9,7 @@ public interface MemberDao {
 	public void delete(String id);
 	Member select(String id);
 	Member selectReservationComplete(String id);
+	Member selectEmail(String email);
 	ArrayList<Member> selectReservation();
 	ArrayList<Member> selectAll();
 	
