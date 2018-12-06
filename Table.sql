@@ -72,19 +72,37 @@ create table inbody(
 
 select * from inbody;
 
-insert into inbody values('kgi', sysdate, 182, 81.9, 38.1, 15.3, 24.7);
+insert into inbody values('kgi', TO_DATE('19/01/01'), 182, 81.9, 38.1, 15.3, 24.7);
+insert into inbody values('kgi', TO_DATE('19/02/01'), 182, 83.9, 38.5, 15.6, 24.5);
+insert into inbody values('kgi', TO_DATE('19/03/01'), 182, 85.9, 38.3, 16.3, 25.2);
+insert into inbody values('kgi', TO_DATE('19/04/01'), 182, 90.9, 40.2, 20.3, 27.5);
+insert into inbody values('kgi', TO_DATE('19/05/01'), 182, 85.9, 39.8, 17.3, 23.7);
+insert into inbody values('kgi', TO_DATE('19/06/01'), 182, 80.9, 38.1, 12.3, 20.7);
 
-commit;
+delete inbody;
+
 
 create table fittest(
     id varchar2(20) references member(id) on delete cascade,
     fit_date date,
-    situp number,
     pushup number,
     pullup number,
     squat number,
+    situp number,  
     burpee number
 );
+
+insert into fittest values('kgi', TO_DATE('19/01/01'), 40, 5, 60, 10, 10);
+insert into fittest values('kgi', TO_DATE('19/02/01'), 50, 8, 65, 15, 15);
+insert into fittest values('kgi', TO_DATE('19/03/01'), 60, 9, 60, 30, 20);
+insert into fittest values('kgi', TO_DATE('19/04/01'), 70, 10, 80, 50, 21);
+insert into fittest values('kgi', TO_DATE('19/05/01'), 80, 8, 70, 60, 22);
+insert into fittest values('kgi', TO_DATE('19/06/01'), 100, 12, 75, 80, 20);
+select * from fittest;
+
+commit;
+
+
 commit; 
 alter table fittest add(pullup number);
 

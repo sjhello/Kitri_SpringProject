@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kitri.project.fitTest.FitTestDao">
+
+	<resultMap id="fitTestResult" type="com.kitri.project.fitTest.FitTest">
+		<result column="id" property="id" />
+		<result column="fit_date" property="fit_date" />
+		<result column="pushup" property="pushup" />
+		<result column="pullup" property="pullup" />
+		<result column="squat" property="squat" />
+		<result column="situp" property="situp" />
+		<result column="burpee" property="burpee" />
+	</resultMap>
+	
+	<insert id="insert" parameterType="com.kitri.project.fitTest.FitTest">
+		insert into fittest values(#{id}, sysdate, #{pushup}, #{pullup}, #{squat}, #{situp}, #{burpee})
+	</insert>
+	
+	<select id="select" parameterType="com.kitri.project.fitTest.FitTest" resultMap="fitTestResult">
+		select * from fittest where id=#{id}
+	</select>
+	
+	<select id="selectAll" resultMap="fitTestResult">
+		select * from fittest
+	</select>
+	
+	<update id="update" parameterType="com.kitri.project.fitTest.FitTest">
+		update fittest set fit_date=sysdate, pushup=#{pushup}, pullup=#{pullup}, squat=#{squat}, situp=#{situp}, burpee=#{burpee} where id=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		delete fittest where id=#{id}
+	</delete>
+	
+</mapper>

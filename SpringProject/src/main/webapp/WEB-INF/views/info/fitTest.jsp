@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <script>
 	$(document).ready(function() {
 	});
@@ -45,19 +47,31 @@
 		return {
 			type: 'line',
 			data: {
-				labels: ["January", "February", "March", "April", "May", "June", "July"],
+				labels: [
+					<c:forEach var="i" items="${list }">
+						"${i.fit_date }",
+					</c:forEach>
+				],
 				datasets: [{
-					label: "나",
+					label: "평균",
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
-					data: [1, 30, 39, 20, 25, 34, 0],
+					data: [
+						<c:forEach var="i" items="${list }">
+							50,
+						</c:forEach>
+						],
 					fill: false,
 				}, {
-					label: "평균",
+					label: "회원",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: [2, 33, 22, 19, 11, 39, 30],
+					data: [
+						<c:forEach var="i" items="${list }">
+							${i.pushup },
+						</c:forEach>
+						],
 				}]
 			},
 			options: {
@@ -74,7 +88,7 @@
 						gridLines: gridlines,
 						ticks: {
 							min: 0,
-							max: 100,
+							max: 120,
 							stepSize: 10
 						}
 					}]
@@ -87,19 +101,31 @@
 		return {
 			type: 'line',
 			data: {
-				labels: ["January", "February", "March", "April", "May", "June", "July"],
+				labels: [
+					<c:forEach var="i" items="${list }">
+						"${i.fit_date }",
+					</c:forEach>
+				],
 				datasets: [{
-					label: "나",
+					label: "평균",
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
-					data: [3, 30, 39, 20, 25, 34, 0],
+					data: [
+						<c:forEach var="i" items="${list }">
+							10,
+						</c:forEach>
+						],
 					fill: false,
 				}, {
-					label: "평균",
+					label: "회원",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: [4, 33, 22, 19, 11, 39, 30],
+					data: [
+						<c:forEach var="i" items="${list }">
+							${i.pullup },
+						</c:forEach>
+						],
 				}]
 			},
 			options: {
@@ -116,7 +142,7 @@
 						gridLines: gridlines,
 						ticks: {
 							min: 0,
-							max: 100,
+							max: 40,
 							stepSize: 10
 						}
 					}]
@@ -129,19 +155,31 @@
 		return {
 			type: 'line',
 			data: {
-				labels: ["January", "February", "March", "April", "May", "June", "July"],
+				labels: [
+					<c:forEach var="i" items="${list }">
+						"${i.fit_date }",
+					</c:forEach>
+				],
 				datasets: [{
-					label: "나",
+					label: "평균",
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
-					data: [5, 30, 39, 20, 25, 34, 0],
+					data: [
+						<c:forEach var="i" items="${list }">
+							50,
+						</c:forEach>
+						],
 					fill: false,
 				}, {
-					label: "평균",
+					label: "회원",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: [6, 33, 22, 19, 11, 39, 30],
+					data: [
+						<c:forEach var="i" items="${list }">
+							${i.squat },
+						</c:forEach>
+						],
 				}]
 			},
 			options: {
@@ -158,7 +196,7 @@
 						gridLines: gridlines,
 						ticks: {
 							min: 0,
-							max: 100,
+							max: 130,
 							stepSize: 10
 						}
 					}]
@@ -171,19 +209,31 @@
 		return {
 			type: 'line',
 			data: {
-				labels: ["January", "February", "March", "April", "May", "June", "July"],
+				labels: [
+					<c:forEach var="i" items="${list }">
+						"${i.fit_date }",
+					</c:forEach>
+				],
 				datasets: [{
-					label: "나",
+					label: "평균",
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
-					data: [7, 30, 39, 20, 25, 34, 0],
+					data: [
+						<c:forEach var="i" items="${list }">
+							60,
+						</c:forEach>
+						],
 					fill: false,
 				}, {
-					label: "평균",
+					label: "회원",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
-					data: [8, 33, 22, 19, 11, 39, 30],
+					data: [
+						<c:forEach var="i" items="${list }">
+							${i.situp },
+						</c:forEach>
+						],
 				}]
 			},
 			options: {
@@ -200,7 +250,61 @@
 						gridLines: gridlines,
 						ticks: {
 							min: 0,
-							max: 100,
+							max: 120,
+							stepSize: 10
+						}
+					}]
+				}
+			}
+		};
+	}
+	
+	function createConfig5(gridlines, title) {
+		return {
+			type: 'line',
+			data: {
+				labels: [
+					<c:forEach var="i" items="${list }">
+						"${i.fit_date }",
+					</c:forEach>
+				],
+				datasets: [{
+					label: "평균",
+					backgroundColor: window.chartColors.red,
+					borderColor: window.chartColors.red,
+					data: [
+						<c:forEach var="i" items="${list }">
+							15, 
+						</c:forEach>
+						],
+					fill: false,
+				}, {
+					label: "회원",
+					fill: false,
+					backgroundColor: window.chartColors.blue,
+					borderColor: window.chartColors.blue,
+					data: [
+						<c:forEach var="i" items="${list }">
+							${i.burpee },
+						</c:forEach>
+						],
+				}]
+			},
+			options: {
+				responsive: true,
+				title:{
+					display: true,
+					text: title
+				},
+				scales: {
+					xAxes: [{
+						gridLines: gridlines
+					}],
+					yAxes: [{
+						gridLines: gridlines,
+						ticks: {
+							min: 0,
+							max: 50,
 							stepSize: 10
 						}
 					}]
@@ -214,7 +318,7 @@
 		var container = document.querySelector('.chart1');
 		
 		[{
-			title: '푸쉬업',
+			title: '팔굽혀 펴기',
 			gridLines: {
 				display: false
 			}
@@ -234,7 +338,7 @@
 		var container = document.querySelector('.chart1');
 		
 		[{
-			title: '싯업',
+			title: '턱걸이',
 			gridLines: {
 				display: false
 			}
@@ -254,7 +358,7 @@
 		var container = document.querySelector('.chart1');
 		
 		[{
-			title: '풀업',
+			title: '스쿼트',
 			gridLines: {
 				display: false
 			}
@@ -274,7 +378,27 @@
 		var container = document.querySelector('.chart1');
 		
 		[{
-			title: '버피',
+			title: '윗몸일으키기',
+			gridLines: {
+				display: false
+			}
+		}].forEach(function(details) {
+			var div = document.createElement('div');
+			div.classList.add('col-md-6');
+
+			var canvas = document.createElement('canvas');
+			div.appendChild(canvas);
+			container.appendChild(div);
+
+			var ctx = canvas.getContext('2d');
+			var config = createConfig4(details.gridLines, details.title);
+			new Chart(ctx, config);
+		});
+		
+		var container = document.querySelector('.chart1');
+		
+		[{
+			title: '버피테스트',
 			gridLines: {
 				display: false
 			}

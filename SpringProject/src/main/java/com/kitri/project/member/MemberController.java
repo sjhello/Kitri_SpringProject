@@ -68,6 +68,11 @@ public class MemberController {
 		return "ajax/memberIdCheck";	// ajax page
 	}
 	
+	@RequestMapping(value="myInfo.do")
+	public String myInfo() {
+		return "login/myInfo.tiles";
+	}
+		
 	@RequestMapping(value="memberEmailCheck")
 	public String emailCheck(@RequestParam(value="email")String email, Model x) {
 		Member m = memberService.getEmail(email);

@@ -5,17 +5,22 @@ import java.util.ArrayList;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.kitri.project.member.Member;
-import com.kitri.project.member.MemberService;
+import com.kitri.project.qa.service.QaService;
+import com.kitri.project.qa.web.Qa;
+
 
 @Controller
 public class AdminController {	
+	@Resource(name="qaService")
+	private QaService qaService;
+	
 	@RequestMapping(value = "admin.do")
-	public String admin() {
-		
+	public String admin(Model model) {
+		ArrayList<Qa> qaList = qaService.selectQaList();
+		model.addAttribute("qaList", qaList);
 		return "admin/admin.admin";
 	}
 }
