@@ -46,8 +46,8 @@
 
 
 <script>
-	function createConfig(gridlines, title) {
-		
+
+	function createConfig(gridlines, title) {	
 		return {
 			type: 'line',
 			data: {
