@@ -27,6 +27,12 @@ public class MemberServiceImpl implements MemberService{
 		dao = sqlSession.getMapper(MemberDao.class);
 		return dao.select(id);
 	}
+	
+	@Override
+	public Member getEmail(String email) {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.selectEmail(email);
+	}
 
 	@Override
 	public void edit(Member m) {	// 내정보 수정, 관리자가 회원정보 수정 가능
