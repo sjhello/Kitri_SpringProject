@@ -1,4 +1,4 @@
-﻿create table notice(
+create table notice(
     num number primary key,
     title varchar2(20) not null,
     content varchar2(4000) not null
@@ -130,7 +130,7 @@ create table workout(
 
 create sequence seq_workout_num;
 
-
+commit;
 insert into fittest values('kgi', TO_DATE('19/01/01'), 40, 5, 60, 10, 10);
 insert into fittest values('kgi', TO_DATE('19/02/01'), 50, 8, 65, 15, 15);
 insert into fittest values('kgi', TO_DATE('19/03/01'), 60, 9, 60, 30, 20);
