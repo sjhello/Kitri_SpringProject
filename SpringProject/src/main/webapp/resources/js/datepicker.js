@@ -7,13 +7,13 @@
         
         You are free:
         
-        * to Share — to copy, distribute and transmit the work
-        * to Remix — to adapt the work
+        * to Share ï¿½ to copy, distribute and transmit the work
+        * to Remix ï¿½ to adapt the work
             
         Under the following conditions:
 
-        * Attribution — You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).      
-        * Share Alike — If you alter, transform, or build upon this work, you may distribute the resulting work only under the same, similar or a compatible license.
+        * Attribution ï¿½ You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).      
+        * Share Alike ï¿½ If you alter, transform, or build upon this work, you may distribute the resulting work only under the same, similar or a compatible license.
 */
 
 var datePickerController = (function datePickerController() {
@@ -243,7 +243,7 @@ var datePickerController = (function datePickerController() {
                         } else if(/lang|buttontabindex|mousewheel|cellformat|titleformat|nodrag|describedby/.test(str.toLowerCase())) {                                               
                                 var f = Function(['var document,top,self,window,parent,Number,Date,Object,Function,',
                                         'Array,String,Math,RegExp,Image,ActiveXObject;',
-                                        'return (' , str.replace(/<\!--.+-->/gim,'').replace(/\bfunction\b/g,'function­') , ');'].join(''));
+                                        'return (' , str.replace(/<\!--.+-->/gim,'').replace(/\bfunction\b/g,'functionï¿½') , ');'].join(''));
                                 return f();                          
                         };
                 } catch (e) { };
@@ -834,17 +834,19 @@ var datePickerController = (function datePickerController() {
                         
                         tr.appendChild(this.titleBar);
                         tr = null;
-
+                        //find
+                        //edithere
                         var span = document.createElement('span');
-                        span.appendChild(document.createTextNode(nbsp));
-                        span.className = "month-display" + dragEnabledCN; 
-                        this.titleBar.appendChild(span);
-
-                        span = document.createElement('span');
                         span.appendChild(document.createTextNode(nbsp));
                         span.className = "year-display" + dragEnabledCN; 
                         this.titleBar.appendChild(span);
 
+                        span = document.createElement('span');
+                        span.appendChild(document.createTextNode(nbsp));
+                        span.className = "month-display" + dragEnabledCN; 
+                        this.titleBar.appendChild(span);
+
+                        
                         span = null;
 
                         tr  = document.createElement('tr');

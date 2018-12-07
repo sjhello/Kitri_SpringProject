@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<script>
-var tmp;
+<script type="text/javascript">
+var f_date;
 	$(document).ready(function() {
 		$('.datePickerTable td').click(function() {
 		   var class1 = $(this).attr("class");
@@ -9,20 +9,27 @@ var tmp;
 		   var dateString = check[1];
 		   var date = dateString.substring(3);
 		   $('#clickDate').attr('value',date);
-		   tmp=date;
+		   f_date=date;
+		   
 		});
 		$('a').click(function() {
 			$.ajax({
 				type:"post",
+				data:f_date,
 				url:"${pageContext.request.contextPath }/diet/showMenu",
-				data:{
-					"f_date":$('#clickDate').val(),
-					"mealtime":"morning",
-					"f_level":"normal"
-				},
+				dataType:"json",
 				success:function(data) {
-					$('tabs-6').attr('action', '${pageContext.request.contextPath}/diet/showMenu');
-					
+					//$('#tabs-6').attr('action', '${pageContext.request.contextPath}/diet/showMenu');
+					/* $.getJSON('diet.do', function(data){ 
+					    for(var i in data){ 
+					     $('#tabs-6').append(data[i]); 
+					    } 
+					}); */
+					var menu = JSON.stringify(data);
+					console.log("menu:"+menu);
+				},
+				error:function(data) {
+					console.log('error'+JSON.stringify(data.get("test")));
 				}
 			});
 		});
@@ -58,9 +65,10 @@ var tmp;
          <script type="text/javascript">
          // <![CDATA[  
          var opts = {                            
-	         formElements:{"dp-de2":"d-sl-m-sl-Y"},
+	         formElements:{"dp-de2":"Y-sl-m-sl-d"},
 	         showWeeks:true,
-	         statusFormat:"l-cc-sp-d-sp-F-sp-Y",
+	         statusFormat:"Y-sp-F-sp-d-cc-sp-l",
+	         showMonthAfterYear: true,
 	         staticPos:true,
 	         finalOpacity:90                  
          };           
@@ -70,43 +78,43 @@ var tmp;
          // ]]>
          </script>
          <div style="float:left;width: 743px;margin-left: 49px;">
-            <div class="tabs tabs-bordered clearfix" id="tab-2">
+			<div class="tabs tabs-bordered clearfix" id="tab-2">
       
-               <ul class="tab-nav clearfix">
-                  <li><a href="#tabs-5"><i class="icon-home2 norightmargin"></i></a></li>
-                  <li><a href="#tabs-6">아침</a></li>
-                  <li><a href="#tabs-7">점심</a></li>
-                  <li class="hidden-phone"><a href="#tabs-8">저녁</a></li>
-               </ul>
+				<ul class="tab-nav clearfix">
+				   <li><a href="#tabs-5"><i class="icon-home2 norightmargin"></i></a></li>
+				   <li><a href="#tabs-6" id="morningTab">아침</a></li>
+				   <li><a href="#tabs-7" id="lunchTab">점심</a></li>
+				   <li class="hidden-phone" id="dinnerTab"><a href="#tabs-8">저녁</a></li>
+				</ul>
       
-               <div class="tab-container">
+				<div class="tab-container">
       
-                  <div class="tab-content clearfix" id="tabs-5">
-                     	매일 새로운 식단을 알려드립니다. 해당하는 시간을 클릭하시오.
-                  </div>
-                  <div class="tab-content clearfix" id="tabs-6">
-                     ${menu.get(morning)}
-                     
-                     <a class="button button-3d button-rounded button-amber">취소</a>
-                     <a class="button button-3d button-rounded">체크</a>
-                     <a class="button button-3d button-mini button-rounded button-green">미션완료</a>
-                     <a class="button button-3d button-mini button-rounded button-teal">미션실패</a>
-                  </div>
-                  <div class="tab-content clearfix" id="tabs-7">
-                    
-                     <a class="button button-3d button-rounded button-amber">취소</a>
-                  </div>
-                  <div class="tab-content clearfix" id="tabs-8">
-                  	
-                  	<a class="button button-3d button-rounded button-amber">취소</a>
-                  </div>
-      
-               </div>
-      
-            </div>
-         </div>
-      </div>
-      <div class="line"></div>
-      
+				<div class="tab-content clearfix" id="tabs-5">
+				   	매일 새로운 식단을 알려드립니다. 해당하는 시간을 클릭하시오.
+				</div>
+				<div class="tab-content clearfix" id="tabs-6">
+					
+				          
+					<a class="button button-3d button-rounded button-amber">취소</a>
+					<a class="button button-3d button-rounded">체크</a>
+					<a class="button button-3d button-mini button-rounded button-green">미션완료</a>
+					<a class="button button-3d button-mini button-rounded button-teal">미션실패</a>
+				</div>
+				<div class="tab-content clearfix" id="tabs-7">
+				  
+					<a class="button button-3d button-rounded button-amber">취소</a>
+				</div>
+				<div class="tab-content clearfix" id="tabs-8">
+					
+					<a class="button button-3d button-rounded button-amber">취소</a>
+				</div>
+				
+				</div>
+				
+				</div>
+				</div>
+				</div>
+				<div class="line"></div>
+
    </div>
 </section>
