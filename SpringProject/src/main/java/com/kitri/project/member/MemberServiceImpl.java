@@ -27,18 +27,44 @@ public class MemberServiceImpl implements MemberService{
 		dao = sqlSession.getMapper(MemberDao.class);
 		return dao.select(id);
 	}
+	
+	@Override
+	public Member getEmail(String email) {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.selectEmail(email);
+	}
 
 	@Override
-	public void edit(Member m) {	// 내정보 수정
+	public void edit(Member m) {	// 내정보 수정, 관리자가 회원정보 수정 가능
 		dao = sqlSession.getMapper(MemberDao.class);
+		dao.update(m);
 	}
+	
+	@Override
+	public void adminConfirm(String id) {
+		dao = sqlSession.getMapper(MemberDao.class);
+		dao.adminConfirm(id);
+	}
+
 	@Override
 	public void out(String id) {	// 회원 탈퇴하기
 		// TODO Auto-generated method stub
 		
 	}
 	@Override
-	public ArrayList<Member> getAll() {	// 관리자: 회원 리스트 보기
+	public ArrayList<Member> getReservation() {	// 관리자: 예약자 목록 보기
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.selectReservation();
+	}
+	
+	@Override
+	public Member getReservationComplete(String id) {	// 관리자: 가입승인 받은 인원들
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.selectReservationComplete(id);
+	}
+
+	@Override
+	public ArrayList<Member> getAll() {	// 관리자: 회원 전체 목록보기
 		dao = sqlSession.getMapper(MemberDao.class);
 		return dao.selectAll();
 	}

@@ -101,13 +101,13 @@
 		data: {
 			labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 			datasets: [{
-				label: '하루 수익',
+				label: 'Delivered',
 				data: [30, 24, 22, 17, 22, 24, 9, 14, 20, 13, 17, 13],
 				borderColor: "#fff",
 				backgroundColor: "#5d5386",
 				hoverBackgroundColor: "#483d77"
 			}, {
-				label: '하루가입자',
+				label: 'Estimated',
 				data: [10, 14, 12, 20, 20, 8, 10, 20, 7, 11, 8, 10],
 				borderColor: "#fff",
 				backgroundColor: "#e4e8f0",
@@ -180,6 +180,77 @@
 		$(this).find('.percent-orders').html(Math.round(43 * progress) + '<i>%</i>');
 	});
 
+	// ------------------------------------------------------- //
+	// Top Author
+	// ------------------------------------------------------ //
+	var ctx = document.getElementById('sales-stats').getContext("2d");
+
+	var myChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: ["02/10", "02/11", "02/12", "02/13", "02/14", "02/15"],
+			datasets: [{
+				label: "Sales",
+				borderColor: '#08a6c3',
+				pointRadius: 0,
+				pointHitRadius: 5,
+				pointHoverRadius: 3,
+				pointHoverBorderColor: "#08a6c3",
+				pointHoverBackgroundColor: "#08a6c3",
+				pointHoverBorderWidth: 3,
+				fill: true,
+				backgroundColor: '#fff',
+				borderWidth: 3,
+				data: [10, 6, 14, 8, 12, 10]
+			}]
+		},
+		options: {
+			tooltips: {
+				backgroundColor: 'rgba(47, 49, 66, 0.8)',
+				titleFontSize: 13,
+				titleFontColor: '#fff',
+				caretSize: 0,
+				cornerRadius: 4,
+				xPadding: 5,
+				displayColors: false,
+				yPadding: 5,
+			},
+			layout: {
+				padding: {
+					left: 0,
+					right: 0,
+					top: 0,
+					bottom: 0
+				}
+			},
+			legend: {
+				display: false
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						display: false,
+						beginAtZero: false,
+						maxTicksLimit: 2,
+					},
+					gridLines: {
+						drawBorder: false,
+						display: false
+					}
+				}],
+				xAxes: [{
+					gridLines: {
+						drawBorder: false,
+						display: false
+					},
+					ticks: {
+						display: false
+					}
+				}]
+			}
+		}
+	});
+	
     // ------------------------------------------------------- //
     // Calendar
     // ------------------------------------------------------ //

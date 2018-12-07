@@ -50,7 +50,7 @@
 							  <td>@twitter</td>
 							</tr>
 							<tr>
-								<td colspan="4"><a href="qaWrite.do" class="btn btn-secondary btn-sm fright">작성하기</a></td>
+								<td colspan="4"><a href="qaWriteForm11.do" class="btn btn-secondary btn-sm fright">작성하기</a></td>
 							</tr>
 						  </tbody>
 						</table>

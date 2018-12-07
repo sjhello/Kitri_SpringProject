@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <script src="assets/js/components/datepicker/datepicker.js"></script>
 <script src="assets/vendors/js/datepicker/moment.min.js"></script>
 <script src="assets/vendors/js/datepicker/daterangepicker.js"></script>
@@ -21,6 +22,8 @@
 		});
 	});
 </script>
+=======
+>>>>>>> bfa574998cf52538bbfa539801876204c188c270
 <!-- include libraries(jQuery, bootstrap) -->
 
 <!-- include summernote css/js -->

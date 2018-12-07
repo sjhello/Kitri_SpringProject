@@ -21,6 +21,7 @@
 				<div class="container clearfix" style="margin-bottom: 175px;">
 					<h4>1:1 문의</h4>
 					<div class="col_one">
+						<form class="form-horizontal" action='qaWrite11.do' method="post">
 						<table class="table table-bordered">
 						  <thead>
 							<tr>
@@ -42,12 +43,13 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-									<a href="qa11.do" class="btn btn-secondary btn-sm fright" style=" margin-left: 3px; ">작성</a>
+									<a id="qw11" href="#" class="btn btn-secondary btn-sm fright" style=" margin-left: 3px; ">작성</a>
 									<a href="qa11.do" class="btn btn-secondary btn-sm fright" style=" margin-left: 3px; ">취소</a>
 								</td>
 							</tr>
 						  </tbody>
 						</table>
+						</form>
 					</div>
 				</div>
 			</div>
