@@ -91,12 +91,8 @@
 					yAxes: [{
 						gridLines: gridlines,
 						ticks: {
-							min: <c:forEach var="i" items="${list }">
-									<c:set var="min" value="100"/>
-										<c:if
-								${i.weight },
-								</c:forEach>,
-							max: 110,
+							min: 50,
+							max: 120,
 							stepSize: 10
 						}
 					}]
@@ -260,7 +256,7 @@
 						gridLines: gridlines,
 						ticks: {
 							min: 10,
-							max: 35,
+							max: 40,
 							stepSize: 5
 						}
 					}]

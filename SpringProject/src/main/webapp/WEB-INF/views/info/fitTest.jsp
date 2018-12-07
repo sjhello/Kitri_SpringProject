@@ -63,7 +63,9 @@
 						],
 					fill: false,
 				}, {
-					label: "회원",
+					label: <c:set var="i" items="{list}"/>
+					
+					,
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
@@ -117,7 +119,7 @@
 						],
 					fill: false,
 				}, {
-					label: "회원",
+					label: "턱걸이",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
@@ -171,7 +173,7 @@
 						],
 					fill: false,
 				}, {
-					label: "회원",
+					label: "스퀏",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
@@ -196,7 +198,7 @@
 						gridLines: gridlines,
 						ticks: {
 							min: 0,
-							max: 130,
+							max: 120,
 							stepSize: 10
 						}
 					}]
@@ -225,7 +227,7 @@
 						],
 					fill: false,
 				}, {
-					label: "회원",
+					label: "윗몸",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
@@ -279,7 +281,7 @@
 						],
 					fill: false,
 				}, {
-					label: "회원",
+					label: "버피",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
@@ -411,7 +413,7 @@
 			container.appendChild(div);
 
 			var ctx = canvas.getContext('2d');
-			var config = createConfig4(details.gridLines, details.title);
+			var config = createConfig5(details.gridLines, details.title);
 			new Chart(ctx, config);
 		});
 	};
