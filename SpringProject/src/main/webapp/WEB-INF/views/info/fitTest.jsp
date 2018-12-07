@@ -63,9 +63,7 @@
 						],
 					fill: false,
 				}, {
-					label: <c:set var="i" items="{list}"/>
-					
-					,
+					label: "팔굽",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
