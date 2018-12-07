@@ -1,4 +1,4 @@
-create table notice(
+﻿create table notice(
     num number primary key,
     title varchar2(20) not null,
     content varchar2(4000) not null
@@ -80,6 +80,18 @@ create table fittest(
 commit; 
 alter table fittest add(pullup number);
 
+drop table workout;
+
+create table workout(
+    num number primary key,
+    f_level varchar2(20),
+    title varchar2(100),
+    w_date varchar2(50),
+    contents varchar2(4000),
+    w_check varchar2(5)
+);
+
+create sequence seq_workout_num;
 
 
 
