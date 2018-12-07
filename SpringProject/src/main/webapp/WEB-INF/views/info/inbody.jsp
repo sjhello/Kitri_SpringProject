@@ -16,7 +16,7 @@
 		<span>최고의 가성비로 누구나 건강을 관리할 수 있습니다.</span>
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="main.do">Home</a></li>
-			<li class="breadcrumb-item"><a href="#">ANIFIT</a></li>
+			<li class="breadcrumb-item"><a href="#">ANYFIT</a></li>
 			<li class="breadcrumb-item active" aria-current="page"><a
 				href="inbody.do">인바디</a></li>
 		</ol>
@@ -47,7 +47,7 @@
 
 <script>
 	function createConfig(gridlines, title) {
-		
+	
 		return {
 			type: 'line',
 			data: {
@@ -91,8 +91,12 @@
 					yAxes: [{
 						gridLines: gridlines,
 						ticks: {
-							min: 60,
-							max: 100,
+							min: <c:forEach var="i" items="${list }">
+									<c:set var="min" value="100"/>
+										<c:if
+								${i.weight },
+								</c:forEach>,
+							max: 110,
 							stepSize: 10
 						}
 					}]

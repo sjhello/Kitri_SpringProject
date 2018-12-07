@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface FitTestService {
 	void addFitTest(FitTest f);
-	FitTest getFitTest(int num);
+	ArrayList<FitTest> getFitTest(String id);
 	ArrayList<FitTest> getAll();
 	void editFitTest(FitTest f);
 	void delFitTest(int num);

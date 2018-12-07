@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface InbodyDao {
 	void insert(Inbody i);
-	Inbody select(int num);
+	ArrayList<Inbody> select(String id);
 	ArrayList<Inbody> selectAll();
 	void update(Inbody i);
 	void delete(int num);
