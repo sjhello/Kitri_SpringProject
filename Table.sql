@@ -4,7 +4,8 @@ create table notice(
     content varchar2(4000) not null
 );
 create sequence seq_notice_num;
-
+alter table notice add reg_date DATE not null; 
+alter table notice add hits int not null; 
 desc notice;
 
 drop table member;
@@ -24,16 +25,24 @@ create table member(
 select * from member;
 desc member;
 
+<<<<<<< HEAD
 insert into member values('kgi', 'kgi', 'kgi', '010-1234-1234', 'asdf', 'kgi@naver.com', 'mid', 'mid', 'o', 28, 'm');
 insert into member values('pny', 'pny', 'pny', '010-1234-1234', 'asdf', 'pny@naver.com', 'low', 'mid', 'o', 25, 'm');
 delete from member;
+=======
+insert into member values('kgi', 'kgi', 'kgi', '010-1234-1234', 'seoul', 'kgi@naver.com', 'mid', 'mid', 'o', 'm', '28');
+>>>>>>> kgi
 
 --alter table member add(age varchar2(20));
 --alter table member add(sex varchar2(20));
 --alter table member modify(age number);
 --alter table member modify(sex not null);
 --select * from member;
+<<<<<<< HEAD
 --update member set age='20' where pwd='1234';
+=======
+
+>>>>>>> kgi
 commit;
 
 create table employee(
@@ -114,10 +123,25 @@ create table fittest(
     burpee number
 );
 
+<<<<<<< HEAD
 commit; 
 alter table fittest add(pullup number);
 
 drop table workout;
+=======
+insert into fittest values('kgi', TO_DATE('19/01/01'), 40, 5, 60, 10, 10);
+insert into fittest values('kgi', TO_DATE('19/02/01'), 50, 8, 65, 15, 15);
+insert into fittest values('kgi', TO_DATE('19/03/01'), 60, 9, 60, 30, 20);
+insert into fittest values('kgi', TO_DATE('19/04/01'), 70, 10, 80, 50, 21);
+insert into fittest values('kgi', TO_DATE('19/05/01'), 80, 8, 70, 60, 22);
+insert into fittest values('kgi', TO_DATE('19/06/01'), 100, 12, 75, 80, 20);
+
+select * from fittest;
+
+commit;
+
+
+>>>>>>> kgi
 
 create table workout(
     num number primary key,
@@ -130,6 +154,7 @@ create table workout(
 
 create sequence seq_workout_num;
 
+<<<<<<< HEAD
 commit;
 insert into fittest values('kgi', TO_DATE('19/01/01'), 40, 5, 60, 10, 10);
 insert into fittest values('kgi', TO_DATE('19/02/01'), 50, 8, 65, 15, 15);
@@ -153,3 +178,5 @@ commit;
 
 alter table notice add reg_date DATE not null; 
 alter table notice add hits int not null; 
+=======
+>>>>>>> kgi
