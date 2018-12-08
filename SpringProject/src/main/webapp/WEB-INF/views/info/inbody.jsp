@@ -46,12 +46,18 @@
 
 <script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	function createConfig(gridlines, title) {	
 =======
 	function createConfig(gridlines, title) {
 	
 >>>>>>> eaaa78cc9c5f66e3294b004f5014cc9d50c526a1
+=======
+
+	function createConfig(gridlines, title) {
+
+>>>>>>> master
 		return {
 			type: 'line',
 			data: {

@@ -1,4 +1,4 @@
-﻿create table notice(
+create table notice(
     num number primary key,
     title varchar2(20) not null,
     content varchar2(4000) not null
@@ -26,12 +26,21 @@ select * from member;
 desc member;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 insert into member values('kgi', 'kgi', 'kgi', '010-1234-1234', 'seoul', 'kgi@naver.com', 'mid', 'mid', 'o', 'm', '28');
 =======
 insert into member values('kgi', 'kgi', 'kgi', '010-1234-1234', 'asdf', 'kgi@naver.com', 'mid', 'mid', 'o', 28, 'm');
 insert into member values('pny', 'pny', 'pny', '010-1234-1234', 'asdf', 'pny@naver.com', 'low', 'mid', 'o', 25, 'm');
 delete from member;
 >>>>>>> eaaa78cc9c5f66e3294b004f5014cc9d50c526a1
+=======
+insert into member values('kgi', 'kgi', 'kgi', '010-1234-1234', 'asdf', 'kgi@naver.com', 'mid', 'mid', 'o', 28, 'm');
+insert into member values('pny', 'pny', 'pny', '010-1234-1234', 'asdf', 'pny@naver.com', 'low', 'mid', 'o', 25, 'm');
+delete from member;
+=======
+insert into member values('kgi', 'kgi', 'kgi', '010-1234-1234', 'seoul', 'kgi@naver.com', 'mid', 'mid', 'o', 'm', '28');
+>>>>>>> kgi
+>>>>>>> master
 
 --alter table member add(age varchar2(20));
 --alter table member add(sex varchar2(20));
@@ -39,10 +48,17 @@ delete from member;
 --alter table member modify(sex not null);
 --select * from member;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 --update member set age='20' where pwd='1234';
 >>>>>>> eaaa78cc9c5f66e3294b004f5014cc9d50c526a1
+=======
+--update member set age='20' where pwd='1234';
+=======
+
+>>>>>>> kgi
+>>>>>>> master
 commit;
 
 create table employee(
@@ -124,6 +140,14 @@ create table fittest(
 );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+commit; 
+alter table fittest add(pullup number);
+
+drop table workout;
+=======
+>>>>>>> master
 insert into fittest values('kgi', TO_DATE('19/01/01'), 40, 5, 60, 10, 10);
 insert into fittest values('kgi', TO_DATE('19/02/01'), 50, 8, 65, 15, 15);
 insert into fittest values('kgi', TO_DATE('19/03/01'), 60, 9, 60, 30, 20);
@@ -136,12 +160,16 @@ select * from fittest;
 commit;
 
 
+<<<<<<< HEAD
 =======
 commit; 
 alter table fittest add(pullup number);
 
 drop table workout;
 >>>>>>> eaaa78cc9c5f66e3294b004f5014cc9d50c526a1
+=======
+>>>>>>> kgi
+>>>>>>> master
 
 create table workout(
     num number primary key,
@@ -155,8 +183,12 @@ create table workout(
 create sequence seq_workout_num;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
+=======
+commit;
+>>>>>>> master
 insert into fittest values('kgi', TO_DATE('19/01/01'), 40, 5, 60, 10, 10);
 insert into fittest values('kgi', TO_DATE('19/02/01'), 50, 8, 65, 15, 15);
 insert into fittest values('kgi', TO_DATE('19/03/01'), 60, 9, 60, 30, 20);
@@ -179,4 +211,9 @@ commit;
 
 alter table notice add reg_date DATE not null; 
 alter table notice add hits int not null; 
+<<<<<<< HEAD
 >>>>>>> eaaa78cc9c5f66e3294b004f5014cc9d50c526a1
+=======
+=======
+>>>>>>> kgi
+>>>>>>> master
