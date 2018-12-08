@@ -17,21 +17,21 @@ public class QaServiceImpl implements QaService{
 	private QaMapper qaMapper;
 	
 	@Override
-	public void insertQa(Qa q) {
-		qaMapper = sqlSession.getMapper(QaMapper.class);
-		qaMapper.insertQa(q);
-	}
-
-	@Override
 	public ArrayList<Qa> selectQaList() {
 		qaMapper = sqlSession.getMapper(QaMapper.class);
 		return qaMapper.selectQaList();
 	}
-
+	
 	@Override
 	public Qa selectQa(int q_num) {
 		qaMapper = sqlSession.getMapper(QaMapper.class);
 		return qaMapper.selectQa(q_num);
+	}
+	
+	@Override
+	public void insertQa(Qa q) {
+		qaMapper = sqlSession.getMapper(QaMapper.class);
+		qaMapper.insertQa(q);
 	}
 
 	@Override
@@ -45,5 +45,4 @@ public class QaServiceImpl implements QaService{
 		qaMapper = sqlSession.getMapper(QaMapper.class);
 		qaMapper.deleteQa(q_num);
 	}
-
 }

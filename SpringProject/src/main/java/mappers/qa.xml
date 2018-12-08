@@ -10,25 +10,31 @@
 		<result column="reg_date" property="reg_date" />
 	</resultMap>
 	
+	<select id="selectQaList" resultMap="qaResult">
+		select *
+		  from qa
+	</select>
+	
 	<insert id="insertQa" parameterType="com.kitri.project.qa.web.Qa">
 		insert into qa 
 		values (seq_qa_num.nextval, #{title}, #{content}, sysdate)
 	</insert>
 	
 	<select id="selectQa" parameterType="int" resultMap="qaResult">
-		Select * from qa where q_num = #{q_num}
-	</select>
-	
-	<select id="selectQaList" resultMap="qaResult">
-		select * from qa
+		Select * 
+		  from qa 
+		 where q_num = #{q_num}
 	</select>
 	
 	<update id="updateQa" parameterType="com.kitri.project.qa.web.Qa">
-		update qa set title = #{title}, content = #{content} where q_num = #{q_num}
+		update qa 
+		   set title = #{title}, content = #{content} 
+		 where q_num = #{q_num}
 	</update>
 	
 	<delete id="deleteQa" parameterType="int">
-		delete qa where q_num = #{q_num}
+		delete qa 
+		 where q_num = #{q_num}
 	</delete>
 	
 </mapper>
