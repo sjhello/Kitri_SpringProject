@@ -1,5 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<script src="assets/js/components/datepicker/datepicker.js"></script>
+<script src="assets/vendors/js/datepicker/moment.min.js"></script>
+<script src="assets/vendors/js/datepicker/daterangepicker.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#events').click(function() {
+			$('#adDel').attr('action','${pageContext.request.contextPath}/adExerciseDel');
+			$('#adDel').submit();
+		});
+	});
+</script>
 <div class="container-fluid">
     <div class="row no-margin">
         <div class="col-xl-12">
@@ -10,9 +23,9 @@
                     <div class="widget-body">
                         <div class="form-group">
                             <div class="btn-group" role="group" aria-label="Buttons Group">
-                                <button type="button" class="btn btn-info mb-2">초급</button>
-                                <button type="button" class="btn btn-warning mb-2">중급</button>
-                                <button type="button" class="btn btn-danger mb-2">고급</button>
+                                <button id = "" type="button" class="btn btn-info mb-2">저체중</button>
+                                <button type="button" class="btn btn-warning mb-2">정상체중</button>
+                                <button type="button" class="btn btn-danger mb-2">과체중</button>
                             </div>
                         </div>
                     </div>
@@ -34,8 +47,6 @@
 
 <script>
 	(function ($) {
-	
-		
 		$('.circle-orders').circleProgress({
 			value: 0.43,
 			size: 120,
@@ -69,24 +80,8 @@
 				},
 				events: [
 					{
-						title: '어께',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-						start: '2018-11-29',
-						end: '2018-11-30',
-						className: 'fc-bg-violet',
-						icon : "calendar"
-					}, 
-					{
-						title: '하체',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-						start: '2018-11-29',
-						end: '2018-11-30',
-						className: 'fc-bg-default',
-						icon : "child"
-					},
-					{
-						title: '등',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+						title: '${listroop.title }',
+						description: '${lisroop.contents}',
 						start: '2018-11-29',
 						end: '2018-11-30',
 						className: 'fc-bg-default',
@@ -94,7 +89,7 @@
 					},
 					{
 						title: 'test',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
+						description: '',
 						start: '2018-11-29',
 						end: '2018-11-30',
 						className: 'fc-bg-default',
