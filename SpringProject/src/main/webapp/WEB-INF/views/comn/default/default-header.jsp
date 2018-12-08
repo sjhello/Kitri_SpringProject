@@ -17,17 +17,17 @@
 			</div><!-- #logo end -->
 	
 			<c:if test="${id!=null }">
-			<div id="top-account" class="dropdown">
-				<a href="#" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon-user"></i></a>
-				<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-					<a class="dropdown-item tleft" href="myInfo.do">내정보</a>
-					<a class="dropdown-item tleft" href="${pageContext.request.contextPath}/memberLogout">로그아웃</a>
-				</ul>
-			</div>
+				<div id="top-account" class="dropdown">
+					<a href="#" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon-user"></i></a>
+					<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+						<a class="dropdown-item tleft" href="myInfo.do">내정보</a>
+						<a class="dropdown-item tleft" href="${pageContext.request.contextPath}/memberLogout">로그아웃</a>
+					</ul>
+				</div>
 			</c:if>
 	
-			<!-- Primary Navigation
-			============================================= -->
+			<!-- Primary Navigation -->
+			<!-- ============================================= -->
 			<nav id="primary-menu" class="dark">
 				<ul>
 					<li class="current"><a href="intro.do"><div>ANYFIT</div></a>
@@ -65,8 +65,18 @@
 					</c:if>
 					<li class="current"><a href="qa.do"><div>Q&A</div></a>
 					</li>
-					<li class="current"><a href="admin.do"><div>${id }</div></a>
-					</li>
+					<c:if test="${id=='admin' }">
+						<li class="current"><a href="admin.do"><div>${id }</div></a>
+						</li>
+					</c:if>
+					<c:if test="${id!='admin' }">
+						<li class="current"><a href="#"><div>${id }</div></a>
+						</li>
+					</c:if>
+					<c:if test="${id!=null }">
+						<li class="current"><a href=${pageContext.request.contextPath}/memberLogout><div>로그아웃</div></a>
+						</li>
+					</c:if>
 				</ul>
 			</nav><!-- #primary-menu end -->
 	

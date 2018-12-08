@@ -10,6 +10,7 @@ public interface MemberService {
 	public void out(String id);	// delete
 	Member getMyInfo(String id);	// 회원 정보 보기
 	Member getReservationComplete(String id);	// admin_confirm 이 'o' 인 회원 select
+	Member getEmail(String email);
 	ArrayList<Member> getReservation();	// selectReservation
 	ArrayList<Member> getAll();
 }

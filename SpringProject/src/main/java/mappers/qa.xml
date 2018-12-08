@@ -15,16 +15,16 @@
 		  from qa
 	</select>
 	
-	<insert id="insertQa" parameterType="com.kitri.project.qa.web.Qa">
-		insert into qa 
-		values (seq_qa_num.nextval, #{title}, #{content}, sysdate)
-	</insert>
-	
 	<select id="selectQa" parameterType="int" resultMap="qaResult">
 		Select * 
 		  from qa 
 		 where q_num = #{q_num}
 	</select>
+	
+	<insert id="insertQa" parameterType="com.kitri.project.qa.web.Qa">
+		insert into qa 
+		values (seq_qa_num.nextval, #{title}, #{content}, sysdate)
+	</insert>
 	
 	<update id="updateQa" parameterType="com.kitri.project.qa.web.Qa">
 		update qa 

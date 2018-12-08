@@ -25,10 +25,10 @@ public class InbodyServiceImpl implements InbodyService{
 	}
 
 	@Override
-	public Inbody getInbody(int num) {
+	public ArrayList<Inbody> getInbody(String id) {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(InbodyDao.class);
-		return dao.select(num);
+		return dao.select(id);
 	}
 
 	@Override

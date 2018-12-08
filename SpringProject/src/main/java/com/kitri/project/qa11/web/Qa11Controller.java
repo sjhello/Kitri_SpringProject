@@ -22,7 +22,7 @@ public class Qa11Controller {
 		String id = (String)session.getAttribute("id");
 		
 		if (id != null) {
-			Qa11 qa11 = qa11Service.selectQa11Id(id);
+			ArrayList<Qa11> qa11 = qa11Service.selectQa11Id(id);
 			
 			if (qa11 != null) {
 				ArrayList<Qa11> list =  qa11Service.uaSelectQa(id);
@@ -44,7 +44,7 @@ public class Qa11Controller {
 	@RequestMapping(value = "qaWriteForm11.do")
 	public String qaWriteForm11() {
 		
-		return "qa11/wirte-qa11.tiles";
+		return "qa11/write-qa11.tiles";
 	}
 	
 	@RequestMapping(value = "qaWrite11.do")

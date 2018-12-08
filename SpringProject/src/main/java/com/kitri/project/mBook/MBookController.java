@@ -77,9 +77,6 @@ public class MBookController {
 	}
 }
 
-// true --> 승인 버튼이 있어야됨
-// false --> 승인 버튼이 없어야함
-
 
 
 
