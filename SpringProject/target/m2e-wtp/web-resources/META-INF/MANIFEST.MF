@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: KGI
 Build-Jdk: 1.8.0_144
+=======
+Built-By: PCS
+Build-Jdk: 1.8.0_181
+>>>>>>> 5a37e344b9c661b4a6c0e9cbe87a34fbae147699
 Created-By: Maven Integration for Eclipse
 

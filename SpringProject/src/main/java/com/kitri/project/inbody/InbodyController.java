@@ -3,6 +3,7 @@ package com.kitri.project.inbody;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +31,11 @@ public class InbodyController {
 	
 	
 	@RequestMapping("inbody")
-	public ModelAndView list() {
+	public ModelAndView list(HttpSession session) {
+		String id = (String)session.getAttribute("id");
 		ModelAndView mav = new ModelAndView("info/inbody.tiles");
-		ArrayList<Inbody> list = service.getAll();
+		ArrayList<Inbody> list = service.getInbody(id);
+		System.out.println(id);
 		mav.addObject("list", list);
 		return mav;
 	}

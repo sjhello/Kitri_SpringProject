@@ -1,5 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+
+<script src="assets/js/components/datepicker/datepicker.js"></script>
+<script src="assets/vendors/js/datepicker/moment.min.js"></script>
+<script src="assets/vendors/js/datepicker/daterangepicker.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#del').click(function() {
+			$('#adDel').attr('action','${pageContext.request.contextPath}/adExerciseDel');
+			$('textarea[name="contents"]').val($('#summernote').summernote('code'));
+			$('#adDel').submit();
+		});
+	});
+</script>
 <!-- include libraries(jQuery, bootstrap) -->
 
 <!-- include summernote css/js -->
@@ -9,57 +24,74 @@
 <!-- include summernote-ko-KR -->
 <script src="lang/summernote-ko-KR.js"></script>
 
-<div class="container-fluid">
-	<div class="row flex-row">
-	    <div class="col-12">
-	        <!-- Form -->
-	        <div class="widget has-shadow">
-	            <div class="widget-header bordered no-actions d-flex align-items-center">
-	                <h4 style=" color: red; ">식단 등록</h4>
-	            </div>
-	            <form class="form-horizontal">
-	            <input type="hidden" name="className" value="fc-bg-default">
-	            <div class="widget-body">
-                    <div class="form-group row d-flex align-items-center mb-5 has-info">
-                        <label class="col-lg-3 form-control-label">제목</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group row d-flex align-items-center mb-5 has-info">
-                        <label class="col-lg-3 form-control-label">등록날짜</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group row d-flex align-items-center mb-5 has-info">
-                        <label class="col-lg-3 form-control-label">아이콘</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group row d-flex align-items-center mb-5 has-info">
-                        <label class="col-lg-3 form-control-label">내용</label>
-                        <div class="col-lg-9">
-                           	<div id="summernote" style="height:300px"><p>Hello Summernote</p></div>
-							<script>
-							    $(document).ready(function() {
-							        $('#summernote').summernote({
-						        	    lang : 'ko-KR'
-							        });
-							    });
-							</script>
-                        </div>
-                    </div>
-                    <a href="bookMember.do"><button type="button" class="btn btn-success btn-square mr-1 mb-2">작성</button></a>
-                    <a href="bookMember.do"><button type="button" class="btn btn-secondary btn-square mr-1 mb-2">취소</button></a>
-	            </div>
-            	</form>
-	            </div>
-	        </div>
-	        <!-- End Form -->
-	    </div>
+<!-- Begin Widget Header -->
+<div class="widget-header bordered d-flex align-items-center">
+	<h2>운동법 관리</h2>
+	<div class="row">
+		<div class="col-sm-12 col-md-12 left">
+			<div id="sorting-table_filter" class="dataTables_filter">
+				<label>Search:<input type="search"
+					class="form-control form-control-sm" placeholder=""
+					aria-controls="sorting-table"></label>
+			</div>
+		</div>
 	</div>
-	<!-- End Row -->
+</div>
+<!-- End Widget Header -->
+<!-- Begin Widget Body -->
+<div class="widget-body">
+	<div class="table-responsive table-scroll padding-right-10"
+		style="max-height: 520px;">
+		<table class="table table-hover mb-0">
+			<thead>
+				<tr>
+					<th>Level</th>
+					<th>제목</th>
+					<th>날짜</th>
+					<th>수정 /삭제</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var = "listroop" items = "${list }">
+					<tr>
+						<td><span class="text-primary" >${listroop.f_level }</span></td>
+						<td><span class="text-primary" >${listroop.title }</span></td>
+						<td><span class="text-primary" >${listroop.w_date }</span></td>
+						<td class="td-actions">
+							<a href="adExerciseUpdate.do?num=${listroop.num }"><i class="la la-edit edit"></i></a>
+							<a href="adExerciseDelete.do?num=${listroop.num }"><i class="la la-close delete"></i></a>
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- End Widget Body -->
+<!-- Begin Widget Footer -->
+<div class="widget-footer d-flex align-items-center">
+	<div class="mr-auto p-2">
+		<span class="display-items">
+			<a href="adExerciseWrite.do"><button type="button" class="btn btn-success btn-square mr-1 mb-2">작성하기</button></a>
+		</span>
+	</div>
+	<div class="p-2">
+		<nav aria-label="...">
+			<ul class="pagination justify-content-end">
+				<li class="page-item disabled"><span class="page-link"><i
+						class="ion-chevron-left"></i></span></li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item active"><span class="page-link">2<span
+						class="sr-only">(current)</span></span></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item"><a class="page-link" href="#"><i
+						class="ion-chevron-right"></i></a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<!-- End Widget Footer -->
+</div>
+<!-- End Row -->
 </div>
 

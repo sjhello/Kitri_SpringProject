@@ -25,10 +25,10 @@ public class FitTestServiceImpl implements FitTestService{
 	}
 
 	@Override
-	public FitTest getFitTest(int num) {
+	public ArrayList<FitTest> getFitTest(String id) {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(FitTestDao.class);
-		return dao.select(num);
+		return dao.select(id);
 	}
 
 	@Override
