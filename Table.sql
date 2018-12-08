@@ -4,7 +4,8 @@ create table notice(
     content varchar2(4000) not null
 );
 create sequence seq_notice_num;
-
+alter table notice add reg_date DATE not null; 
+alter table notice add hits int not null; 
 desc notice;
 
 create table member(
@@ -22,13 +23,13 @@ create table member(
 );
 select * from member;
 
-insert into inbody values('kgi', 'kgi', 'kgi', 81.9, 38.1, 15.3, 24.7);
+insert into member values('kgi', 'kgi', 'kgi', '010-1234-1234', 'seoul', 'kgi@naver.com', 'mid', 'mid', 'o', 'm', '28');
 
 --alter table member add(age varchar2(20));
 --alter table member modify(age not null);
 --alter table member modify(sex varchar2(20));
 --select * from member;
---update member set age='20´ë' where pwd='1234';
+
 commit;
 
 create table employee(
@@ -51,14 +52,20 @@ create table food(
     f3 varchar2(50),
     f4 varchar2(50),
     f5 varchar2(50),
-    f6 varchar2(50)
+    f6 varchar2(50),
+    f_check varchar2(5)
 );
+
+alter table food add(f_check varchar2(5));
 
 create table workout(
     f_level varchar2(20),
     video varchar2(200),
-    contents varchar2(4000)
+    contents varchar2(4000),
+    w_check varchar2(5)
 );
+
+alter table workout add(w_check varchar2(5));
 
 create table inbody(
     id varchar2(20) references member(id) on delete cascade,
@@ -98,26 +105,12 @@ insert into fittest values('kgi', TO_DATE('19/03/01'), 60, 9, 60, 30, 20);
 insert into fittest values('kgi', TO_DATE('19/04/01'), 70, 10, 80, 50, 21);
 insert into fittest values('kgi', TO_DATE('19/05/01'), 80, 8, 70, 60, 22);
 insert into fittest values('kgi', TO_DATE('19/06/01'), 100, 12, 75, 80, 20);
+
 select * from fittest;
 
 commit;
 
 
-commit; 
-alter table fittest add(pullup number);
 
 
 
-
-
-
-
-
-<<<<<<< HEAD
-commit; 
-
-
-alter table notice add reg_date DATE not null; 
-alter table notice add hits int not null; 
-=======
->>>>>>> a45715629279ca37b128e1173fc37a32cd24bb85
