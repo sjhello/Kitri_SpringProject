@@ -122,12 +122,55 @@ create table fittest(
     burpee number
 );
 
+create table qa(
+    q_num number primary key,	
+    title varchar2(100) not null,
+    content varchar(4000) not null,
+    reg_date date not null
+);
+
+create sequence seq_qa_num;
+
+create table b2c_qa(
+     code number primary key,
+     originNo number not null,
+     groupOrd number not null,
+     title varchar2(100) not null,
+     content varchar(4000) not null, 
+     id varchar2(20) references member(id) on delete cascade,
+     reg_date date not null,
+     check number
+);
+
+create sequence seq_b2c_qa_num;
+
+alter table notice add reg_date DATE not null; 
+alter table notice add hits int not null; 
+
+ALTER TABLE notice MODIFY(title varchar(100));
+
+commit;
+
+--drop table workout;
+
+create table workout(
+    num number primary key,
+    f_level varchar2(20),
+    title varchar2(100),
+    w_date varchar2(50),
+    contents varchar2(4000),
+    w_check varchar2(5)
+);
+
+create sequence seq_workout_num;
+
 insert into fittest values('kgi', TO_DATE('19/01/01'), 40, 5, 60, 10, 10);
 insert into fittest values('kgi', TO_DATE('19/02/01'), 50, 8, 65, 15, 15);
 insert into fittest values('kgi', TO_DATE('19/03/01'), 60, 9, 60, 30, 20);
 insert into fittest values('kgi', TO_DATE('19/04/01'), 70, 10, 80, 50, 21);
 insert into fittest values('kgi', TO_DATE('19/05/01'), 80, 8, 70, 60, 22);
 insert into fittest values('kgi', TO_DATE('19/06/01'), 100, 12, 75, 80, 20);
+
 
 insert into fittest values('pny', TO_DATE('19/01/01'), 10, 0, 40, 10, 5);
 insert into fittest values('pny', TO_DATE('19/02/01'), 20, 1, 45, 15, 10);
@@ -137,10 +180,9 @@ insert into fittest values('pny', TO_DATE('19/05/01'), 60, 3, 70, 40, 13);
 insert into fittest values('pny', TO_DATE('19/06/01'), 65, 5, 72, 45, 12);
 
 select * from fittest;
-delete from fittest;
+--delete from fittest;
 
 commit; 
-
 
 --drop table workout;
 
@@ -158,8 +200,6 @@ create table workout(
 create sequence seq_workout_num;
 
 commit;
-
-
 
 
 alter table notice add reg_date DATE not null; 

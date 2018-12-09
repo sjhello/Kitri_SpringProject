@@ -32,10 +32,15 @@
 	        </ul>
 	    </li>
 	</ul>
-     <span class="heading">측정</span>
+    <span class="heading">측정</span>
 	<ul class="list-unstyled">
         <li><a href="adInbody.do"><i class="la la-yc-square"></i><span>인바디</span></a></li>
         <li><a href="adFixTest.do"><i class="la la-certificate"></i><span>체력검정</span></a></li>
+    </ul>  
+    <span class="heading">게시판</span>
+	<ul class="list-unstyled">
+        <li><a href="adqa11.do"><i class="la la-yc-square"></i><span>1:1문의</span></a></li>
+        <li><a href="adqa.do"><i class="la la-certificate"></i><span>Q&A</span></a></li>
     </ul>  
 </nav>
 </div>

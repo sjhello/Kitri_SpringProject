@@ -4,6 +4,22 @@
 <script>
 	$(document).ready(function() {
 		$('#qaUpdate').click(function() {
+			$title = $('#title');
+			$content = $('#content1');
+			
+			var title = $title.val();
+			var content = $content.val();
+			
+			if (title == "") {
+				alert("제목을 입력해주세요");
+				return;
+			} 
+			
+			if (content == "") {
+				alert("내용을 입력해주세요");
+				return;
+			}
+			
 			$('#qaUpdateForm').submit();
 		});
 	});
@@ -32,17 +48,17 @@
 	                    <div class="form-group row d-flex align-items-center mb-5 has-info">
 	                        <label class="col-lg-3 form-control-label">제목</label>
 	                        <div class="col-lg-9">
-	                            <input type="text" name="title" class="form-control" maxlength="100" value="${list.title }">
+	                            <input id="title" type="text" name="title" class="form-control" maxlength="100" value="${list.title }">
 	                        </div>
 	                    </div>
 	                    <div class="form-group row d-flex align-items-center mb-5 has-info">
 	                        <label class="col-lg-3 form-control-label">내용</label>
 	                        <div class="col-lg-9">
-	                            <textarea class="form-control" name="content" style=" height: 186px;" maxlength="4000">${list.content }</textarea>
+	                            <textarea id="content1" class="form-control" name="content" style=" height: 186px;" maxlength="4000">${list.content }</textarea>
 	                        </div>
 	                    </div>
 	                    <button id="qaUpdate" type="button" class="btn btn-success btn-square mr-1 mb-2">작성</button>
-	                    <a href="admin.do"><button type="button" class="btn btn-secondary btn-square mr-1 mb-2">취소</button></a>
+	                    <a href="adqa.do"><button type="button" class="btn btn-secondary btn-square mr-1 mb-2">취소</button></a>
 	            	</form>
 	            </div>
 	        </div>
