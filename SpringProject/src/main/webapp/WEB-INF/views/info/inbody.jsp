@@ -30,7 +30,9 @@
 <section id="content">
 	<div class="content-wrap">
 		<div class="container clearfix" style="margin-bottom: 175px;">
-			<h2 style=" color: mediumvioletred; ">박노율 고객님의 측정 인바디 </h2>
+			<h2 style=" color: mediumvioletred; ">
+				
+				고객님의 측정 인바디 </h2>
 			<h3>키: 성별: 나이: </h3>
 			<div class="row charts-container chart1"></div>
 		</div>
@@ -42,6 +44,7 @@
 <script src="js/chart.js"></script>
 <script src="js/chart-utils.js"></script>
 <script src="js/components/moment.js"></script>
+	
 	
 
 <script>
