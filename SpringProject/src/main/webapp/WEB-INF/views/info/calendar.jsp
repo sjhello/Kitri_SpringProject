@@ -3,17 +3,17 @@
 		<!-- Content
 		============================================= -->
 		<section id="content">
-<!-- 			<div style="top: 108px;z-index: 1;color: white;position: absolute;float: initial;left: 22px;"> -->
-<!-- 				<h2>시작한 날짜 : 18/11/01</h2><br> -->
-<!-- 				<h2>성공 횟수 : 23번</h2><br> -->
-<!-- 				<h2>실패 횟수 : 4번</h2> -->
-<!-- 			</div> -->
+			<div style="top: 108px;z-index: 1;color: white;position: absolute;float: initial;left: 22px;">
+				<h2>시작한 날짜 : 18/11/01</h2><br>
+				<h2>성공 횟수 : 23번</h2><br>
+				<h2>실패 횟수 : 4번</h2>
+			</div>
 			<div class="content-wrap">
 				<div class="parallax header-stick bottommargin-lg dark" style="padding: 60px 0; background-image: url('images/parallax/calendar.jpg'); height: auto;" data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -500px;">
 					<div class="container clearfix">
 						<div class="events-calendar">
 							<div class="events-calendar-header clearfix">
-								<h2>내 운동기록</h2>
+								<h2>Events Overview</h2>
 								<h3 class="calendar-month-year">
 									<span id="calendar-month" class="calendar-month"></span>
 									<span id="calendar-year" class="calendar-year"></span>
@@ -34,7 +34,6 @@
 		
 	<script src="js/jquery.calendario.js"></script>
 	<script src="js/events-data.js"></script>
-
 	<script>
 
 		var cal = $( '#calendar' ).calendario( {
