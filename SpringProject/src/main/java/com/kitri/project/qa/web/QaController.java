@@ -32,7 +32,7 @@ public class QaController {
 	@RequestMapping(value = "adQaWrite.do")
 	public String aQqaWrite(Qa q) {
 		qaService.insertQa(q);
-		return "redirect:admin.do";
+		return "redirect:adqa.do";
 	}
 	
 	@RequestMapping(value = "qaUpdateForm.do")
@@ -46,15 +46,22 @@ public class QaController {
 	public String qaUpdate(Qa q) {
 		System.out.println(q);
 		qaService.updateQa(q);
-		return "redirect:admin.do";
+		return "redirect:adqa.do";
 	}
 	
 	@RequestMapping(value = "qaDelete.do")
 	public String qaDelete(@RequestParam("q_num")int q_num, Model model) {
-//		qaService.deleteQa(q_num);
+		qaService.deleteQa(q_num);
 		ArrayList<Qa> list = qaService.selectQaList(); 
 		System.out.println(list);
 		model.addAttribute("list", list);
-		return "qa/qaAjax";
+		return "redirect:adqa.do";
+	}
+	
+	@RequestMapping(value = "adqa.do")
+	public String adqa(Model model) {
+		ArrayList<Qa> qaList = qaService.selectQaList();
+		model.addAttribute("qaList", qaList);
+		return "qa/ad-qa.admin";
 	}
 }

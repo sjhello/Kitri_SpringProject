@@ -104,12 +104,20 @@
 			<version>2.1</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		
+		<!-- Taglibs -->
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-	
+		
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -212,3 +220,4 @@
         </plugins>
     </build>
 </project>
+
