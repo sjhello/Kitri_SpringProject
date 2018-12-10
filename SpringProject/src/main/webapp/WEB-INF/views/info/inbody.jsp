@@ -26,9 +26,17 @@
 	<div class="content-wrap">
 		<div class="container clearfix" style="margin-bottom: 175px;">
 			<h2 style=" color: mediumvioletred; ">
-				
-				고객님의 측정 인바디 </h2>
-			<h3>키: 성별: 나이: </h3>
+				고객님의 측정 인바디 
+			</h2>
+			<h3>
+				키: <c:forEach var="i" items="ilist" varStatus="status">
+						<c:if test="${!status.last }">
+							${i.height }
+						</c:if>
+					</c:forEach>
+				성별: ${mlist.sex} 
+				나이: ${mlist.age } 
+			</h3>
 			<div class="row charts-container chart1"></div>
 		</div>
 		<div class="line"></div>
@@ -50,7 +58,7 @@
 			type: 'line',
 			data: {
 				labels: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${ilist }">
 							"${i.i_date }",
 						</c:forEach>
 					],
@@ -59,7 +67,7 @@
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${ilist }">
 							${i.height }-100,
 						</c:forEach>
 						],
@@ -70,7 +78,7 @@
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${ilist }">
 							${i.weight },
 						</c:forEach>
 						],
@@ -103,7 +111,7 @@
 			type: 'line',
 			data: {
 				labels: [
-					<c:forEach var="i" items="${list }">
+					<c:forEach var="i" items="${ilist }">
 						"${i.i_date }",
 					</c:forEach>
 				],
@@ -112,7 +120,7 @@
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${ilist }">
 							${i.weight }*0.45,
 						</c:forEach>
 						],
@@ -123,7 +131,7 @@
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${ilist }">
 							${i.muscle },
 						</c:forEach>
 						],
@@ -157,7 +165,7 @@
 			type: 'line',
 			data: {
 				labels: [
-					<c:forEach var="i" items="${list }">
+					<c:forEach var="i" items="${ilist }">
 						"${i.i_date }",
 					</c:forEach>
 				],
@@ -166,7 +174,7 @@
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${ilist }">
 							${i.weight }*0.15,
 						</c:forEach>
 						],
@@ -177,7 +185,7 @@
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${ilist }">
 							${i.fat },
 						</c:forEach>
 						],
@@ -213,7 +221,7 @@
 			type: 'line',
 			data: {
 				labels: [
-					<c:forEach var="i" items="${list }">
+					<c:forEach var="i" items="${ilist }">
 						"${i.i_date }",
 					</c:forEach>
 				],
@@ -222,7 +230,7 @@
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${ilist }">
 							22,
 						</c:forEach>
 						],
@@ -233,7 +241,7 @@
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${ilist }">
 							${i.bmi },
 						</c:forEach>
 						],
