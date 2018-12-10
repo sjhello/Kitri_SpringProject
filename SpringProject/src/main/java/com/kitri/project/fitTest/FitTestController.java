@@ -6,38 +6,50 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+
+import com.kitri.project.member.Member;
+import com.kitri.project.member.MemberService;
 
 @Controller
 public class FitTestController {
 	
 	@Resource(name="FitTestService")
-	private FitTestService service;
+	private FitTestService fitTestService;
 	
-	public void setService(FitTestService service) {
-		this.service = service;
-	}
+	@Resource(name="memberService")
+	private MemberService memberService;
 	
 	@RequestMapping(value="/info/fitTest/add", method=RequestMethod.GET)
 	public void addForm() {}
 	
 	@RequestMapping(value="/info/fitTest/add", method=RequestMethod.POST)
 	public String add(FitTest f) {
-		service.addFitTest(f);
+		fitTestService.addFitTest(f);
 		return "redirect:/info/fitTest";
 	}
 	
 	
-	@RequestMapping("fitTest")
-	public ModelAndView list(HttpSession session) {
+//	@RequestMapping("fitTest")
+//	public ModelAndView list(HttpSession session) {
+//		String id = (String)session.getAttribute("id");
+//		ModelAndView mav = new ModelAndView("info/fitTest.tiles");
+//		ArrayList<FitTest> list = service.getFitTest(id);
+//		mav.addObject("list", list);
+//		return mav;
+//	}
+	
+	@RequestMapping(value = "fitTest")
+	public String inbodyList(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("id");
-		ModelAndView mav = new ModelAndView("info/fitTest.tiles");
-		ArrayList<FitTest> list = service.getFitTest(id);
-		mav.addObject("list", list);
-		return mav;
+		ArrayList<FitTest> fitTest = fitTestService.getFitTest(id);
+		Member member = memberService.getMyInfo(id);
+		model.addAttribute("flist", fitTest);
+		model.addAttribute("mlist", member);
+		return "info/fitTest.tiles";
 	}
+	
 	
 }
