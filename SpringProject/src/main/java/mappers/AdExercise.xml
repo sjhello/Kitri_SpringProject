@@ -10,11 +10,10 @@
 		<result column="title" property="title" />
 		<result column="w_date" property="w_date" />
 		<result column="contents" property="contents" />
-		<result column="w_check" property="w_check" />
 	</resultMap>
 
 	<insert id="insert" parameterType="com.kitri.project.adExercise.AdExercise">
-		insert into workout values(seq_workout_num.nextval, #{f_level}, #{title}, sysdate, #{contents}, 'N')
+		insert into workout values(seq_workout_num.nextval, #{f_level}, #{title}, #{w_date}, #{contents})
 	</insert>
 	
 	<select id="select" parameterType="int" resultMap="AdExerciseResult">
@@ -30,11 +29,19 @@
 	</select>
 	
 	<update id="update" parameterType="com.kitri.project.adExercise.AdExercise">
-		update workout set title= #{title}, contents=#{contents}, w_check='Y' where num = #{num}
+		update workout set title= #{title}, contents=#{contents} where num = #{num}
 	</update>
 	
 	<delete id="deleteAdExercise" parameterType="int">
 		delete workout where num = #{num}
 	</delete>
+	
+	<select id="selectExerciseListF" parameterType="int" resultMap="AdExerciseResult">
+		select * from workout where f_level = #{f_level}
+	</select>
+	
+	<select id="selectExerciseDate" parameterType="String" resultMap="AdExerciseResult">
+		select * from workout where w_date = #{date}
+	</select>
 
 </mapper>

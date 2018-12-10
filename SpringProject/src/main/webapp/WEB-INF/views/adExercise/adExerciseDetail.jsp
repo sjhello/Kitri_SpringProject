@@ -27,15 +27,6 @@
 <!-- Begin Widget Header -->
 <div class="widget-header bordered d-flex align-items-center">
 	<h2>운동법 관리</h2>
-	<div class="row">
-		<div class="col-sm-12 col-md-12 left">
-			<div id="sorting-table_filter" class="dataTables_filter">
-				<label>Search:<input type="search"
-					class="form-control form-control-sm" placeholder=""
-					aria-controls="sorting-table"></label>
-			</div>
-		</div>
-	</div>
 </div>
 <!-- End Widget Header -->
 <!-- Begin Widget Body -->

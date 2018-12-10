@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+    
 <script src="assets/js/components/datepicker/datepicker.js"></script>
 <script src="assets/vendors/js/datepicker/moment.min.js"></script>
 <script src="assets/vendors/js/datepicker/daterangepicker.js"></script>
@@ -10,13 +13,17 @@
 			var numChar = $('#summernote').summernote('code').length;
 	    	var maxNum = 4000;
 	    	var charRemain = maxNum - numChar;
-	    	if(charRemain < 0){
+	    	
+	    	if (charRemain < 0) {
 	    		alert("4000자 이하로 입력해주세요.");
 	    		location.reload();
 	    		return;
 			} 
+	    	
 			$('#adWrite').attr('action','${pageContext.request.contextPath}/adExerciseInsert');
-			$('textarea[name="contents"]').val($('#summernote').summernote('code'));
+			var strBr = $('#summernote').summernote('code');
+			var str = strBr.replace("\n", "\\n" );
+			$('textarea[name="contents"]').val(str);
 			$('#adWrite').submit();
 		});
 	});
@@ -38,13 +45,17 @@
 	                <h4 style=" color: red; ">운동법 등록</h4>
 	            </div>
 	            <form class="form-horizontal" id="adWrite" method = "post">
-	            <input type="hidden" name="className" value="fc-bg-default">
+	            <input type="hidden" name="type" value="${param.type }">
 	            <div class="widget-body">
 	            	<div class="form-group row d-flex align-items-center mb-5 has-info">
                         <label class="col-lg-3 form-control-label">저체중 / 정상체중 / 과체중 선택</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" name = "f_level" maxlength="20">
-                        </div>
+                        <div class="col-lg-9 select mb-3">
+						    <select name="f_level" class="custom-select form-control">
+						        <option value=1>저체중</option>
+						        <option value=2>정상체중</option>
+						        <option value=3>과체중</option>
+						    </select>
+						</div>
                     </div>
                     <div class="form-group row d-flex align-items-center mb-5 has-info">
                         <label class="col-lg-3 form-control-label">제목</label>
@@ -67,6 +78,16 @@
 							</script>
                         </div>
                     </div>
+                    <div class="form-group row d-flex align-items-center mb-5 has-info">
+			            <label class="col-lg-3 form-control-label">등록할 날짜</label>
+			            <div class="col-lg-9">
+		                    <div class="form-group">
+		                        <div class="input-group">
+		                            <input type="text" class="form-control" id="date" placeholder="Select value" name="w_date">
+		                        </div>
+		                    </div>
+		                </div>
+	                </div>
                     <button type="button" class="btn btn-success btn-square mr-1 mb-2" id = "write" >작성</button>
                     <a href="adExerciseDetail.do"><button type="button" class="btn btn-secondary btn-square mr-1 mb-2">취소</button></a>
 	            </div>

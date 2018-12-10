@@ -118,7 +118,7 @@ public class Qa11Controller {
 	}
 	
 	@RequestMapping(value = "qa11Ajax.do")
-	public String qa11Ajax(@RequestParam("check")int check ,Model model) {
+	public String qa11Ajax(@RequestParam("check")int check , @RequestParam(value="id",required=false,defaultValue="")String id, Model model) {
 		ArrayList<Qa11> list = null;
 		
 		if (check  == 0) {
@@ -129,6 +129,8 @@ public class Qa11Controller {
 				list = qa11Service.selectQa11Ad(0);
 			} else if (check == 2) {
 				list = qa11Service.selectQa11Ad(1);
+			} else if (check == 4) {
+				list = qa11Service.adSelectQa11Id(id);
 			}
 		}
 			
