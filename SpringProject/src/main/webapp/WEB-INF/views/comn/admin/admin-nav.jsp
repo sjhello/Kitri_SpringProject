@@ -20,7 +20,6 @@
     <ul class="list-unstyled">
 	    <li><a href="#dropdown-health" aria-expanded="false" data-toggle="collapse"><i class="la ti-apple"></i><span>식단</span></a>
 	        <ul id="dropdown-health" class="collapse list-unstyled pt-0">
-	            <li><a href="adDietWrite.do">식단등록</a></li>
 	            <li><a href="adDiet.do">식단조회</a></li>
 	        </ul>
 	    </li>

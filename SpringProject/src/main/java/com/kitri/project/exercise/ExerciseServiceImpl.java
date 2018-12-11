@@ -1,4 +1,4 @@
-package com.kitri.project.adExercise;
+package com.kitri.project.exercise;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -9,74 +9,74 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Component;
 
 @Component("adExerciseService")
-public class AdExerciseServiceImpl implements AdExerciseService {
+public class ExerciseServiceImpl implements ExerciseService {
 	@Resource(name = "sqlSession")
 	private SqlSession sqlSession;
-	private AdExerciseDao dao;
+	private ExerciseDao dao;
 
 	public void setSqlSession(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}
 
 	@Override
-	public void addExercise(AdExercise ad) {
+	public void addExercise(Exercise ad) {
 		// TODO Auto-generated method stub
-		dao = sqlSession.getMapper(AdExerciseDao.class);
+		dao = sqlSession.getMapper(ExerciseDao.class);
 		dao.insert(ad);
 	}
 
 	@Override
-	public AdExercise getExercise(int num) {
+	public Exercise getExercise(int num) {
 		// TODO Auto-generated method stub
-		dao = sqlSession.getMapper(AdExerciseDao.class);
+		dao = sqlSession.getMapper(ExerciseDao.class);
 		return dao.select(num);
 	}
 
 	@Override
-	public void editExercise(AdExercise ad) {
+	public void editExercise(Exercise ad) {
 		// TODO Auto-generated method stub
-		dao = sqlSession.getMapper(AdExerciseDao.class);
+		dao = sqlSession.getMapper(ExerciseDao.class);
 		dao.update(ad);
 	}
 
 	@Override
 	public void delExercise(int num) {
 		// TODO Auto-generated method stub
-		dao = sqlSession.getMapper(AdExerciseDao.class);
+		dao = sqlSession.getMapper(ExerciseDao.class);
 		dao.delete(num);
 	}
 
 	@Override
-	public ArrayList<AdExercise> getAllExercise() {
+	public ArrayList<Exercise> getAllExercise() {
 		// TODO Auto-generated method stub
-		dao = sqlSession.getMapper(AdExerciseDao.class);
+		dao = sqlSession.getMapper(ExerciseDao.class);
 		return dao.selectAll();
 	}
 
 	@Override
-	public AdExercise selectAdExercise(int num) {
+	public Exercise selectAdExercise(int num) {
 		// TODO Auto-generated method stub
-		dao = sqlSession.getMapper(AdExerciseDao.class);
+		dao = sqlSession.getMapper(ExerciseDao.class);
 		return dao.selectAdExercise(num);
 	}
 
 	@Override
 	public void deleteAdExercise(int num) {
 		// TODO Auto-generated method stub
-		dao = sqlSession.getMapper(AdExerciseDao.class);
+		dao = sqlSession.getMapper(ExerciseDao.class);
 		dao.deleteAdExercise(num);
 	}
 
 	@Override
-	public ArrayList<AdExercise> selectExerciseListF(int type) {
+	public ArrayList<Exercise> selectExerciseListF(int type) {
 		// TODO Auto-generated method stub
-		dao = sqlSession.getMapper(AdExerciseDao.class);
+		dao = sqlSession.getMapper(ExerciseDao.class);
 		return dao.selectExerciseListF(type);
 	}
 
 	@Override
-	public ArrayList<AdExercise> selectExerciseDate(String date) {
-		dao = sqlSession.getMapper(AdExerciseDao.class);
+	public ArrayList<Exercise> selectExerciseDate(String date) {
+		dao = sqlSession.getMapper(ExerciseDao.class);
 		return dao.selectExerciseDate(date);
 	}
 	

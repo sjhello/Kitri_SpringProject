@@ -46,29 +46,8 @@ create table employee(
     mng number
 );
 
-create table food(
-    f_level varchar2(20),
-    f_date varchar2(8),
-    mealtime varchar2(20),
-    f1 varchar2(50),
-    f2 varchar2(50),
-    f3 varchar2(50),
-    f4 varchar2(50),
-    f5 varchar2(50),
-    f6 varchar2(50),
-    f_check varchar2(5)
-);
 
-alter table food add(f_check varchar2(5));
 
-create table workout(
-    f_level varchar2(20),
-    video varchar2(200),
-    contents varchar2(4000),
-    w_check varchar2(5)
-);
-
-alter table workout add(w_check varchar2(5));
 drop table inbody;
 create table inbody(
     id varchar2(20) references member(id) on delete cascade,
@@ -119,18 +98,7 @@ ALTER TABLE notice MODIFY(title varchar(100));
 
 commit;
 
---drop table workout;
 
-create table workout(
-    num number primary key,
-    f_level varchar2(20),
-    title varchar2(100),
-    w_date varchar2(50),
-    contents varchar2(4000),
-    w_check varchar2(5)
-);
-
-create sequence seq_workout_num;
 
 insert into fittest values('kgi', TO_DATE('19/01/01'), 40, 5, 60, 10, 10);
 insert into fittest values('kgi', TO_DATE('19/02/01'), 50, 8, 65, 15, 15);
@@ -156,6 +124,24 @@ commit;
 
 select * from fittest;
 
+=======================한길=====================
+식단
+create table food(
+    num number primary key,
+    f_level varchar2(20),
+    f_date varchar2(10),
+    mealtime varchar2(20),
+    f1 varchar2(4000),
+    f2 varchar2(4000),
+    f3 varchar2(4000),
+    f4 varchar2(4000),
+    f5 varchar2(4000),
+    f6 varchar2(4000)
+);
+
+create sequence seq_food_num;
+=======================창순 =====================
+운동법
 create table workout(
     num number primary key,
     f_level varchar2(20),
@@ -163,8 +149,6 @@ create table workout(
     w_date varchar2(50),
     contents varchar2(4000),
 );
-
-ALTER TABLE workoutDROP COLUMN w_check 
 
 create sequence seq_workout_num;
 
@@ -174,11 +158,11 @@ create sequence seq_workout_num;
 create table notice(
     num number primary key,
     title varchar2(20) not null,
-    content varchar2(4000) not null
+    content varchar2(4000) not null,
+    reg_date DATE not null,
+    hits int not null
 );
 create sequence seq_notice_num;
-alter table notice add reg_date DATE not null; 
-alter table notice add hits int not null; 
 
 create table qa(
     q_num number primary key,	

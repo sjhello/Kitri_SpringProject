@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <script src="assets/js/components/datepicker/datepicker.js"></script>
 <script src="assets/vendors/js/datepicker/moment.min.js"></script>
 <script src="assets/vendors/js/datepicker/daterangepicker.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
+		$('#summernote').summernote({
+     	    lang : 'ko-KR',
+     	    height: 300 
+        });
+		
 		$('#edit').click(function() {
 			var numChar = $('#summernote').summernote('code').length;
 	    	var maxNum = 4000;
@@ -17,7 +21,9 @@
 	    		return;
 			} 
 			$('#adEdit').attr('action','adExerciseEdit');
-			$('textarea[name="contents"]').val($('#summernote').summernote('code'));
+			var strBr = $('#summernote').summernote('code');
+			var str = strBr.replace("\n", "\\n" );
+			$('textarea[name="contents"]').val(str);
 			$('#adEdit').submit();
 		});
 	});
@@ -53,13 +59,6 @@
                         <textarea type="text" name = "contents" style="display: none;"></textarea>
                         <div class="col-lg-9">
                            	<div id="summernote" style="height:300px">${adExercise.contents }</div>
-							<script>
-							    $(document).ready(function() {
-							        $('#summernote').summernote({
-						        	    lang : 'ko-KR'
-							        });
-							    });
-							</script>
                         </div>
                     </div>
                     <button type="button" class="btn btn-success btn-square mr-1 mb-2" id = "edit">수정</button>

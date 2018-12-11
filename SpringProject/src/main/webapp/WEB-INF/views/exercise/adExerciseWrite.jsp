@@ -9,6 +9,11 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
+	  	$('#summernote').summernote({
+      	    lang : 'ko-KR',
+      	 	height: 300 
+        });
+		
 		$('#write').click(function() {
 			var numChar = $('#summernote').summernote('code').length;
 	    	var maxNum = 4000;
@@ -48,7 +53,17 @@
 	            <input type="hidden" name="type" value="${param.type }">
 	            <div class="widget-body">
 	            	<div class="form-group row d-flex align-items-center mb-5 has-info">
-                        <label class="col-lg-3 form-control-label">저체중 / 정상체중 / 과체중 선택</label>
+			            <label class="col-lg-3 form-control-label">등록할 날짜</label>
+			            <div class="col-lg-9">
+		                    <div class="form-group">
+		                        <div class="input-group">
+		                            <input type="text" class="form-control" id="date" placeholder="Select value" name="w_date">
+		                        </div>
+		                    </div>
+		                </div>
+	                </div>
+	            	<div class="form-group row d-flex align-items-center mb-5 has-info">
+                        <label class="col-lg-3 form-control-label">저체중 / 정상체중 / 과F체중 </label>
                         <div class="col-lg-9 select mb-3">
 						    <select name="f_level" class="custom-select form-control">
 						        <option value=1>저체중</option>
@@ -66,28 +81,11 @@
                     <div class="form-group row d-flex align-items-center mb-5 has-info">
                         <label class="col-lg-3 form-control-label" name = "contents">내용</label>
                         <div class="col-lg-9">
-                        	<textarea type="text" name = "contents" style="display: none;"></textarea>
+                        	<textarea name = "contents" style="display: none;"></textarea>
                            	<div id="summernote" style="height:300px">
                            	</div>
-							<script>
-							    $(document).ready(function() {
-							        $('#summernote').summernote({
-						        	    lang : 'ko-KR'
-							        });
-							    });
-							</script>
                         </div>
                     </div>
-                    <div class="form-group row d-flex align-items-center mb-5 has-info">
-			            <label class="col-lg-3 form-control-label">등록할 날짜</label>
-			            <div class="col-lg-9">
-		                    <div class="form-group">
-		                        <div class="input-group">
-		                            <input type="text" class="form-control" id="date" placeholder="Select value" name="w_date">
-		                        </div>
-		                    </div>
-		                </div>
-	                </div>
                     <button type="button" class="btn btn-success btn-square mr-1 mb-2" id = "write" >작성</button>
                     <a href="adExerciseDetail.do"><button type="button" class="btn btn-secondary btn-square mr-1 mb-2">취소</button></a>
 	            </div>

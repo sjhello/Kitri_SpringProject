@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    
 <div class="container-fluid">
     <div class="row no-margin">
         <div class="col-xl-12">
@@ -10,11 +13,16 @@
                     <div class="widget-body">
                         <div class="form-group">
                             <div class="btn-group" role="group" aria-label="Buttons Group">
-                                <button type="button" class="btn btn-info mb-2">초급</button>
-                                <button type="button" class="btn btn-warning mb-2">중급</button>
-                                <button type="button" class="btn btn-danger mb-2">고급</button>
+                                <button type="button" class="btn btn-info mb-2">저체중</button>
+                                <button type="button" class="btn btn-warning mb-2">정상체중</button>
+                                <button type="button" class="btn btn-danger mb-2">과체중</button>
                             </div>
                         </div>
+                         <div class="row">
+	                        <span class="col-xl-12">
+								<a href="adDietWriteForm.do"><button type="button" class="btn btn-primary btn-block mb-2" style=" width: 256px; "><i class="la la-pencil"></i>작성하기</button></a>
+							</span>
+						</div>
                     </div>
                 </div>
                 <!-- End Widget Header -->
@@ -68,38 +76,29 @@
 					right: 'today prev,next'
 				},
 				events: [
-					{
-						title: '아침',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-						start: '2018-11-29',
-						end: '2018-11-30',
-						className: 'fc-bg-default',
-						icon : "calendar"
-					}, 
-					{
-						title: '점심',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-						start: '2018-11-29',
-						end: '2018-11-30',
-						className: 'fc-bg-default',
-						icon : "child"
-					},
-					{
-						title: '저녁',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-						start: '2018-11-29',
-						end: '2018-11-30',
-						className: 'fc-bg-default',
-						icon : "birthday-cake"
-					},
-					{
-						title: 'test',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-						start: '2018-11-29',
-						end: '2018-11-30',
-						className: 'fc-bg-default',
-						icon : "birthday-cake"
-					}
+					<c:forEach var="list" items="${list}" varStatus="status">
+						<fmt:parseDate var="parseRegDate" value="${list.f_date}" pattern="MM/dd/yyyy"/>
+							<c:if test="${status.index == 0}">
+								{
+									title: '${list.mealtime }',
+									description: '<c:if test="${list.f1 != null}"><h2>one</h2>${list.f1}<br></c:if><c:if test="${list.f2 != null}"><h2>two</h2>${list.f2}<br></c:if><c:if test="${list.f3 != null}"><h2>three</h2>${list.f3}<br></c:if><c:if test="${list.f4 != null}"><h2>four</h2>${list.f4}<br></c:if><c:if test="${list.f5 != null}"><h2>five</h2>${list.f5}<br></c:if><br><br><a href="adDieUpdateForm.do?num=${list.num }"><button type="button" class="btn btn-outline-success mr-1 mb-2">수정</button></a>&emsp;<a href="adDietDel.do?num=${list.num }"><button type="button" class="btn btn-outline-danger mr-1 mb-2">삭제</button></a>',
+									start: '<fmt:formatDate value="${parseRegDate}" pattern="yyyy-MM-dd"/>',
+									end: '<fmt:formatDate value="${parseRegDate}" pattern="yyyy-MM-dd"/>',
+									className: 'fc-bg-default',
+									icon : "commenting"
+								}
+							</c:if>
+							<c:if test="${status.index != 0}">
+								,{
+									title: '${list.mealtime }',
+									description: '<c:if test="${list.f1 != null}"><h2>One</h2>${list.f1}<br></c:if><c:if test="${list.f2 != null}"><h2>Two</h2>${list.f2}<br></c:if><c:if test="${list.f3 != null}"><h2>Three</h2>${list.f3}<br></c:if><c:if test="${list.f4 != null}"><h2>Four</h2>${list.f4}<br></c:if><c:if test="${list.f5 != null}"><h2>Five</h2>${list.f5}<br></c:if><br><br><a href="adDieUpdateForm.do?num=${list.num }"><c:if test="${list.f6 != null}"><h2>Six</h2>${list.f6}<br></c:if><br><br><a href="adDieUpdateForm.do?num=${list.num }"><button type="button" class="btn btn-outline-success mr-1 mb-2">수정</button></a>&emsp;<a href="adDietDel.do?num=${list.num }"><button type="button" class="btn btn-outline-danger mr-1 mb-2">삭제</button></a>',
+									start: '<fmt:formatDate value="${parseRegDate}" pattern="yyyy-MM-dd"/>',
+									end: '<fmt:formatDate value="${parseRegDate}" pattern="yyyy-MM-dd"/>',
+									className: 'fc-bg-default',
+									icon : "commenting"
+								}
+							</c:if>
+						</c:forEach>
 					],
 				eventRender: function(event, element) {
 					if(event.icon){          

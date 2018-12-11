@@ -1,17 +1,17 @@
-package com.kitri.project.adExercise;
+package com.kitri.project.exercise;
 
 import java.sql.Date;
 
-public class AdExercise {
+public class Exercise {
 	private int num;
 	private String f_level;
 	private String title;
 	private String w_date;
 	private String contents;
 	
-	public AdExercise() {}
+	public Exercise() {}
 	
-	public AdExercise(int num, String f_level, String title, String w_date, String contents) {
+	public Exercise(int num, String f_level, String title, String w_date, String contents) {
 		this.num = num;
 		this.f_level = f_level;
 		this.title = title;
