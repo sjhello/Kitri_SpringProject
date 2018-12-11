@@ -66,6 +66,19 @@ public class AdExerciseServiceImpl implements AdExerciseService {
 		dao = sqlSession.getMapper(AdExerciseDao.class);
 		dao.deleteAdExercise(num);
 	}
+
+	@Override
+	public ArrayList<AdExercise> selectExerciseListF(int type) {
+		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(AdExerciseDao.class);
+		return dao.selectExerciseListF(type);
+	}
+
+	@Override
+	public ArrayList<AdExercise> selectExerciseDate(String date) {
+		dao = sqlSession.getMapper(AdExerciseDao.class);
+		return dao.selectExerciseDate(date);
+	}
 	
 
 
