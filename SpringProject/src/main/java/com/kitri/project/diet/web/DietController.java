@@ -21,7 +21,6 @@ public class DietController {
 	
 	@RequestMapping(value = "diet.do")
 	public String diet(@RequestParam(value="date",required=false)String date, Model model) {
-		System.out.println(date);
 		
 		if (date == null) {
 			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -31,11 +30,9 @@ public class DietController {
 		
 		ArrayList<Diet> list = dietService.selectDietDateList(date);
 		model.addAttribute("list", list);
-		System.out.println(list);
 		String[] array = date.split("/");
 		date = array[1] + "/" + array[0] + "/" + array[2];
 		model.addAttribute("date", date);
-		System.out.println(date);
 		return "diet/diet.tiles";
 	}
 	
