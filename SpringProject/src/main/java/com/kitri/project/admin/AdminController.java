@@ -14,13 +14,9 @@ import com.kitri.project.qa.web.Qa;
 
 @Controller
 public class AdminController {	
-	@Resource(name="qaService")
-	private QaService qaService;
 	
 	@RequestMapping(value = "admin.do")
 	public String admin(Model model) {
-		ArrayList<Qa> qaList = qaService.selectQaList();
-		model.addAttribute("qaList", qaList);
 		return "admin/admin.admin";
 	}
 }

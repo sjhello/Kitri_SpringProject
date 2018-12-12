@@ -5,13 +5,19 @@ import java.util.ArrayList;
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
+
+import com.kitri.project.mail.MailHandler;
+import com.kitri.project.mail.MemberEmailAuth;
+import com.kitri.project.mail.TempKey;
 
 @Component("memberService")
 public class MemberServiceImpl implements MemberService{
 	@Resource(name="sqlSession")
 	private SqlSession sqlSession;
 	private MemberDao dao;
+	
 	public void setSqlSession(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}

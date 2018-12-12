@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kitri.project.mail.MemberEmailAuthDao">
+	<resultMap id="Result" type="com.kitri.project.mail.MemberEmailAuth">
+		<result column="id" property="id" />
+		<result column="email" property="email" />
+		<result column="user_authcode" property="user_authcode" />
+		<result column="auth_confirm" property="auth_confirm" />
+	</resultMap>
+	
+	<insert id="createKey" parameterType="com.kitri.project.mail.MemberEmailAuth">
+		insert into memberEmailAuth values (#{id},#{email},#{user_authcode},default)
+	</insert>
+	
+	<update id="update" parameterType="com.kitri.project.mail.MemberEmailAuth">
+		update memberEmailAuth set auth_confirm='o' where email=#{email} and user_authcode=#{user_authcode}
+	</update>
+	
+</mapper>
