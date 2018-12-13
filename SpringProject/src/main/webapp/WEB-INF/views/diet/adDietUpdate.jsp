@@ -12,6 +12,94 @@
 <script src="lang/summernote-ko-KR.js"></script>
 <script>
     $(document).ready(function() {
+    	var sendFile = function (file, el) {
+			var form_data = new FormData();
+			form_data.append('file', file);
+			$.ajax({
+				data: form_data,
+				type: "POST",
+				url: 'imageUpload.do',
+				processData: false,
+				contentType: false,
+				enctype: 'multipart/form-data',
+				success: function(url) {
+					$(el).summernote('editor.insertImage', url);
+					el.append('<li><img src="'+url+'" width="100%" height="auto"/></li>');
+	    		},
+	    		error : function() {
+					alert("에러발생");
+				}
+			});
+		}
+    	
+    	//summernote 사용
+        $('#summernote1').summernote({
+       	    lang : 'ko-KR',
+       	 	height: 300,
+      	 	callbacks: {
+				onImageUpload: function(files, welEditabl) {
+					for (var i = files.length - 1; i >= 0; i--) {
+					  sendFile(files[i], this);
+					}
+				}
+           }
+        });
+        $('#summernote2').summernote({
+       	    lang : 'ko-KR',
+       	 	height: 300,
+      	 	callbacks: {
+				onImageUpload: function(files, welEditabl) {
+					for (var i = files.length - 1; i >= 0; i--) {
+					  sendFile(files[i], this);
+					}
+				}
+           }
+        });
+        $('#summernote3').summernote({
+       	    lang : 'ko-KR',
+       	 	height: 300,
+      	 	callbacks: {
+				onImageUpload: function(files, welEditabl) {
+					for (var i = files.length - 1; i >= 0; i--) {
+					  sendFile(files[i], this);
+					}
+				}
+           }
+        });
+        $('#summernote4').summernote({
+       	    lang : 'ko-KR',
+       	 	height: 300,
+      	 	callbacks: {
+				onImageUpload: function(files, welEditabl) {
+					for (var i = files.length - 1; i >= 0; i--) {
+					  sendFile(files[i], this);
+					}
+				}
+           }
+        });
+        $('#summernote5').summernote({
+       	    lang : 'ko-KR',
+       	 	height: 300,
+      	 	callbacks: {
+				onImageUpload: function(files, welEditabl) {
+					for (var i = files.length - 1; i >= 0; i--) {
+					  sendFile(files[i], this);
+					}
+				}
+           }
+        });
+        $('#summernote6').summernote({
+        	lang : 'ko-KR',
+        	height: 300,
+      	 	callbacks: {
+				onImageUpload: function(files, welEditabl) {
+					for (var i = files.length - 1; i >= 0; i--) {
+					  sendFile(files[i], this);
+					}
+				}
+           }
+        });
+    	
     	var selected1 = ${count};
     	var selected2 = 5 - selected1;
     	$("#select option:eq("+selected2+")").prop("selected", true);
@@ -28,33 +116,6 @@
         
         $("#f_level").val("${list.f_level}").prop("selected", true);
         $("#mealtime").val("${list.mealtime}").prop("selected", true);
-    	
-    	
-    	//summernote 사용
-        $('#summernote1').summernote({
-       	    lang : 'ko-KR',
-       	 	height: 300 
-        });
-        $('#summernote2').summernote({
-       	    lang : 'ko-KR',
-       	 	height: 300 
-        });
-        $('#summernote3').summernote({
-       	    lang : 'ko-KR',
-       	 	height: 300 
-        });
-        $('#summernote4').summernote({
-       	    lang : 'ko-KR',
-       	 	height: 300 
-        });
-        $('#summernote5').summernote({
-       	    lang : 'ko-KR',
-       	 	height: 300 
-        });
-        $('#summernote6').summernote({
-        	lang : 'ko-KR',
-        	height: 300 
-        });
         
         //개수만큼 전송
         $('#select').change(function() {

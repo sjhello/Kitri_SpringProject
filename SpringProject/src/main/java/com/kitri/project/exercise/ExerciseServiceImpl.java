@@ -2,6 +2,7 @@ package com.kitri.project.exercise;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -79,7 +80,21 @@ public class ExerciseServiceImpl implements ExerciseService {
 		dao = sqlSession.getMapper(ExerciseDao.class);
 		return dao.selectExerciseDate(date);
 	}
-	
 
+	@Override
+	public int countExerciseDate(String date) {
+		dao = sqlSession.getMapper(ExerciseDao.class);
+		return dao.countExerciseDate(date);
+	}
 
+	@Override
+	public ArrayList<Exercise> listAll(int start, int end, String date) {
+		dao = sqlSession.getMapper(ExerciseDao.class);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("start", start);
+		hashMap.put("end", end);
+		hashMap.put("date", date);
+		System.out.println(hashMap);
+		return dao.listAll(hashMap);
+	}
 }

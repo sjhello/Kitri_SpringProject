@@ -9,9 +9,36 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
+		var sendFile = function (file, el) {
+			var form_data = new FormData();
+			form_data.append('file', file);
+			$.ajax({
+				data: form_data,
+				type: "POST",
+				url: 'imageUpload.do',
+				processData: false,
+				contentType: false,
+				enctype: 'multipart/form-data',
+				success: function(url) {
+					$(el).summernote('editor.insertImage', url);
+					el.append('<li><img src="'+url+'" width="100%" height="auto"/></li>');
+        		},
+        		error : function() {
+					alert("에러발생");
+				}
+			});
+		}
+		
 	  	$('#summernote').summernote({
       	    lang : 'ko-KR',
-      	 	height: 300 
+      	 	height: 300,
+      	 	callbacks: {
+				onImageUpload: function(files, welEditabl) {
+					for (var i = files.length - 1; i >= 0; i--) {
+					  sendFile(files[i], this);
+					}
+				}
+           }
         });
 		
 		$('#write').click(function() {
@@ -27,11 +54,12 @@
 	    	
 			$('#adWrite').attr('action','${pageContext.request.contextPath}/adExerciseInsert');
 			var strBr = $('#summernote').summernote('code');
-			var str = strBr.replace("\n", "\\n" );
+			var str = strBr.replace(/\n/gi, "\\n" );
 			$('textarea[name="contents"]').val(str);
 			$('#adWrite').submit();
 		});
 	});
+	
 </script>
 
 <!-- include summernote css/js -->
@@ -82,8 +110,7 @@
                         <label class="col-lg-3 form-control-label" name = "contents">내용</label>
                         <div class="col-lg-9">
                         	<textarea name = "contents" style="display: none;"></textarea>
-                           	<div id="summernote" style="height:300px">
-                           	</div>
+                           	<div id="summernote" style="height:300px"></div>
                         </div>
                     </div>
                     <button type="button" class="btn btn-success btn-square mr-1 mb-2" id = "write" >작성</button>

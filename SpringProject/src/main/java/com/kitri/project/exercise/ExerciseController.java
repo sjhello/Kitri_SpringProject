@@ -1,17 +1,26 @@
 package com.kitri.project.exercise;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 
+import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.kitri.project.comn.Paging;
 
 @Controller
 public class ExerciseController {
@@ -24,7 +33,6 @@ public class ExerciseController {
 	
 	@RequestMapping(value = "exercise.do")
 	public String exercise(@RequestParam(value="date",required=false)String date, Model model) {
-		System.out.println(date);
 		
 		if (date == null) {
 			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -53,7 +61,7 @@ public class ExerciseController {
 		} else {
 			System.out.println("잘못된 형식");
 		}
-		
+		System.out.println(list);
 		model.addAttribute("list", list);
 		model.addAttribute("type", type);
 		return "exercise/adExercise.admin";
@@ -91,6 +99,7 @@ public class ExerciseController {
 	
 	@RequestMapping(value = "adExerciseEdit", method=RequestMethod.POST)
 	public String edit(Exercise ad) {
+		System.out.println(ad);
 		adExerciseService.editExercise(ad);
 		return "redirect:adExercise.do";
 	}
@@ -108,9 +117,20 @@ public class ExerciseController {
 	}
 	
 	@RequestMapping(value = "adExerciseDetail.do", method=RequestMethod.GET)
-	public String getAll(Model model) { // Model 컨트롤러에서 뷰로 값을 내릴때 사용한다.
-		ArrayList<Exercise> list = adExerciseService.getAllExercise();
-		model.addAttribute("list", list);// ()안에 앞에 있는거는 뷰에서 쓸 변수이름, 뒤에 있는거는 내가 쓸 객체
+	public String getAll(Model model, @RequestParam(value="date") String date, @RequestParam(defaultValue="1") int curPage) {
+		int count = adExerciseService.countExerciseDate(date);
+		Paging paging = new Paging(count, curPage);
+		
+		int start = paging.getPageBegin();
+		int end = paging.getPageEnd();
+		
+		ArrayList<Exercise> list = adExerciseService.listAll(start, end, date);
+		System.out.println(list);
+		
+		model.addAttribute("list", list);
+		model.addAttribute("count", count);
+		model.addAttribute("date", date);
+		model.addAttribute("paging", paging);
 		return "exercise/adExerciseDetail.admin";
 	}
 	

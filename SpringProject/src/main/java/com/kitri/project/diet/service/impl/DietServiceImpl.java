@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.kitri.project.diet.service.DietService;
 import com.kitri.project.diet.web.Diet;
+import com.kitri.project.exercise.Exercise;
 
 @Service("dietService")
 public class DietServiceImpl implements DietService{
@@ -50,5 +51,11 @@ public class DietServiceImpl implements DietService{
 	public ArrayList<Diet> selectDietDateList(String date) {
 		dietMapper = sqlSession.getMapper(DietMapper.class);
 		return dietMapper.selectDietDateList(date);
+	}
+
+	@Override
+	public ArrayList<Exercise> selectExerciseListF(String f_level) {
+		dietMapper = sqlSession.getMapper(DietMapper.class);
+		return dietMapper.selectExerciseListF(f_level);
 	}
 }

@@ -2,6 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<script src="assets/js/components/datepicker/datepicker.js"></script>
+<script src="assets/vendors/js/datepicker/moment.min.js"></script>
+<script src="assets/vendors/js/datepicker/daterangepicker.js"></script>
     
 <div class="container-fluid">
     <div class="row no-margin">
@@ -13,14 +17,14 @@
                     <div class="widget-body">
                         <div class="form-group">
                             <div class="btn-group" role="group" aria-label="Buttons Group">
-                                <button type="button" class="btn btn-info mb-2">저체중</button>
-                                <button type="button" class="btn btn-warning mb-2">정상체중</button>
-                                <button type="button" class="btn btn-danger mb-2">과체중</button>
+                                <a href="adDiet.do?type=1"><button type="button" class="btn btn-info mb-2">저체중</button></a>
+                                <a href="adDiet.do?type=2"><button type="button" class="btn btn-warning mb-2">정상체중</button></a>
+                                <a href="adDiet.do?type=3"><button type="button" class="btn btn-danger mb-2">과체중</button></a>
                             </div>
                         </div>
                          <div class="row">
 	                        <span class="col-xl-12">
-								<a href="adDietWriteForm.do"><button type="button" class="btn btn-primary btn-block mb-2" style=" width: 256px; "><i class="la la-pencil"></i>작성하기</button></a>
+								<a href="adDietWriteForm.do?type=${type }"><button type="button" class="btn btn-primary btn-block mb-2" style=" width: 256px; "><i class="la la-pencil"></i>작성하기</button></a>
 							</span>
 						</div>
                     </div>

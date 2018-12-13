@@ -2,6 +2,7 @@ package com.kitri.project.exercise;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public interface ExerciseDao {
 	void insert(Exercise ad);
@@ -21,5 +22,9 @@ public interface ExerciseDao {
 	ArrayList<Exercise> selectExerciseListF(int type);
 
 	ArrayList<Exercise> selectExerciseDate(String date);
+
+	int countExerciseDate(String date);
+
+	ArrayList<Exercise> listAll(HashMap<String, Object> hashMap);
 
 }

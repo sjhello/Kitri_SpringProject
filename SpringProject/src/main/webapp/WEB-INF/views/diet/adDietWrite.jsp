@@ -12,31 +12,93 @@
 <script src="lang/summernote-ko-KR.js"></script>
 <script>
     $(document).ready(function() {
+    	var sendFile = function (file, el) {
+			var form_data = new FormData();
+			form_data.append('file', file);
+			$.ajax({
+				data: form_data,
+				type: "POST",
+				url: 'imageUpload.do',
+				processData: false,
+				contentType: false,
+				enctype: 'multipart/form-data',
+				success: function(url) {
+					$(el).summernote('editor.insertImage', url);
+					el.append('<li><img src="'+url+'" width="100%" height="auto"/></li>');
+	    		},
+	    		error : function() {
+					alert("에러발생");
+				}
+			});
+		}
     	
     	//summernote 사용
-        $('#summernote1').summernote({
-       	    lang : 'ko-KR',
-       	 	height: 300 
-        });
+		$('#summernote1').summernote({
+			lang : 'ko-KR',
+		 	height: 300,
+			callbacks: {
+				onImageUpload: function(files, welEditabl) {
+					for (var i = files.length - 1; i >= 0; i--) {
+					sendFile(files[i], this);
+					}
+				}
+			}
+		 	
+		});
         $('#summernote2').summernote({
        	    lang : 'ko-KR',
-       	 	height: 300 
+       	 	height: 300,
+			callbacks: {
+				onImageUpload: function(files, welEditabl) {
+					for (var i = files.length - 1; i >= 0; i--) {
+					sendFile(files[i], this);
+					}
+				}
+			}
         });
         $('#summernote3').summernote({
        	    lang : 'ko-KR',
-       	 	height: 300 
+       	 	height: 300,
+			callbacks: {
+				onImageUpload: function(files, welEditabl) {
+					for (var i = files.length - 1; i >= 0; i--) {
+					sendFile(files[i], this);
+					}
+				}
+			}
         });
         $('#summernote4').summernote({
        	    lang : 'ko-KR',
-       	 	height: 300 
+       	 	height: 300,
+			callbacks: {
+				onImageUpload: function(files, welEditabl) {
+					for (var i = files.length - 1; i >= 0; i--) {
+					sendFile(files[i], this);
+					}
+				}
+			}
         });
         $('#summernote5').summernote({
        	    lang : 'ko-KR',
-       	 	height: 300 
+       	 	height: 300,
+			callbacks: {
+				onImageUpload: function(files, welEditabl) {
+					for (var i = files.length - 1; i >= 0; i--) {
+					sendFile(files[i], this);
+					}
+				}
+			}
         });
         $('#summernote6').summernote({
         	lang : 'ko-KR',
-        	height: 300 
+        	height: 300,
+			callbacks: {
+				onImageUpload: function(files, welEditabl) {
+					for (var i = files.length - 1; i >= 0; i--) {
+					sendFile(files[i], this);
+					}
+				}
+			}
         });
         
         //개수만큼 전송
@@ -97,6 +159,7 @@
 	                <h4 style=" color: red; ">식단 등록</h4>
 	            </div>
 	            <form id="dietWriteForm" class="form-horizontal" action="adDietWrite.do" method="post">
+	            <input type="hidden" name="type" value="${param.type }">
 	            <div class="widget-body">
 	            	<div class="form-group row d-flex align-items-center mb-5 has-info">
 			            <label class="col-lg-3 form-control-label">등록할 날짜</label>

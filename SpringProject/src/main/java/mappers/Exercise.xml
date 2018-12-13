@@ -43,5 +43,18 @@
 	<select id="selectExerciseDate" parameterType="String" resultMap="ExerciseResult">
 		select * from workout where w_date = #{date}
 	</select>
+	
+	<select id="countExerciseDate" parameterType="String" resultType="java.lang.Integer">
+		select count(*) from workout where w_date=#{date}
+	</select>
+	
+	<select id="listAll" parameterType="hashMap" resultMap="ExerciseResult">
+	<![CDATA[
+		select num,f_level,title,w_date,contents 
+		  from (select rownum as rnum, num, f_level, title, w_date, contents 
+		   		  from workout where w_date=#{date})
+		 WHERE rnum >= #{start} AND rnum <= #{end}
+	]]>
+	</select>
 
 </mapper>

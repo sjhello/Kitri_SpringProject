@@ -33,6 +33,10 @@
 		select * from food where f_date=#{date}
 	</select>
 	
+	<select id="selectExerciseListF" parameterType="String" resultMap="DietResult">
+		select * from food where f_level= #{f_level}
+	</select>
+	
 	<update id="updateDiet" parameterType="com.kitri.project.diet.web.Diet">
 		update food set f_level=#{f_level}, mealtime=#{mealtime}, f1=#{f1}, f2=#{f2}, f3=#{f3}, f4=#{f4}, f5=#{f5}, f6=#{f6} where num=#{num}
 	</update>

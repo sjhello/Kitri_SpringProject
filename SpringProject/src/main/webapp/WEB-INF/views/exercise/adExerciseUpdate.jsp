@@ -6,9 +6,36 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
+		var sendFile = function (file, el) {
+			var form_data = new FormData();
+			form_data.append('file', file);
+			$.ajax({
+				data: form_data,
+				type: "POST",
+				url: 'imageUpload.do',
+				processData: false,
+				contentType: false,
+				enctype: 'multipart/form-data',
+				success: function(url) {
+					$(el).summernote('editor.insertImage', url);
+					el.append('<li><img src="'+url+'" width="100%" height="auto"/></li>');
+	    		},
+	    		error : function() {
+					alert("에러발생");
+				}
+			});
+		}
+		
 		$('#summernote').summernote({
      	    lang : 'ko-KR',
-     	    height: 300 
+     	    height: 300,
+     	   	callbacks: {
+				onImageUpload: function(files, welEditabl) {
+					for (var i = files.length - 1; i >= 0; i--) {
+					  sendFile(files[i], this);
+					}
+				}
+          }
         });
 		
 		$('#edit').click(function() {

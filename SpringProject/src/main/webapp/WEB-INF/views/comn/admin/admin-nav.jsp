@@ -21,6 +21,7 @@
 	    <li><a href="#dropdown-health" aria-expanded="false" data-toggle="collapse"><i class="la ti-apple"></i><span>식단</span></a>
 	        <ul id="dropdown-health" class="collapse list-unstyled pt-0">
 	            <li><a href="adDiet.do">식단조회</a></li>
+	            <li><a href="adDietSelectForm.do">날짜조회</a></li>
 	        </ul>
 	    </li>
 	    <li><a href="#dropdown-exercise" aria-expanded="false" data-toggle="collapse"><i class="la la-bicycle"></i><span>운동법</span></a>

@@ -22,4 +22,8 @@ public interface ExerciseService {
 
 	ArrayList<Exercise> selectExerciseDate(String date);
 
+	int countExerciseDate(String date);
+
+	ArrayList<Exercise> listAll(int start, int end, String date);
+
 }

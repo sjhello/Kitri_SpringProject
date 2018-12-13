@@ -10,8 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kitri.project.diet.service.DietService;
+import com.kitri.project.exercise.Exercise;
 
 @Controller
 public class DietController {
@@ -37,9 +39,25 @@ public class DietController {
 	}
 	
 	@RequestMapping(value = "adDiet.do")
-	public String adDiet(Model model) {
-		ArrayList<Diet> list = dietService.selectDietList();
+	public String adDiet(Model model,@RequestParam(value="type",required=false,defaultValue="1")int type) {
+		ArrayList<Exercise> list = null;
+		String f_level;
+		
+		if (type == 1) {
+			f_level = "저체중";
+			list = dietService.selectExerciseListF(f_level);
+		} else if (type == 2) {
+			f_level = "정상체중";
+			list = dietService.selectExerciseListF(f_level);
+		} else if (type == 3) {
+			f_level = "과체중";
+			list = dietService.selectExerciseListF(f_level);
+		} else {
+			System.out.println("잘못된 형식");
+		}
+		System.out.println(list);
 		model.addAttribute("list", list);
+		model.addAttribute("type", type);
 		return "diet/adDiet.admin";
 	}
 	
@@ -49,8 +67,9 @@ public class DietController {
 	}
 	
 	@RequestMapping(value = "adDietWrite.do")
-	public String adDietWrite(Diet diet) {
+	public String adDietWrite(Diet diet, @RequestParam(value="type",required=false,defaultValue="1") int type, RedirectAttributes redirectAttributes) {
 		dietService.insertDiet(diet);
+		redirectAttributes.addAttribute("type", type);
 		return "redirect:adDiet.do";
 	}
 	
@@ -89,4 +108,19 @@ public class DietController {
 		dietService.deleteDiet(num);
 		return "redirect:adDiet.do";
 	}
+	
+	@RequestMapping(value = "adDietSelectForm.do")
+	public String adDietSelect() {
+		return "diet/adSelectList.admin";
+	}
+	
+	@RequestMapping(value = "adDietSelectList.do")
+	public String adDietSelectList(Model model, @RequestParam(value="date") String date) {
+		System.out.println(date);
+		ArrayList<Diet> list = dietService.selectDietDateList(date);
+		System.out.println(list);
+		model.addAttribute("list", list);
+		return "diet/adSelectList.admin";
+	}
+	
 }
