@@ -12,5 +12,5 @@ public interface MemberDao {
 	Member selectEmail(String email);
 	ArrayList<Member> selectReservation();
 	ArrayList<Member> selectAll();
-	
+	MemberEmailAuthJoin selectEmailConfirm(String id);
 }

@@ -33,7 +33,7 @@ public class MemberEmailAuthServiceImpl implements MemberEmailAuthService{
 										.append(mea.getUser_authcode())
 										.append("' target='_blenk'>이메일 인증 확인</a>")
 										.toString());
-		sendMail.setFrom("이메일","ANYFIT");
+		sendMail.setFrom("sjhello235@gmail.com","ANYFIT");
 		sendMail.setTo(mea.getEmail());
 		sendMail.send();
 	}

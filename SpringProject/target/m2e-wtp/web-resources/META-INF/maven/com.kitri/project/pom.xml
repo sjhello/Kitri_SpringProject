@@ -184,7 +184,13 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
+
+		<!-- JDOM2 -->		
+		<dependency>
+		    <groupId>org.jdom</groupId>
+		    <artifactId>jdom2</artifactId>
+		    <version>2.0.6</version>
+		</dependency>
 		
 	</dependencies>
     <build>

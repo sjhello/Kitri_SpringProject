@@ -84,4 +84,18 @@ public class MemberServiceImpl implements MemberService{
 		}
 		return false;
 	}
+
+	@Override
+	public boolean emailAuthConfirm(String id) {
+		dao = sqlSession.getMapper(MemberDao.class);
+		MemberEmailAuthJoin mea = dao.selectEmailConfirm(id);
+		
+		if(mea==null || mea.getAuth_confirm().equals("x")) {
+			return false;	// 로그인 실패
+		}
+		
+		return true;	// 로그인 성공
+	}
+	
+	
 }

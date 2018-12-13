@@ -18,7 +18,7 @@
 
 			<div class="container clearfix">
 				<h1>ANIFIT</h1>
-				<span>최고의 가성비로 누구나 건강을 관리할 수 있습니다.</span>
+				<span>아이디와 비밀번호가 맞지 않거나 이메일 인증이 되지 않았습니다</span>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="main.do">Home</a></li>
 					<li class="breadcrumb-item"><a href="#">ANIFIT</a></li>

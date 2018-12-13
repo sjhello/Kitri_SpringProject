@@ -17,6 +17,11 @@
 		<result column="age" property="age" />
 		<result column="postnum" property="postnum" />
 	</resultMap>
+	<resultMap type="com.kitri.project.member.MemberEmailAuthJoin" id="emailResult">
+		<result column="id" property="id" />
+		<result column="email" property="email" />
+		<result column="auth_confirm" property="auth_confirm" />
+	</resultMap>
 	
 	<insert id="insert" parameterType="com.kitri.project.member.Member">
 		insert into member values(#{id},#{pwd},#{name},#{tel},#{address},#{email},default,default,default,#{sex},#{age},#{postnum})
@@ -27,7 +32,7 @@
 	</update>
 	
 	<update id="update" parameterType="com.kitri.project.member.Member">
-		update member set name=#{name}, tel=#{tel}, address=#{address}, email=#{email}, age=#{age} where id=#{id}
+		update member set name=#{name}, tel=#{tel}, address=#{address}, pwd=#{pwd} where id=#{id}
 	</update>
 	
 	<select id="select" parameterType="com.kitri.project.member.Member" resultMap="memResult">
@@ -48,6 +53,13 @@
 	
 	<select id="selectAll" resultMap="memResult">
 		select * from member
+	</select>
+	
+	<select id="selectEmailConfirm" resultMap="emailResult" >
+		select m.id,m.email,mea.auth_confirm 
+		from member m join memberemailauth mea
+		on m.id=mea.id
+		where mea.id = #{id}
 	</select>
 	
 </mapper>

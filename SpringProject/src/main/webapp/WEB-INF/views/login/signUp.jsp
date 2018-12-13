@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -101,6 +102,9 @@
 			});
 		});
 		
+		/* 우편번호 검색 */
+		
+		
 		/* validation Check */
 		
 	});
@@ -197,7 +201,7 @@
 								<br> -->
 								<div style="width:100%">
 									<input type="text" class="form-control" id="postnum" name="postnum" placeholder="우편번호" style="width:30%;float:left">
-		                            <input type="button" style="width:110px;" class="btn btn-primary mt-3" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+		                            <input type="button" style="width:110px;" class="btn btn-primary mt-3" onclick="postCode()" value="우편번호 찾기">
                             	</div>
 		                            <input type="text" class="form-control" id="signAddress1" name="signAddress1" placeholder="도로명주소">
 		                            <input type="text" class="form-control" id="signAddress2" name="signAddress2" placeholder="상세주소">
@@ -211,7 +215,7 @@
 		</section><!-- #content end -->
 
 <!-- 도로명 API -->
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
     function sample6_execDaumPostcode() {
         new daum.Postcode({
@@ -248,4 +252,15 @@
             }
         }).open();
     }
+</script> -->
+<script>
+	function postCode(){
+		var win = null;
+		win = window.open("${pageContext.request.contextPath}/postSearch", "win", "width=500, height=500, top=200, left=200");			
+	};
 </script>
+
+
+
+
+
