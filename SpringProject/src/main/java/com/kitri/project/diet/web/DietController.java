@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.kitri.project.comn.Paging;
 import com.kitri.project.diet.service.DietService;
 import com.kitri.project.exercise.Exercise;
 
@@ -45,13 +46,13 @@ public class DietController {
 		
 		if (type == 1) {
 			f_level = "저체중";
-			list = dietService.selectExerciseListF(f_level);
+			list = dietService.selectDietListF(f_level);
 		} else if (type == 2) {
 			f_level = "정상체중";
-			list = dietService.selectExerciseListF(f_level);
+			list = dietService.selectDietListF(f_level);
 		} else if (type == 3) {
 			f_level = "과체중";
-			list = dietService.selectExerciseListF(f_level);
+			list = dietService.selectDietListF(f_level);
 		} else {
 			System.out.println("잘못된 형식");
 		}
@@ -111,15 +112,26 @@ public class DietController {
 	
 	@RequestMapping(value = "adDietSelectForm.do")
 	public String adDietSelect() {
-		return "diet/adSelectList.admin";
+		return "diet/adDietSelect.admin";
 	}
 	
 	@RequestMapping(value = "adDietSelectList.do")
-	public String adDietSelectList(Model model, @RequestParam(value="date") String date) {
-		System.out.println(date);
-		ArrayList<Diet> list = dietService.selectDietDateList(date);
+	public String adDietSelectList(Model model, @RequestParam(value="date") String date, @RequestParam(defaultValue="1") int curPage) {
+		int count = dietService.countDietDate(date);
+		Paging paging = new Paging(count, curPage);
+		System.out.println(count);
+		System.out.println(paging);
+		int start = paging.getPageBegin();
+		int end = paging.getPageEnd();
+		
+		ArrayList<Diet> list = dietService.listAll(start, end, date);
 		System.out.println(list);
+		
+		
 		model.addAttribute("list", list);
+		model.addAttribute("count", count);
+		model.addAttribute("date", date);
+		model.addAttribute("paging", paging);
 		return "diet/adSelectList.admin";
 	}
 	

@@ -13,7 +13,7 @@
             <!-- Begin Widget -->
             <div class="row widget has-shadow">
                 <div class="widget-header bordered d-flex align-items-center">
-                    <h2>Calendar</h2>
+                    <h2>식단 캘린더</h2>
                     <div class="widget-body">
                         <div class="form-group">
                             <div class="btn-group" role="group" aria-label="Buttons Group">

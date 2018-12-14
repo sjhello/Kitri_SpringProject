@@ -1,6 +1,7 @@
 package com.kitri.project.diet.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -54,8 +55,24 @@ public class DietServiceImpl implements DietService{
 	}
 
 	@Override
-	public ArrayList<Exercise> selectExerciseListF(String f_level) {
+	public ArrayList<Exercise> selectDietListF(String f_level) {
 		dietMapper = sqlSession.getMapper(DietMapper.class);
-		return dietMapper.selectExerciseListF(f_level);
+		return dietMapper.selectDietListF(f_level);
+	}
+
+	@Override
+	public int countDietDate(String date) {
+		dietMapper = sqlSession.getMapper(DietMapper.class);
+		return dietMapper.countDietDate(date);
+	}
+
+	@Override
+	public ArrayList<Diet> listAll(int start, int end, String date) {
+		dietMapper = sqlSession.getMapper(DietMapper.class);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("start", start);
+		hashMap.put("end", end);
+		hashMap.put("date", date);
+		return dietMapper.listAll(hashMap);
 	}
 }
