@@ -4,6 +4,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kitri.project.common.MemberAddReg;
 import com.kitri.project.mail.MailHandler;
 import com.kitri.project.mail.MemberEmailAuth;
 import com.kitri.project.mail.MemberEmailAuthService;
@@ -51,11 +54,15 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="memberAdd")
-	public String add(Member m, HttpServletRequest request) throws Exception{
+	public String add(Member m, HttpServletRequest request) throws Exception{		
 		String add1 = request.getParameter("signAddress1");
 		String add2 = request.getParameter("signAddress2");
 		String address = add1 + "/ " + add2;
 		m.setAddress(address);
+		
+		MemberAddReg reg = new MemberAddReg();
+		System.out.println(reg.idReg(m.getId()));
+		System.out.println(reg.pwdReg(m.getPwd()));
 		
 		memberService.join(m);
 		
