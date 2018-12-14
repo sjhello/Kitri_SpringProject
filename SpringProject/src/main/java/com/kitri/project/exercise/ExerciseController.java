@@ -127,6 +127,7 @@ public class ExerciseController {
 		ArrayList<Exercise> list = adExerciseService.listAll(start, end, date);
 		System.out.println(list);
 		
+		
 		model.addAttribute("list", list);
 		model.addAttribute("count", count);
 		model.addAttribute("date", date);

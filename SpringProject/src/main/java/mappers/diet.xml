@@ -33,7 +33,7 @@
 		select * from food where f_date=#{date}
 	</select>
 	
-	<select id="selectExerciseListF" parameterType="String" resultMap="DietResult">
+	<select id="selectDietListF" parameterType="String" resultMap="DietResult">
 		select * from food where f_level= #{f_level}
 	</select>
 	
@@ -44,4 +44,18 @@
 	<delete id="deleteDiet" parameterType="int">
 		delete food where num=#{num}
 	</delete>
+	
+	<select id="countDietDate"  parameterType="String" resultType="java.lang.Integer">
+		select count(*) from food where f_date=#{date}
+	</select>
+	
+	<select id="listAll" parameterType="hashMap" resultMap="DietResult">
+	<![CDATA[
+		select num, f_level, f_date, mealtime, f1, f2, f3, f4, f5, f6
+		  from (select rownum as rnum, num, f_level, f_date, mealtime, f1, f2, f3, f4, f5, f6
+		   		  from food where f_date=#{date})
+		 WHERE rnum >= #{start} AND rnum <= #{end}
+	]]>
+	</select>
+	
 </mapper>

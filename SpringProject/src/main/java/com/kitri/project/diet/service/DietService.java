@@ -19,6 +19,10 @@ public interface DietService {
 
 	ArrayList<Diet> selectDietDateList(String date);
 
-	ArrayList<Exercise> selectExerciseListF(String f_level);
+	ArrayList<Exercise> selectDietListF(String f_level);
+
+	int countDietDate(String date);
+
+	ArrayList<Diet> listAll(int start, int end, String date);
 
 }

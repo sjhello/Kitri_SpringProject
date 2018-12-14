@@ -19,7 +19,7 @@
 	        <!-- Form -->
 	        <div class="widget has-shadow">
 	            <div class="widget-header bordered no-actions d-flex align-items-center">
-	                <h4 style=" color: red; ">날짜조회</h4>
+	                <h4 style=" color: red; ">운동법 날짜조회</h4>
 	            </div>
 	            <form id="selectForm" class="form-horizontal" action="adExerciseDetail.do">
 	            <div class="widget-body">

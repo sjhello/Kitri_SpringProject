@@ -173,7 +173,7 @@
 	        <!-- Form -->
 	        <div class="widget has-shadow">
 	            <div class="widget-header bordered no-actions d-flex align-items-center">
-	                <h4 style=" color: red; ">식단 등록</h4>
+	                <h4 style=" color: red; ">식단 수정폼</h4>
 	            </div>
 	            <form id="dietUpdateForm" class="form-horizontal" action="adDietUpdate.do" method="post">
 	            <input type="hidden" name="num" value="${list.num }">
