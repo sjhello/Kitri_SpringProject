@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kitri.project.qa11.service.impl.Qa11Mapper">
+	<resultMap id="qa11Result" type="com.kitri.project.qa11.web.Qa11">
+		<result column="code" property="code" />
+		<result column="originNo" property="originNo" />
+		<result column="groupOrd" property="groupOrd" />
+		<result column="title" property="title" />
+		<result column="content" property="content" />
+		<result column="id" property="id" />
+		<result column="reg_date" property="reg_date" />
+		<result column="ad_check" property="ad_check" />
+	</resultMap>
+	
+	<select id="selectQa11ListAdNot" resultMap="qa11Result">
+		select *
+		  from b2c_qa	
+	     where id not in 'admin'
+	</select>
+	
+	<select id="selectQa11List" resultMap="qa11Result">
+		select *
+		  from b2c_qa	
+	  ORDER BY originNo DESC, groupOrd ASC
+	</select>
+	
+	<select id="uaSelectQa" parameterType="String" resultMap="qa11Result">
+		select *
+		  from b2c_qa
+		 where id = #{id} or id = 'admin'
+      ORDER BY originNo DESC, groupOrd ASC
+	</select>
+	
+	<select id="selectQa11Ad" parameterType="int" resultMap="qa11Result">
+		select *
+		  from b2c_qa
+		 where ad_check = #{i} and id not in 'admin'
+		
+	</select>
+	
+	<select id="adSelectQa11Id" parameterType="String" resultMap="qa11Result">
+		select *
+		  from b2c_qa
+		 where id like '%' || #{id} || '%' and id not in 'admin'
+		
+	</select>
+	
+	<select id="selectQa11" parameterType="int" resultMap="qa11Result">
+		select *
+		  from b2c_qa
+		 where code = #{code}
+	</select>
+	
+	<select id="selectQa11Id" parameterType="String" resultMap="qa11Result">
+		select *
+		  from b2c_qa
+		 where id = #{id}
+	</select>
+	
+	<select id="detailQa11" parameterType="int" resultMap="qa11Result">
+		select *
+		  from b2c_qa
+		 where originno=#{orginno} and groupord = 0
+	</select>
+	
+	<select id="detailAdQa11" parameterType="int" resultMap="qa11Result">
+		select *
+		  from b2c_qa
+		 where originno=#{orginno} and groupord = 1
+	</select>
+	
+	<insert id="insertQa11" parameterType="com.kitri.project.qa11.web.Qa11">
+		insert into b2c_qa 
+		values (SEQ_B2C_QA_NUM.nextval, SEQ_B2C_QA_NUM.nextval, 0, #{title}, #{content}, #{id}, sysdate,0)
+	</insert>
+	
+	<insert id="insertAdQa11" parameterType="com.kitri.project.qa11.web.Qa11">
+		insert into b2c_qa
+		values (SEQ_B2C_QA_NUM.nextval, #{originNo}, 1, #{title}, #{content}, #{id}, sysdate,0)
+	</insert>
+	
+	<update id="updateQa11CheckTrue" parameterType="int">
+		update b2c_qa
+		   set ad_check = 1
+		 where code = #{code}
+	</update>
+	
+	<update id="updateQa11" parameterType="com.kitri.project.qa11.web.Qa11">
+		update b2c_qa
+		   set title = #{title}, content = #{content}
+		 where code = #{code}
+	</update>
+	
+	<update id="updateupdateQa11CheckFalse" parameterType="int">
+		update b2c_qa
+		   set ad_check = 0
+		 where code = #{code}
+	</update>
+	
+	<delete id="deleteQa11" parameterType="int">
+		delete b2c_qa
+		 where code = #{code}
+	</delete>
+	
+	<delete id="uaDeleteQa11" parameterType="int">
+		delete b2c_qa
+		 where originNo = #{originNo}
+	</delete>
+	
+</mapper>

@@ -21,20 +21,20 @@ public class NoticeServiceImpl implements NoticeService{
 	}
 	
 	@Override
-	public void insertNotice(Notice n) {
-		noticeMapper = sqlSession.getMapper(NoticeMapper.class);
-		noticeMapper.insertNotice(n);
-	}
-
-	@Override
 	public ArrayList<Notice> selectNoticeList() {
 		noticeMapper = sqlSession.getMapper(NoticeMapper.class);
 		return noticeMapper.selectNoticeList();
 	}
-
+	
 	@Override
 	public Notice selectNotice(int num) {
 		return noticeMapper.selectNotice(num);
+	}
+	
+	@Override
+	public void insertNotice(Notice n) {
+		noticeMapper = sqlSession.getMapper(NoticeMapper.class);
+		noticeMapper.insertNotice(n);
 	}
 
 	@Override

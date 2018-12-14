@@ -9,13 +9,7 @@
 		<result column="content" property="content" />
 		<result column="reg_date" property="reg_date" />
 		<result column="hits" property="hits" />
-		
 	</resultMap>
-	
-	<insert id="insertNotice" parameterType="com.kitri.project.notice.web.Notice">
-		insert into notice 
-		values (seq_notice_num.nextval, #{title}, #{content}, sysdate, 0)
-	</insert>
 	
 	<select id="selectNoticeList" resultMap="noticeResult">
 		select * 
@@ -27,6 +21,11 @@
 		  from notice 
 		 where num = #{num}
 	</select>	
+	
+	<insert id="insertNotice" parameterType="com.kitri.project.notice.web.Notice">
+		insert into notice 
+		values (seq_notice_num.nextval, #{title}, #{content}, sysdate, 0)
+	</insert>
 
 	<update id="updateNotice" parameterType="com.kitri.project.notice.web.Notice">
 		update notice
@@ -44,6 +43,4 @@
 		delete notice
 		 where num = #{num}
 	</delete>
-	
-	
 </mapper>

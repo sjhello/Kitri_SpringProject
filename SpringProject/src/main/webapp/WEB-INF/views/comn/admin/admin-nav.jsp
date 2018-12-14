@@ -20,22 +20,26 @@
     <ul class="list-unstyled">
 	    <li><a href="#dropdown-health" aria-expanded="false" data-toggle="collapse"><i class="la ti-apple"></i><span>식단</span></a>
 	        <ul id="dropdown-health" class="collapse list-unstyled pt-0">
-	            <li><a href="adDietWrite.do">식단등록</a></li>
 	            <li><a href="adDiet.do">식단조회</a></li>
+	            <li><a href="adDietSelectForm.do">날짜조회</a></li>
 	        </ul>
 	    </li>
 	    <li><a href="#dropdown-exercise" aria-expanded="false" data-toggle="collapse"><i class="la la-bicycle"></i><span>운동법</span></a>
 	        <ul id="dropdown-exercise" class="collapse list-unstyled pt-0">
-	            <li><a href="adExerciseWrite.do">운동등록</a></li>
 	            <li><a href="adExercise.do">운동조회</a></li>
 	            <li><a href="adExerciseSelect.do">날짜조회</a></li>
 	        </ul>
 	    </li>
 	</ul>
-     <span class="heading">측정</span>
+    <span class="heading">측정</span>
 	<ul class="list-unstyled">
         <li><a href="adInbody.do"><i class="la la-yc-square"></i><span>인바디</span></a></li>
         <li><a href="adFixTest.do"><i class="la la-certificate"></i><span>체력검정</span></a></li>
+    </ul>  
+    <span class="heading">게시판</span>
+	<ul class="list-unstyled">
+        <li><a href="adqa11.do"><i class="la la-yc-square"></i><span>1:1문의</span></a></li>
+        <li><a href="adqa.do"><i class="la la-certificate"></i><span>Q&A</span></a></li>
     </ul>  
 </nav>
 </div>

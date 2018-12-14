@@ -8,7 +8,7 @@
 				<div class="heading-block topmargin">
 					<h1>한달 4만으로<br>매일 매일 당신을 체크합니다.</h1>
 				</div>
-				<p class="lead">애니 픽트는 항상 당신을 위해 움직입니다. <br>하루 1300원의 요금!  최대의 서비스! <br> 지금 바로 신청하세요!</p>
+				<p class="lead">애니 픽트는 항상 당신을 위해 움직입니다. <br>한달 4만원의 요금!  최대의 서비스! <br> 지금 바로 신청하세요!</p>
 			</div>
 
 			<div class="col-xl-7">
@@ -29,8 +29,8 @@
 				<div class="fbox-icon">
 					<a href="#"><i class="icon-line-monitor"></i></a>
 				</div>
-				<h3>Responsive Layout</h3>
-				<p>Powerful Layout with Responsive functionality that can be adapted to any screen size.</p>
+				<h3>헬스케어 솔루션</h3>
+				<p>애니핏트는 회원님의 건강을 관리하는 솔루션입니다. 매일 체질에 맞게 식단과 운동법을 제시하며 건강을 체크합니다.</p>
 			</div>
 		</div>
 
@@ -39,8 +39,8 @@
 				<div class="fbox-icon">
 					<a href="#"><i class="icon-line-eye"></i></a>
 				</div>
-				<h3>Retina Ready Graphics</h3>
-				<p>Looks beautiful &amp; ultra-sharp on Retina Displays with Retina Icons, Fonts &amp; Images.</p>
+				<h3>건강 측정</h3>
+				<p>매월 당신의 몸상태를 기관의 전문가들이 직접측정하고 회원님을 관리합니다.</p>
 			</div>
 		</div>
 
@@ -49,8 +49,8 @@
 				<div class="fbox-icon">
 					<a href="#"><i class="icon-line-star"></i></a>
 				</div>
-				<h3>Powerful Performance</h3>
-				<p>Optimized code that are completely customizable and deliver unmatched fast performance.</p>
+				<h3>알림 시스템</h3>
+				<p>고객님이 직접 달력에 운동과 식단을 체크하며, 소식이 없을시 전화해서 알려드립니다.</p>
 			</div>
 		</div>
 
@@ -61,8 +61,8 @@
 				<div class="fbox-icon">
 					<a href="#"><i class="icon-line-play"></i></a>
 				</div>
-				<h3>HTML5 Video</h3>
-				<p>Canvas provides support for Native HTML5 Videos that can be added to a Full Width Background.</p>
+				<h3>운동법</h3>
+				<p> 최고의 유명 트레이너가 직접 회원님의 운동법을 짜드립니다.</p>
 			</div>
 		</div>
 
@@ -71,8 +71,8 @@
 				<div class="fbox-icon">
 					<a href="#"><i class="icon-params"></i></a>
 				</div>
-				<h3>Parallax Support</h3>
-				<p>Display your Content attractively using Parallax Sections that have unlimited customizable areas.</p>
+				<h3>식단</h3>
+				<p>영양관리사가 회원님의 체질에 맞게 여러가지 식단을 제공하면서 골라서 선택할 수 있도록 해드립니다.</p>
 			</div>
 		</div>
 
@@ -81,43 +81,10 @@
 				<div class="fbox-icon">
 					<a href="#"><i class="icon-line-circle-check"></i></a>
 				</div>
-				<h3>Endless Possibilities</h3>
-				<p>Complete control on each &amp; every element that provides endless customization possibilities.</p>
+				<h3>최고의 가성비</h3>
+				<p>한달 3만원으로 회원님의 식단과 운동법, 몸상태 측정을 해드립니다.</p>
 			</div>
 		</div>
-
-		<div class="clear"></div>
-
-		<div class="col_one_third bottommargin-sm">
-			<div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="600">
-				<div class="fbox-icon">
-					<a href="#"><i class="icon-bulb"></i></a>
-				</div>
-				<h3>Light &amp; Dark Color Schemes</h3>
-				<p>Change your Website's Primary Scheme instantly by simply adding the dark class to the body.</p>
-			</div>
-		</div>
-
-		<div class="col_one_third bottommargin-sm">
-			<div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="800">
-				<div class="fbox-icon">
-					<a href="#"><i class="icon-heart2"></i></a>
-				</div>
-				<h3>Boxed &amp; Wide Layouts</h3>
-				<p>Stretch your Website to the Full Width or make it boxed to surprise your visitors.</p>
-			</div>
-		</div>
-
-		<div class="col_one_third bottommargin-sm col_last">
-			<div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="1000">
-				<div class="fbox-icon">
-					<a href="#"><i class="icon-note"></i></a>
-				</div>
-				<h3>Extensive Documentation</h3>
-				<p>We have covered each &amp; everything in our Documentation including Videos &amp; Screenshots.</p>
-			</div>
-		</div>
-
 		<div class="clear"></div>
 	</div>
 	
@@ -135,34 +102,10 @@
 								<a href="#"><img src="images/testimonials/3.jpg" alt="Customer Testimonails"></a>
 							</div>
 							<div class="testi-content">
-								<p>Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque. Repellendus, vero numquam?</p>
+								<p>건강을 유지하는 건 참 어렵고 그만큼 돈도 많이듭니다. 하지만 애니핏트와 함께라면 그것은 가능합니다. </p>
 								<div class="testi-meta">
-									Steve Jobs
-									<span>Apple Inc.</span>
-								</div>
-							</div>
-						</div>
-						<div class="slide">
-							<div class="testi-image">
-								<a href="#"><img src="images/testimonials/2.jpg" alt="Customer Testimonails"></a>
-							</div>
-							<div class="testi-content">
-								<p>Natus voluptatum enim quod necessitatibus quis expedita harum provident eos obcaecati id culpa corporis molestias.</p>
-								<div class="testi-meta">
-									Collis Ta'eed
-									<span>Envato Inc.</span>
-								</div>
-							</div>
-						</div>
-						<div class="slide">
-							<div class="testi-image">
-								<a href="#"><img src="images/testimonials/1.jpg" alt="Customer Testimonails"></a>
-							</div>
-							<div class="testi-content">
-								<p>Incidunt deleniti blanditiis quas aperiam recusandae consequatur ullam quibusdam cum libero illo rerum!</p>
-								<div class="testi-meta">
-									John Doe
-									<span>XYZ Inc.</span>
+									김대표
+									<span>CEO</span>
 								</div>
 							</div>
 						</div>
@@ -175,8 +118,8 @@
 	<div class="container clearfix">
 
 		<div class="heading-block topmargin-lg center">
-			<h2>Even more Feature Rich</h2>
-			<span class="divcenter">Philanthropy convener livelihoods, initiative end hunger gender rights local. John Lennon storytelling; advocate, altruism impact catalyst.</span>
+			<h2>애니핏트 사용법</h2>
+			<span class="divcenter">헬스 케어 솔루션 100% 즐기기</span>
 		</div>
 
 		<div class="row bottommargin-sm">
@@ -187,16 +130,16 @@
 					<div class="fbox-icon">
 						<a href="#"><i class="icon-line-heart"></i></a>
 					</div>
-					<h3>Boxed &amp; Wide Layouts</h3>
-					<p>Stretch your Website to the Full Width or make it boxed to surprise your visitors.</p>
+					<h3>1. 예약하기</h3>
+					<p>신청 및 회원가입을 하시면 작성한 전화번호로 예약일정을 잡아드립니다.</p>
 				</div>
 
 				<div class="feature-box fbox-right topmargin" data-animate="fadeIn" data-delay="200">
 					<div class="fbox-icon">
 						<a href="#"><i class="icon-line-paper"></i></a>
 					</div>
-					<h3>Extensive Documentation</h3>
-					<p>We have covered each &amp; everything in our Docs including Videos &amp; Screenshots.</p>
+					<h3>2. 체력측정 & 건강검진 </h3>
+					<p>예약 날짜에 오시면 전문가들이 측정 및 검사를 해드립니다.</p>
 				</div>
 
 				<div class="feature-box fbox-right topmargin" data-animate="fadeIn" data-delay="400">

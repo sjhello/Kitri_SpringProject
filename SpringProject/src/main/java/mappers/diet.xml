@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kitri.project.diet.service.impl.DietMapper">
+
+	<resultMap id="DietResult" type="com.kitri.project.diet.web.Diet">
+		<result column="num" property="num" />
+		<result column="f_level" property="f_level" />
+		<result column="f_date" property="f_date" />
+		<result column="mealtime" property="mealtime" />
+		<result column="f1" property="f1" />
+		<result column="f2" property="f2" />
+		<result column="f3" property="f3" />
+		<result column="f4" property="f4" />
+		<result column="f5" property="f5" />
+		<result column="f6" property="f6" />
+	</resultMap>
+
+	<insert id="insertDiet" parameterType="com.kitri.project.diet.web.Diet">
+		insert into food values(seq_food_num.nextval, #{f_level}, #{f_date}, #{mealtime}, #{f1}, #{f2}, #{f3}, #{f4}, #{f5}, #{f6})
+	</insert>	
+
+	<select id="selectDietList" resultMap="DietResult">
+		select * from food
+	</select>
+	
+	<select id="selectDiet" parameterType="int" resultMap="DietResult">
+		select * from food where num=#{num}
+	</select>
+	
+	<select id="selectDietDateList" parameterType="String" resultMap="DietResult">
+		select * from food where f_date=#{date}
+	</select>
+	
+	<select id="selectExerciseListF" parameterType="String" resultMap="DietResult">
+		select * from food where f_level= #{f_level}
+	</select>
+	
+	<update id="updateDiet" parameterType="com.kitri.project.diet.web.Diet">
+		update food set f_level=#{f_level}, mealtime=#{mealtime}, f1=#{f1}, f2=#{f2}, f3=#{f3}, f4=#{f4}, f5=#{f5}, f6=#{f6} where num=#{num}
+	</update>
+	
+	<delete id="deleteDiet" parameterType="int">
+		delete food where num=#{num}
+	</delete>
+</mapper>

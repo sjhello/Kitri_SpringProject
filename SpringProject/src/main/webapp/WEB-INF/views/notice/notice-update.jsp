@@ -4,6 +4,22 @@
 <script>
 	$(document).ready(function() {
 		$('#updateButton').click(function() {
+			$title = $('#title');
+			$content = $('#content1');
+			
+			var title = $title.val();
+			var content = $content.val();
+			
+			if (title == "") {
+				alert("제목을 입력해주세요");
+				return;
+			} 
+			
+			if (content == "") {
+				alert("내용을 입력해주세요");
+				return;
+			}
+			
 			$('#updateForm').submit();
 		});
 	});
@@ -41,7 +57,7 @@
 						  <tbody>
 							<tr>
 							  <td>제목</td>
-							  <td><input name="title" type="text" style="width:487px" value="${list.title }" maxlength="100"/></td>
+							  <td><input id="title" name="title" type="text" style="width:487px" value="${list.title }" maxlength="100"/></td>
 							</tr>
 							<tr>
 							  <td>아이디</td>
@@ -49,7 +65,7 @@
 							</tr>
 							<tr>
 							  <td>내용</td>
-							  <td style=" height: 386px; "><textarea name="content" rows="25" cols="61" style="resize: none;"  maxlength="4000">${list.content }</textarea></td>
+							  <td style=" height: 386px; "><textarea id="content1" name="content" rows="25" cols="61" style="resize: none;"  maxlength="4000">${list.content }</textarea></td>
 							</tr>
 							<tr>
 								<td colspan="2">

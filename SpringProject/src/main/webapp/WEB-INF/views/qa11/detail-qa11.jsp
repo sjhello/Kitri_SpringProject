@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<script>
+	if(${id == null}) {
+		alert("잘못된 접근입니다.");
+		location.href="main.do";
+	}
+</script>
 <section id="page-title" class="page-title-parallax page-title-dark" style="padding: 250px 0; background-image: url('images/about/parallax.jpg'); background-size: cover; background-position: center center;" data-bottom-top="background-position:0px 400px;" data-top-bottom="background-position:0px -500px;">
 
 			<div class="container clearfix">
@@ -29,22 +37,20 @@
 						  </thead>
 						  <tbody>
 							<tr>
-							  <td>제목</td>
-							  <td>너무 졸려요</td>
+							  <td style=" width: 242px; ">제목</td>
+							  <td>${list.title }</td>
 							</tr>
 							<tr>
 							  <td>아이디</td>
-							  <td>낫빠운드 케익</td>
+							  <td>${list.id }</td>
 							</tr>
 							<tr>
 							  <td>내용</td>
-							  <td style=" height: 386px; ">잠좀 자고 해야될거같은데</td>
+							  <td style=" height: 386px; ">${list.content }</td>
 							</tr>
 							<tr>
 								<td colspan="2">
 									<a href="qa11.do" class="btn btn-secondary btn-sm fright" style=" margin-left: 3px; ">목록</a>
-									<a href="qaUpdate11.do" class="btn btn-secondary btn-sm fright" style=" margin-left: 3px; ">수정</a>
-									<a href="qa11.do" class="btn btn-secondary btn-sm fright" style=" margin-left: 3px; ">삭제</a>
 								</td>
 							</tr>
 						  </tbody>

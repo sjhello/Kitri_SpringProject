@@ -30,7 +30,21 @@
 <section id="content">
 	<div class="content-wrap">
 		<div class="container clearfix" style="margin-bottom: 175px;">
-			<h2 style=" color: mediumvioletred; ">박노율 고객님의 체력측정</h2>
+			<h2 style=" color: mediumvioletred; ">
+				${mlist.id } 고객님의 측정 체력측정
+			</h2>
+			<h3>
+				&nbsp;성별: 
+					<c:choose>
+						<c:when test="${mlist.sex eq 'm'}">
+							<td class="text-primary">남</td>
+						</c:when>
+						<c:when test="${mlist.sex eq 'w'}">
+							<td class="text-primary">여</td>
+						</c:when>
+					</c:choose>
+				&nbsp;나이: ${mlist.age } 
+			</h3>
 			<div class="row charts-container chart1"></div>
 		</div>
 		<div class="line"></div>
@@ -43,12 +57,13 @@
 <script src="js/components/moment.js"></script>
 
 <script>
+
 	function createConfig(gridlines, title) {
 		return {
 			type: 'line',
 			data: {
 				labels: [
-					<c:forEach var="i" items="${list }">
+					<c:forEach var="i" items="${flist }">
 						"${i.fit_date }",
 					</c:forEach>
 				],
@@ -57,18 +72,18 @@
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${flist }">
 							50,
 						</c:forEach>
 						],
 					fill: false,
 				}, {
-					label: "회원",
+					label: "팔굽",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${flist }">
 							${i.pushup },
 						</c:forEach>
 						],
@@ -102,7 +117,7 @@
 			type: 'line',
 			data: {
 				labels: [
-					<c:forEach var="i" items="${list }">
+					<c:forEach var="i" items="${flist }">
 						"${i.fit_date }",
 					</c:forEach>
 				],
@@ -111,18 +126,18 @@
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${flist }">
 							10,
 						</c:forEach>
 						],
 					fill: false,
 				}, {
-					label: "회원",
+					label: "턱걸이",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${flist }">
 							${i.pullup },
 						</c:forEach>
 						],
@@ -156,7 +171,7 @@
 			type: 'line',
 			data: {
 				labels: [
-					<c:forEach var="i" items="${list }">
+					<c:forEach var="i" items="${flist }">
 						"${i.fit_date }",
 					</c:forEach>
 				],
@@ -165,18 +180,18 @@
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${flist }">
 							50,
 						</c:forEach>
 						],
 					fill: false,
 				}, {
-					label: "회원",
+					label: "스퀏",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${flist }">
 							${i.squat },
 						</c:forEach>
 						],
@@ -196,7 +211,7 @@
 						gridLines: gridlines,
 						ticks: {
 							min: 0,
-							max: 130,
+							max: 120,
 							stepSize: 10
 						}
 					}]
@@ -210,7 +225,7 @@
 			type: 'line',
 			data: {
 				labels: [
-					<c:forEach var="i" items="${list }">
+					<c:forEach var="i" items="${flist }">
 						"${i.fit_date }",
 					</c:forEach>
 				],
@@ -219,18 +234,18 @@
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${flist }">
 							60,
 						</c:forEach>
 						],
 					fill: false,
 				}, {
-					label: "회원",
+					label: "윗몸",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${flist }">
 							${i.situp },
 						</c:forEach>
 						],
@@ -264,7 +279,7 @@
 			type: 'line',
 			data: {
 				labels: [
-					<c:forEach var="i" items="${list }">
+					<c:forEach var="i" items="${flist }">
 						"${i.fit_date }",
 					</c:forEach>
 				],
@@ -273,18 +288,18 @@
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${flist }">
 							15, 
 						</c:forEach>
 						],
 					fill: false,
 				}, {
-					label: "회원",
+					label: "버피",
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
 					data: [
-						<c:forEach var="i" items="${list }">
+						<c:forEach var="i" items="${flist }">
 							${i.burpee },
 						</c:forEach>
 						],
@@ -411,7 +426,7 @@
 			container.appendChild(div);
 
 			var ctx = canvas.getContext('2d');
-			var config = createConfig4(details.gridLines, details.title);
+			var config = createConfig5(details.gridLines, details.title);
 			new Chart(ctx, config);
 		});
 	};

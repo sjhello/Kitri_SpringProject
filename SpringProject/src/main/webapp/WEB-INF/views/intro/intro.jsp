@@ -25,7 +25,7 @@
 					<div class="col_one">
 
 						<div class="heading-block fancy-title nobottomborder title-bottom-border">
-							<h4> <span>KITRI</span>파이널 프로젝트</h4>
+							<h4> <span>KITRI</span>파이널 프로젝트 (박노율, 경규일, 김상진, 박창순, 정한길)</h4>
 						</div>
 
 						<p>애니픽트는 회원의 건강을 체크하는 솔루션입니다. 시간이 지나면서 고령화 사회는 점점 심해지고, 모든 사람들은 건강을 필요로 합니다. 이 홈페이지는 미래에 꼭 필요한 홈페이지입니다. 회원들의 직접 건강을 체크하고 체질에 맞는 건강관리를 해줍니다. </p>

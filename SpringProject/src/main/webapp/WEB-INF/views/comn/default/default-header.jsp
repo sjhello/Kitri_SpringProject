@@ -42,8 +42,10 @@
 						<li class="current"><a href="#" data-toggle="modal" data-target="#myModal"><div>로그인</div></a>
 						</li>
 					</c:if>
-					<li class="current"><a href="qa11.do"><div>1:1문의</div></a>
+					<c:if test="${id !=null }">
+						<li class="current"><a href="qa11.do"><div>1:1문의</div></a>
 					</li>
+					</c:if>
 					<c:if test="${id==null }">
 						<li class="current"><a href="signUp.do"><div>신청 및 회원가입</div></a>
 						</li>

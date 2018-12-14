@@ -96,6 +96,11 @@
 		<beans:constructor-arg name="sqlSessionFactory"
 			ref="sqlSessionFactory" />
 	</beans:bean>
+	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10000000" />
+		<beans:property name="defaultEncoding" value="utf-8" />
+	</beans:bean>
 
 	<!-- 메일 인증 -->
 	<beans:bean id="mailSender"

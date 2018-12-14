@@ -1,5 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<script src="assets/js/components/datepicker/datepicker.js"></script>
+<script src="assets/vendors/js/datepicker/moment.min.js"></script>
+<script src="assets/vendors/js/datepicker/daterangepicker.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#events').click(function() {
+			$('#adDel').attr('action','${pageContext.request.contextPath}/adExerciseDel');
+			$('#adDel').submit();
+		});
+	});
+</script>
 <div class="container-fluid">
     <div class="row no-margin">
         <div class="col-xl-12">
@@ -10,11 +25,16 @@
                     <div class="widget-body">
                         <div class="form-group">
                             <div class="btn-group" role="group" aria-label="Buttons Group">
-                                <button type="button" class="btn btn-info mb-2">초급</button>
-                                <button type="button" class="btn btn-warning mb-2">중급</button>
-                                <button type="button" class="btn btn-danger mb-2">고급</button>
+                                <a href="adExercise.do?type=1"><button type="button" class="btn btn-info mb-2">저체중</button></a>
+                                <a href="adExercise.do?type=2"><button type="button" class="btn btn-warning mb-2">정상체중</button></a>
+                                <a href="adExercise.do?type=3"><button type="button" class="btn btn-danger mb-2">과체중</button></a>
                             </div>
                         </div>
+                        <div class="row">
+	                        <span class="col-xl-12">
+								<a href="adExerciseWrite.do?type=${type }"><button type="button" class="btn btn-primary btn-block mb-2" style=" width: 256px; "><i class="la la-pencil"></i>작성하기</button></a>
+							</span>
+						</div>
                     </div>
                 </div>
                 <!-- End Widget Header -->
@@ -34,8 +54,6 @@
 
 <script>
 	(function ($) {
-	
-		
 		$('.circle-orders').circleProgress({
 			value: 0.43,
 			size: 120,
@@ -68,38 +86,30 @@
 					right: 'today prev,next'
 				},
 				events: [
-					{
-						title: '어께',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-						start: '2018-11-29',
-						end: '2018-11-30',
-						className: 'fc-bg-violet',
-						icon : "calendar"
-					}, 
-					{
-						title: '하체',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-						start: '2018-11-29',
-						end: '2018-11-30',
-						className: 'fc-bg-default',
-						icon : "child"
-					},
-					{
-						title: '등',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-						start: '2018-11-29',
-						end: '2018-11-30',
-						className: 'fc-bg-default',
-						icon : "birthday-cake"
-					},
-					{
-						title: 'test',
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-						start: '2018-11-29',
-						end: '2018-11-30',
-						className: 'fc-bg-default',
-						icon : "birthday-cake"
-					}
+					<c:forEach var="list" items="${list}" varStatus="status">
+					
+					<fmt:parseDate var="parseRegDate" value="${list.w_date}" pattern="MM/dd/yyyy"/>
+						<c:if test="${status.index == 0}">
+							{
+								title: '${list.title }',
+								description: '${list.contents}<br><br><br><a href="adExerciseUpdate.do?num=${list.num }"><button type="button" class="btn btn-outline-success mr-1 mb-2">수정</button></a>&emsp;<a href="adExerciseDelete.do?num=${list.num }"><button type="button" class="btn btn-outline-danger mr-1 mb-2">삭제</button></a>',
+								start: '<fmt:formatDate value="${parseRegDate}" pattern="yyyy-MM-dd"/>',
+								end: '<fmt:formatDate value="${parseRegDate}" pattern="yyyy-MM-dd"/>',
+								className: 'fc-bg-default',
+								icon : "commenting"
+							}
+						</c:if>
+						<c:if test="${status.index != 0}">
+							,{
+								title: '${list.title }',
+								description: '${list.contents}<br><br><br><a href="adExerciseUpdate.do?num=${list.num }"><button type="button" class="btn btn-outline-success mr-1 mb-2">수정</button></a>&emsp;<a href="adExerciseDelete.do?num=${list.num }"><button type="button" class="btn btn-outline-danger mr-1 mb-2">삭제</button></a>',
+								start: '<fmt:formatDate value="${parseRegDate}" pattern="yyyy-MM-dd"/>',
+								end: '<fmt:formatDate value="${parseRegDate}" pattern="yyyy-MM-dd"/>',
+								className: 'fc-bg-default',
+								icon : "commenting"
+							}
+						</c:if>
+					</c:forEach>
 					],
 				eventRender: function(event, element) {
 					if(event.icon){          
