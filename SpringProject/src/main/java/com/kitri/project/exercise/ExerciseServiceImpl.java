@@ -94,7 +94,6 @@ public class ExerciseServiceImpl implements ExerciseService {
 		hashMap.put("start", start);
 		hashMap.put("end", end);
 		hashMap.put("date", date);
-		System.out.println(hashMap);
 		return dao.listAll(hashMap);
 	}
 }
