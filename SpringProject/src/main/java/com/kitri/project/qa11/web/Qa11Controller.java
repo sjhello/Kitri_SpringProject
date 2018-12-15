@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kitri.project.comn.Paging;
 import com.kitri.project.qa11.service.Qa11Service;
 
 @Controller
@@ -111,9 +112,18 @@ public class Qa11Controller {
 	}
 	
 	@RequestMapping(value = "adqa11.do")
-	public String adQa11(Model model) {
-		ArrayList<Qa11> list =  qa11Service.selectQa11ListAdNot();
+	public String adQa11(Model model, @RequestParam(defaultValue="1") int curPage) {
+		int count = qa11Service.countQa11ListAdNot();
+		Paging paging = new Paging(count, curPage);
+		
+		int start = paging.getPageBegin();
+		int end = paging.getPageEnd();
+		
+		ArrayList<Qa11> list =  qa11Service.listAll(start, end);
+		
 		model.addAttribute("list", list);
+		model.addAttribute("count", count);
+		model.addAttribute("paging", paging);
 		return "qa11/ad-qa11.admin";
 	}
 	

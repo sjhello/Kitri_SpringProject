@@ -1,6 +1,7 @@
 package com.kitri.project.qa.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -44,5 +45,20 @@ public class QaServiceImpl implements QaService{
 	public void deleteQa(int q_num) {
 		qaMapper = sqlSession.getMapper(QaMapper.class);
 		qaMapper.deleteQa(q_num);
+	}
+
+	@Override
+	public int countQaList() {
+		qaMapper = sqlSession.getMapper(QaMapper.class);
+		return qaMapper.countQaList();
+	}
+
+	@Override
+	public ArrayList<Qa> listAll(int start, int end) {
+		qaMapper = sqlSession.getMapper(QaMapper.class);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("start", start);
+		hashMap.put("end", end);
+		return qaMapper.listAll(hashMap);
 	}
 }

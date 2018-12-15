@@ -37,4 +37,18 @@
 		 where q_num = #{q_num}
 	</delete>
 	
+	<select id="countQaList" resultType="java.lang.Integer">
+		select count(*)
+		  from qa
+	</select>
+	
+	<select id="listAll" parameterType="hashMap" resultMap="qaResult">
+		<![CDATA[
+		select rnum, Q_NUM, TITLE, CONTENT, REG_DATE
+		  from (select rownum as rnum, Q_NUM, TITLE, CONTENT, REG_DATE
+		   		  from qa)
+		 WHERE rnum >= #{start} AND rnum <= #{end}
+	]]>
+	</select>
+	
 </mapper>

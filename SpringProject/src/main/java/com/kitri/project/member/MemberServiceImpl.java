@@ -1,17 +1,24 @@
 package com.kitri.project.member;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
+
+import com.kitri.project.mail.MailHandler;
+import com.kitri.project.mail.MemberEmailAuth;
+import com.kitri.project.mail.TempKey;
 
 @Component("memberService")
 public class MemberServiceImpl implements MemberService{
 	@Resource(name="sqlSession")
 	private SqlSession sqlSession;
 	private MemberDao dao;
+	
 	public void setSqlSession(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}
@@ -78,4 +85,33 @@ public class MemberServiceImpl implements MemberService{
 		}
 		return false;
 	}
+
+	@Override
+	public boolean emailAuthConfirm(String id) {
+		dao = sqlSession.getMapper(MemberDao.class);
+		MemberEmailAuthJoin mea = dao.selectEmailConfirm(id);
+		
+		if(mea==null || mea.getAuth_confirm().equals("x")) {
+			return false;	// 로그인 실패
+		}
+		
+		return true;	// 로그인 성공
+	}
+
+	@Override
+	public int countMember() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.countMember();
+	}
+
+	@Override
+	public ArrayList<Member> selectMemberList(int start, int end) {
+		dao = sqlSession.getMapper(MemberDao.class);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("start", start);
+		hashMap.put("end", end);
+		return dao.selectMemberList(hashMap);
+	}
+	
+	
 }

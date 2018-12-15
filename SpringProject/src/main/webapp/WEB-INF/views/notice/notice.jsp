@@ -53,6 +53,9 @@
 						    <li class="page-item disabled">
 						      <span class="page-link">&laquo;</span>
 						    </li>
+						    <li class="page-item">
+						      <a class="page-link" href="#">&lsaquo;</a>
+						    </li>
 						    <li class="page-item"><a class="page-link" href="#">1</a></li>
 						    <li class="page-item active">
 						      <span class="page-link">
@@ -61,6 +64,9 @@
 						      </span>
 						    </li>
 						    <li class="page-item"><a class="page-link" href="#">3</a></li>
+						    <li class="page-item">
+						      <a class="page-link" href="#">&rsaquo;</a>
+						    </li>
 						    <li class="page-item">
 						      <a class="page-link" href="#">&raquo;</a>
 						    </li>

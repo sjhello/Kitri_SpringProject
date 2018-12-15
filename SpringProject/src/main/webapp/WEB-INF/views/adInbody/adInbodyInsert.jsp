@@ -13,37 +13,37 @@
                     <div class="form-group row d-flex align-items-center mb-5 has-info">
                         <label class="col-lg-3 form-control-label">아이디</label>
                         <div class="col-lg-9">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" id="id">
                         </div>
                     </div>
                     <div class="form-group row d-flex align-items-center mb-5 has-info">
-                        <label class="col-lg-3 form-control-label">BMI</label>
+                        <label class="col-lg-3 form-control-label">키</label>
                         <div class="col-lg-9">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" id="height">
                         </div>
                     </div>
                     <div class="form-group row d-flex align-items-center mb-5 has-info">
                         <label class="col-lg-3 form-control-label">몸무게</label>
                         <div class="col-lg-9">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" id="weight">
                         </div>
                     </div>
                     <div class="form-group row d-flex align-items-center mb-5 has-info">
                         <label class="col-lg-3 form-control-label">골격근량</label>
                         <div class="col-lg-9">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" id="muscle">
                         </div>
                     </div>
                     <div class="form-group row d-flex align-items-center mb-5 has-info">
                         <label class="col-lg-3 form-control-label">체지방</label>
                         <div class="col-lg-9">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" id="fat">
                         </div>
                     </div>
                     <div class="form-group row d-flex align-items-center mb-5 has-info">
-                        <label class="col-lg-3 form-control-label">체지방률</label>
+                        <label class="col-lg-3 form-control-label">bmi</label>
                         <div class="col-lg-9">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" id="bmi">
                         </div>
                     </div>
                     <a href="bookMember.do"><button type="button" class="btn btn-success btn-square mr-1 mb-2">작성</button></a>

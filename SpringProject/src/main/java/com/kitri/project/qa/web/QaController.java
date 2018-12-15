@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kitri.project.comn.Paging;
 import com.kitri.project.qa.service.QaService;
 
 @Controller
@@ -19,13 +20,13 @@ public class QaController {
 	@RequestMapping(value = "qa.do")
 	public String qa(Model model) {
 		ArrayList<Qa> list = qaService.selectQaList(); 
+		
 		model.addAttribute("list", list);
 		return "qa/qa.tiles";
 	}
 	
 	@RequestMapping(value = "adQaWriteForm.do")
 	public String aqQaWriteForm() {
-		
 		return "qa/adQa-Write.admin";
 	}
 	
@@ -57,11 +58,21 @@ public class QaController {
 		model.addAttribute("list", list);
 		return "redirect:adqa.do";
 	}
-	
+		
 	@RequestMapping(value = "adqa.do")
-	public String adqa(Model model) {
-		ArrayList<Qa> qaList = qaService.selectQaList();
+	public String adqa(Model model, @RequestParam(defaultValue="1") int curPage) {
+		int count = qaService.countQaList();
+		
+		Paging paging = new Paging(count, curPage);
+		
+		int start = paging.getPageBegin();
+		int end = paging.getPageEnd();
+		
+		ArrayList<Qa> qaList = qaService.listAll(start, end);
+		
 		model.addAttribute("qaList", qaList);
+		model.addAttribute("count", count);
+		model.addAttribute("paging", paging);
 		return "qa/ad-qa.admin";
 	}
 }

@@ -1,6 +1,7 @@
 package com.kitri.project.member;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public interface MemberDao {
 	public void insert(Member m);
@@ -12,5 +13,7 @@ public interface MemberDao {
 	Member selectEmail(String email);
 	ArrayList<Member> selectReservation();
 	ArrayList<Member> selectAll();
-	
+	MemberEmailAuthJoin selectEmailConfirm(String id);
+	public int countMember();
+	public ArrayList<Member> selectMemberList(HashMap<String, Object> hashMap);
 }

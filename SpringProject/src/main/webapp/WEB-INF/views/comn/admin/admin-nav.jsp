@@ -20,8 +20,8 @@
     <ul class="list-unstyled">
 	    <li><a href="#dropdown-health" aria-expanded="false" data-toggle="collapse"><i class="la ti-apple"></i><span>식단</span></a>
 	        <ul id="dropdown-health" class="collapse list-unstyled pt-0">
-	            <li><a href="adDietWrite.do">식단등록</a></li>
 	            <li><a href="adDiet.do">식단조회</a></li>
+	            <li><a href="adDietSelectForm.do">날짜조회</a></li>
 	        </ul>
 	    </li>
 	    <li><a href="#dropdown-exercise" aria-expanded="false" data-toggle="collapse"><i class="la la-bicycle"></i><span>운동법</span></a>
@@ -34,7 +34,7 @@
     <span class="heading">측정</span>
 	<ul class="list-unstyled">
         <li><a href="adInbody.do"><i class="la la-yc-square"></i><span>인바디</span></a></li>
-        <li><a href="adFixTest.do"><i class="la la-certificate"></i><span>체력검정</span></a></li>
+        <li><a href="adFitTest.do"><i class="la la-certificate"></i><span>체력검정</span></a></li>
     </ul>  
     <span class="heading">게시판</span>
 	<ul class="list-unstyled">

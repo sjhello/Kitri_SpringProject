@@ -16,8 +16,6 @@ import com.kitri.project.qa11.web.Qa11;
 
 @Controller
 public class AdminController {	
-	@Resource(name="qaService")
-	private QaService qaService;
 	
 	@Resource(name="qa11Service")
 	private Qa11Service qa11Service;
