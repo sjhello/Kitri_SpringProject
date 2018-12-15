@@ -26,4 +26,7 @@ public interface Qa11Service {
 
 	void deleteQa11(int code);
 	void uaDeleteQa11(int originNo);
+	
+	int countQa11ListAdNot();
+	ArrayList<Qa11> listAll(int start, int end);
 }

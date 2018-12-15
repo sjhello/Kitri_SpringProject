@@ -1,6 +1,7 @@
 package com.kitri.project.qa11.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -110,5 +111,20 @@ public class Qa11ServiceImpl implements Qa11Service{
 	public void uaDeleteQa11(int originNo) {
 		qa11Mapper = sqlSession.getMapper(Qa11Mapper.class);
 		qa11Mapper.uaDeleteQa11(originNo);
+	}
+
+	@Override
+	public int countQa11ListAdNot() {
+		qa11Mapper = sqlSession.getMapper(Qa11Mapper.class);
+		return qa11Mapper.countQa11ListAdNot();
+	}
+
+	@Override
+	public ArrayList<Qa11> listAll(int start, int end) {
+		qa11Mapper = sqlSession.getMapper(Qa11Mapper.class);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("start", start);
+		hashMap.put("end", end);
+		return qa11Mapper.listAll(hashMap);
 	}
 }

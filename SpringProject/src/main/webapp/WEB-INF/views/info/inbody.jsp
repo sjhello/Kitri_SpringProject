@@ -170,6 +170,7 @@
 	
 	function createConfig3(gridlines, title) {
 		return {
+			
 			type: 'line',
 			data: {
 				labels: [

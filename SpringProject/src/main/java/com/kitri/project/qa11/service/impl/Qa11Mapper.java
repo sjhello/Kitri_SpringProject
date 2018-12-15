@@ -1,6 +1,7 @@
 package com.kitri.project.qa11.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.kitri.project.qa11.web.Qa11;
 
@@ -26,4 +27,7 @@ public interface Qa11Mapper {
 
 	void deleteQa11(int code);
 	void uaDeleteQa11(int originNo);
+	
+	int countQa11ListAdNot();
+	ArrayList<Qa11> listAll(HashMap<String, Object> hashMap);
 }

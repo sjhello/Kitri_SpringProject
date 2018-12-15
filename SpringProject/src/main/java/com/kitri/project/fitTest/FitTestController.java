@@ -25,12 +25,6 @@ public class FitTestController {
 	@RequestMapping(value="/info/fitTest/add", method=RequestMethod.GET)
 	public void addForm() {}
 	
-	@RequestMapping(value="/info/fitTest/add", method=RequestMethod.POST)
-	public String add(FitTest f) {
-		fitTestService.addFitTest(f);
-		return "redirect:/info/fitTest";
-	}
-	
 	
 //	@RequestMapping("fitTest")
 //	public ModelAndView list(HttpSession session) {

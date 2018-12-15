@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <div class="form-group row d-flex align-items-center mb-5 has-info">
-                        <label class="col-lg-3 form-control-label">BMI</label>
+                        <label class="col-lg-3 form-control-label">키</label>
                         <div class="col-lg-9">
                             <input type="text" class="form-control">
                         </div>
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="form-group row d-flex align-items-center mb-5 has-info">
-                        <label class="col-lg-3 form-control-label">체지방률</label>
+                        <label class="col-lg-3 form-control-label">bmi</label>
                         <div class="col-lg-9">
                             <input type="text" class="form-control">
                         </div>
