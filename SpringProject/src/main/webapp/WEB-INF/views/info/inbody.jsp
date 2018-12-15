@@ -26,16 +26,24 @@
 	<div class="content-wrap">
 		<div class="container clearfix" style="margin-bottom: 175px;">
 			<h2 style=" color: mediumvioletred; ">
-				고객님의 측정 인바디 
+				${mlist.id } 고객님의 측정 인바디 
 			</h2>
 			<h3>
-				키: <c:forEach var="i" items="ilist" varStatus="status">
-						<c:if test="${!status.last }">
+				&nbsp;키: <c:forEach var="i" items="${ilist }" varStatus="status">
+						<c:if test="${status.first }">
 							${i.height }
 						</c:if>
 					</c:forEach>
-				성별: ${mlist.sex} 
-				나이: ${mlist.age } 
+				&nbsp;성별: 
+					<c:choose>
+						<c:when test="${mlist.sex eq 'm'}">
+							<td class="text-primary">남</td>
+						</c:when>
+						<c:when test="${mlist.sex eq 'w'}">
+							<td class="text-primary">여</td>
+						</c:when>
+					</c:choose>
+				&nbsp;나이: ${mlist.age } 
 			</h3>
 			<div class="row charts-container chart1"></div>
 		</div>

@@ -40,6 +40,13 @@
 		
 	</select>
 	
+	<select id="adSelectQa11Id" parameterType="String" resultMap="qa11Result">
+		select *
+		  from b2c_qa
+		 where id like '%' || #{id} || '%' and id not in 'admin'
+		
+	</select>
+	
 	<select id="selectQa11" parameterType="int" resultMap="qa11Result">
 		select *
 		  from b2c_qa

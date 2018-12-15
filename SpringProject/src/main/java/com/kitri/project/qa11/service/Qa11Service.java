@@ -9,6 +9,7 @@ public interface Qa11Service {
 	ArrayList<Qa11> selectQa11List();
 	ArrayList<Qa11> uaSelectQa(String id);
 	ArrayList<Qa11> selectQa11Ad(int i);
+	ArrayList<Qa11> adSelectQa11Id(String id);
 	
 	Qa11 selectQa11(int code);
 	ArrayList<Qa11> selectQa11Id(String id);

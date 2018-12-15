@@ -22,8 +22,6 @@
 		});
 	});
 </script>
-=======
->>>>>>> bfa574998cf52538bbfa539801876204c188c270
 <!-- include libraries(jQuery, bootstrap) -->
 
 <!-- include summernote css/js -->

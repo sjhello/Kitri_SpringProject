@@ -167,7 +167,7 @@
 						}
 
 						if( content !== '' ) {
-							inner += '<div>' + content + '</div>';
+							inner += '&emsp;&emsp;' + content;
 						}
 
 						++day;
@@ -182,7 +182,7 @@
 						cellClasses += 'fc-content';
 					}
 
-					html += cellClasses !== '' ? '<div class="' + cellClasses + '">' : '<div>';
+					html += cellClasses !== '' ? '<div class="' + cellClasses + 'style="text-align:center"">' : '<div>';
 					html += inner;
 					html += '</div>';
 

@@ -18,4 +18,8 @@ public interface AdExerciseService {
 
 	void deleteAdExercise(int num);
 
+	ArrayList<AdExercise> selectExerciseListF(int type);
+
+	ArrayList<AdExercise> selectExerciseDate(String date);
+
 }

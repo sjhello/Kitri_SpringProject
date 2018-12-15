@@ -41,6 +41,12 @@ public class Qa11ServiceImpl implements Qa11Service{
 	}
 	
 	@Override
+	public ArrayList<Qa11> adSelectQa11Id(String id) {
+		qa11Mapper = sqlSession.getMapper(Qa11Mapper.class);
+		return qa11Mapper.adSelectQa11Id(id);
+	}
+	
+	@Override
 	public Qa11 selectQa11(int code) {
 		qa11Mapper = sqlSession.getMapper(Qa11Mapper.class);
 		return qa11Mapper.selectQa11(code);

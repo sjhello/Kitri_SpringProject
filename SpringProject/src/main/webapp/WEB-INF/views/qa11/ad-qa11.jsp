@@ -3,8 +3,50 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <script>
-$(document).ready(function(){
-	
+$(document).ready(function() {
+	var $search = $('#search1')
+	$search.change(function() {
+		var id = $search.val();
+		var check1 = $search.attr('data-check');	
+		$.ajax({
+			type : 'POST',
+			url  : 'qa11Ajax.do',
+			data : {"check" : check1, "id" : id},
+			dataType: "JSON",
+			success:function(data) {
+				var html = "";
+				var $tbody = $('tbody');
+				$tbody.html(html);
+				
+				$.each(data, function() {
+					html +="<tr>";
+					html +=     "<td><span class='text-primary'>" + this.code + "</span></td>";
+					html +=		"<td>" + this.id + "</td>";
+					html +=		"<td>" + this.reg_date + "</td>";
+					html +=		"<td class='td-actions'>";
+					html +=			"<a href='adQa-Write11Form.do?code=" + this.code + "'><i class='la la-edit edit'></i></a>";
+					html +=			"<a href='adQa-Delete11.do?originNo=" + this.originNo + "'><i class='la la-close delete'></i></a>";
+					html +=		"</td>";
+				
+					if (this.ad_check == 1) {
+						html +="<td>";
+						html +=	"	<a href='adQa-Detail11.do?originNo=" + this.originNo + "'><button type='button' class='btn btn-danger ripple mr-1 mb-2'>보기</button></a>";
+						html +="</td>"
+					} else {
+						html +="<td>";
+						html +="</td>"
+					}
+			        html +="</tr>";
+				});
+				$tbody.html(html);
+			},
+			
+			error:function() {
+				alert("에러발생1");
+			}
+		});
+	});
+
 	$('.ajaxButton').click(function() {
 		var check = $(this).attr('data-check');
 		$.ajax({
@@ -29,7 +71,7 @@ $(document).ready(function(){
 				
 					if (this.ad_check == 1) {
 						html +="<td>";
-						html +=	"	<a href='adQa-Detail11.do?originNo=" + this.originNo + "'><button type='button' class='btn btn-danger ripple mr-1 mb-2'>보기</button></a>"
+						html +=	"	<a href='adQa-Detail11.do?originNo=" + this.originNo + "'><button type='button' class='btn btn-danger ripple mr-1 mb-2'>보기</button></a>";
 						html +="</td>"
 					} else {
 						html +="<td>";
@@ -41,7 +83,7 @@ $(document).ready(function(){
 			},
 			
 			error:function() {
-				alert("에러발생");
+				alert("에러발생2");
 			}
 		}) 
 	});
@@ -71,7 +113,7 @@ $(document).ready(function(){
 	                <div class="row">
 						<div class="col-sm-12 col-md-12 left">
 							<div id="sorting-table_filter" class="dataTables_filter">
-								<label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="sorting-table"></label>
+								<label>Search:<input id="search1" type="text" class="form-control form-control-sm" placeholder="" aria-controls="sorting-table" data-check=4></label>
 							</div>
 						</div>
 					</div>
