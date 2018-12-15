@@ -1,6 +1,7 @@
 package com.kitri.project.member;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -95,6 +96,21 @@ public class MemberServiceImpl implements MemberService{
 		}
 		
 		return true;	// 로그인 성공
+	}
+
+	@Override
+	public int countMember() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.countMember();
+	}
+
+	@Override
+	public ArrayList<Member> selectMemberList(int start, int end) {
+		dao = sqlSession.getMapper(MemberDao.class);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("start", start);
+		hashMap.put("end", end);
+		return dao.selectMemberList(hashMap);
 	}
 	
 	

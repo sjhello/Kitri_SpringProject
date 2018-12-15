@@ -167,11 +167,14 @@
 	            <!-- End Widget Body -->
 	            <!-- Begin Widget Footer -->
 	            <div class="widget-footer d-flex align-items-center">
-				<div class="mr-auto p-2">
-					<span class="display-items">
-					</span>
-				</div>
-				<div class="p-2">
+	                <div class="mr-auto p-2">
+	                    <span class="display-items">
+	                    	<a class="ajaxButton" data-check=0><button type="button" class="btn btn-secondary btn-square mr-1 mb-2">전체보기</button></a>
+	                    	<a class="ajaxButton" data-check=1><button class="btn btn-danger btn-square mr-1 mb-2">대기</button></a>
+	                    	<a class="ajaxButton" data-check=2><button class="btn btn-success btn-square mr-1 mb-2">완료</button></a>
+	                    </span>
+	                </div>
+	                <div class="p-2">
 					<nav aria-label="...">
 						<ul class="pagination justify-content-end">
 							<c:if test="${paging.curBlock > 1 }">
@@ -203,8 +206,10 @@
 							</ul>
 						</nav>
 					</div>
-				</div>
+	            </div>
+	            <!-- End Widget Footer -->
 	        </div>
+	        <!-- End Widget 07 -->
 	    </div>
 	</div>
 </div>

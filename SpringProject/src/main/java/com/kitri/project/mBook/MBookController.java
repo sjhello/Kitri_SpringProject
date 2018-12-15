@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.ui.Model;
 
-
+import com.kitri.project.comn.Paging;
 import com.kitri.project.member.Member;
 import com.kitri.project.member.MemberService;
 
@@ -56,10 +56,20 @@ public class MBookController {
 	
 	/*회원 전체보기*/
 	@RequestMapping(value="memberList.do")
-	public ModelAndView memberList() {
+	public ModelAndView memberList(@RequestParam(defaultValue="1") int curPage) {
+		int count = memberService.countMember();
 		ModelAndView mav = new ModelAndView("member/memberList.admin");
-		ArrayList<Member> list = memberService.getAll();
+		
+		Paging paging = new Paging(count, curPage);
+		
+		int start = paging.getPageBegin();
+		int end = paging.getPageEnd();
+		ArrayList<Member> list = memberService.selectMemberList(start, end);
+		
+		System.out.println(list);
 		mav.addObject("list",list);
+		mav.addObject("count",count);
+		mav.addObject("paging",paging);
 		return mav;
 	}
 	
