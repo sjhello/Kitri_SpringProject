@@ -35,7 +35,7 @@ public class FitTestController {
 //		return mav;
 //	}
 	
-	@RequestMapping(value = "fitTest")
+	@RequestMapping(value = "fitTest.do")
 	public String inbodyList(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("id");
 		ArrayList<FitTest> fitTest = fitTestService.getFitTest(id);
