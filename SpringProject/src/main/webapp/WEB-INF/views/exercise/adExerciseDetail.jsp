@@ -65,12 +65,11 @@
 					</table>
 				</div>
 			</div>
-			<!-- End Widget Body -->
-			<!-- Begin Widget Footer -->
+			
 			<div class="widget-footer d-flex align-items-center">
 				<div class="mr-auto p-2">
 					<span class="display-items">
-						<a href="adDietWriteForm.do"><button type="button" class="btn btn-success btn-square mr-1 mb-2">작성하기</button></a>
+						<a href="adExerciseWrite.do"><button type="button" class="btn btn-success btn-square mr-1 mb-2">작성하기</button></a>
 					</span>
 				</div>
 				<div class="p-2">
@@ -102,13 +101,11 @@
 								<li class="page-item"><a class="page-link" href="javascript:list('${paging.totPage }')"><i class="ion-chevron-right"></i><i class="ion-chevron-right"></i></a></li>
 							</c:if>
 							
-						</ul>
-					</nav>
+							</ul>
+						</nav>
+					</div>
 				</div>
 			</div>
-			<!-- End Widget Footer -->
-			</div>
-			<!-- End Row -->
 		</div>
 	</div>
 </div>			

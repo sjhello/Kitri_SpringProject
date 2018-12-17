@@ -3,6 +3,12 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 
+<script>
+function list(page){
+    location.href="adqa.do?curPage="+page+"&date=${date}";
+}
+</script>
+
 <div class="container-fluid">
 <!-- Begin Page Header-->
 <div class="row">
@@ -62,26 +68,39 @@
                     </span>
                 </div>
                 <div class="p-2">
-                    <nav aria-label="...">
-                        <ul class="pagination justify-content-end">
-                            <li class="page-item disabled">
-                                <span class="page-link"><i class="ion-chevron-left"></i></span>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active">
-                                <span class="page-link">2<span class="sr-only">(current)</span></span>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#"><i class="ion-chevron-right"></i></a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <!-- End Widget Footer -->
-        </div>
-        <!-- End Widget 07 -->
-    </div>
-</div>
+					<nav aria-label="...">
+						<ul class="pagination justify-content-end">
+							<c:if test="${paging.curBlock > 1 }">
+								<li class="page-item"><a class="page-link" href="javascript:list('1')"><i class="ion-chevron-left"></i><i class="ion-chevron-left"></i></a></li>
+							</c:if>
+						
+							<c:if test="${paging.curBlock > 1 }">
+								<li class="page-item"><a class="page-link" href="javascript:list('${paging.prevPage }')"><i class="ion-chevron-left"></i></a></li>
+							</c:if>
+							<c:forEach var="num" begin="${paging.blockBegin }" end="${paging.blockEnd }">
+								<c:choose>
+									<c:when test="${num == paging.curPage }">
+										<li class="page-item active"><span class="page-link">${num }<span class="sr-only">(current)</span></span></li>
+									</c:when>
+									<c:otherwise>
+										<li class="page-item"><a class="page-link" href="javascript:list('${num }')">${num }</a></li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							
+							<c:if test="${paging.curBlock <= paging.totBlock }">
+								<li class="page-item"><a class="page-link" href="javascript:list('${paging.nextPage }')"><i class="ion-chevron-right"></i></a></li>
+							</c:if>
+							
+							<c:if test="${paging.curBlock <= paging.totBlock }">
+								<li class="page-item"><a class="page-link" href="javascript:list('${paging.totPage }')"><i class="ion-chevron-right"></i><i class="ion-chevron-right"></i></a></li>
+							</c:if>
+							
+							</ul>
+						</nav>
+					</div>
+            	</div>
+        	</div>
+    	</div>
+	</div>
 </div>

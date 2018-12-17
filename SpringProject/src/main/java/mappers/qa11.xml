@@ -109,4 +109,19 @@
 		 where originNo = #{originNo}
 	</delete>
 	
+	<select id="countQa11ListAdNot" resultType="java.lang.Integer">
+		select count(*) 
+		  from b2c_qa 
+	</select>
+	
+	<select id="listAll" parameterType="hashMap" resultMap="qa11Result">
+		<![CDATA[
+		select rnum, CODE, ORIGINNO, GROUPORD, TITLE, CONTENT, ID, REG_DATE, AD_CHECK 
+		  from (select rownum as rnum, CODE, ORIGINNO, GROUPORD, TITLE, CONTENT, ID, REG_DATE, AD_CHECK 
+		   		  from b2c_qa)
+		 WHERE rnum >= #{start} AND rnum <= #{end}
+	]]>
+	</select>
+	
+	
 </mapper>

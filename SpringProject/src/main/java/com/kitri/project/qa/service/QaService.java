@@ -13,4 +13,8 @@ public interface QaService {
 	void updateQa(Qa q);
 	
 	void deleteQa(int q_num);
+	
+	int countQaList();
+	
+	ArrayList<Qa> listAll(int start, int end);
 }
