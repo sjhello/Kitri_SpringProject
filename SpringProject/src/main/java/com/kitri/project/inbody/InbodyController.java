@@ -32,16 +32,6 @@ public class InbodyController {
 		return "redirect:/info/inbody";
 	}
 	
-	
-//	@RequestMapping(value = "inbody.1")
-//	public ModelAndView list(HttpSession session) {
-//		String id = (String)session.getAttribute("id");
-//		ModelAndView mav = new ModelAndView("info/inbody.tiles");
-//		ArrayList<Inbody> list = inbodyService.getInbody(id);
-//		mav.addObject("list", list);
-//		return mav;
-//	}
-	
 	@RequestMapping(value = "inbody")
 	public String inbodyList(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("id");

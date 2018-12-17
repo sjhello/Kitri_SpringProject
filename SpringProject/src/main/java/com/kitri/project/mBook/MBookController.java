@@ -32,7 +32,7 @@ public class MBookController {
 	}
 	
 	/*예약자 리스트 보기*/
-	@RequestMapping(value="bookMember.do")
+	@RequestMapping(value="bookMember.do", method=RequestMethod.GET)
 	public ModelAndView bookMemberList() {	// 가입승인 대기자 목록
 		ArrayList<Member> list = memberService.getReservation();
 		ModelAndView mav = new ModelAndView("mBook/bookMember.admin");
