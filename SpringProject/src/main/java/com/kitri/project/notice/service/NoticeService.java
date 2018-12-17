@@ -14,5 +14,9 @@ public interface NoticeService {
 	void addHits(Notice n);
 
 	void deleteNotice(int num);
+	
+	int countNotice();
+	
+	ArrayList<Notice> selectAll(int start, int end);
 
 }

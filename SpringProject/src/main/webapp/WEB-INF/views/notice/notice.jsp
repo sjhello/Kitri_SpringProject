@@ -3,6 +3,11 @@
     
  <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
  
+ <script>
+function list(page){
+    location.href="notice.do?curPage="+page;
+}
+</script>
     
 <section id="page-title" class="page-title-parallax page-title-dark" style="padding: 250px 0; background-image: url('images/about/parallax.jpg'); background-size: cover; background-position: center center;" data-bottom-top="background-position:0px 400px;" data-top-bottom="background-position:0px -500px;">
 
@@ -48,28 +53,41 @@
 						<c:if test="${id == 'admin' }">
 						<a href="notice-writeForm.do" class="btn btn-secondary btn-sm fright">작성하기</a>
 						</c:if>
+						
 						<nav aria-label="Page navigation example">
 						  <ul class="pagination">
-						    <li class="page-item disabled">
-						      <span class="page-link">&laquo;</span>
+						  
+						  	<c:if test="${paging.curBlock > 1 }">
+						  	<li class="page-item">
+						      <a class="page-link"  href="javascript:list('${paging.prevPage }')">&laquo;</a>
 						    </li>
+						    </c:if>
+						    
+						    <c:if test="${paging.curBlock > 1 }">
 						    <li class="page-item">
 						      <a class="page-link" href="#">&lsaquo;</a>
 						    </li>
-						    <li class="page-item"><a class="page-link" href="#">1</a></li>
-						    <li class="page-item active">
-						      <span class="page-link">
-						        2
-						        <span class="sr-only">(current)</span>
-						      </span>
-						    </li>
-						    <li class="page-item"><a class="page-link" href="#">3</a></li>
-						    <li class="page-item">
-						      <a class="page-link" href="#">&rsaquo;</a>
-						    </li>
-						    <li class="page-item">
-						      <a class="page-link" href="#">&raquo;</a>
-						    </li>
+						    </c:if>
+						    
+						    <c:forEach var="num" begin="${paging.blockBegin }" end="${paging.blockEnd }">
+								<c:choose>
+									<c:when test="${num == paging.curPage }">
+										 <li class="page-item active"><span class="page-link">${num }<span class="sr-only">(current)</span></span></li>
+									</c:when>
+									<c:otherwise>
+										<li class="page-item"><a class="page-link" href="javascript:list('${num }')">${num }</a></li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						    
+						   
+						    <c:if test="${paging.curBlock <= paging.totBlock }">
+								<li class="page-item"><a class="page-link" href="javascript:list('${paging.nextPage }')"><i class="ion-chevron-right"></i></a></li>
+							</c:if>
+							
+							<c:if test="${paging.curBlock <= paging.totBlock }">
+								<li class="page-item"><a class="page-link" href="javascript:list('${paging.totPage }')"><i class="ion-chevron-right"></i><i class="ion-chevron-right"></i></a></li>
+							</c:if>
 						  </ul>
 						</nav>
 					</div>

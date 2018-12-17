@@ -1,5 +1,3 @@
-
-drop table member;
 create table member(
     id varchar2(20) primary key,
     pwd varchar2(20) not null,
@@ -10,30 +8,46 @@ create table member(
     f_level varchar2(20) default 'no',
     w_level varchar2(20) default 'no',
     admin_confirm varchar(10) default 'x',
-    age number not null,
-    sex varchar2(20) not null
+    sex varchar2(20) not null,
+    age varchar2(20) not null,
+    postnum number
 );
-
+    
 select * from member;
 desc member;
 
-
-
-insert into member values('kgi', 'kgi', 'kgi', '010-1234-1234', 'asdf', 'kgi@naver.com', 'mid', 'mid', 'o', 'm', 28);
-insert into member values('pny', 'pny', 'pny', '010-1234-1234', 'asdf', 'pny@naver.com', 'low', 'mid', 'o', 'm', 25);
+insert into member values('kgi', 'kgi', 'kgi', '010-1234-1234', 'asdf', 'kgi@naver.com', 'mid', 'mid', 'o', 'm', '20대', 75320);
+insert into member values('pny', 'pny', 'pny', '010-1234-1234', 'asdf', 'pny@naver.com', 'low', 'mid', 'o', 'm', '20대', 65792);
 delete from member;
 
 
 
 --alter table member add(age varchar2(20));
 --alter table member add(sex varchar2(20));
---alter table member modify(age number);
+--alter table member add(postnum number);
+--alter table member modify(age varchar2(20));
 --alter table member modify(sex not null);
 --select * from member;
 
 --update member set age='20' where pwd='1234';
 
 commit;
+
+create table memberEmailAuth(
+    id varchar2(20) references member(id) on delete cascade,
+    email varchar2(50),
+    user_authcode varchar2(200),
+    auth_confirm varchar2(20) default 'x'
+);
+
+select * from memberEmailAuth;
+
+insert into memberEmailAuth values('kgi', 'kgi@naver.com', 'asdf1234', 'o');
+insert into memberEmailAuth values('pny', 'pny@naver.com', 'qwer1234', 'o');
+
+--drop table memberEmailAuth;
+--select * from memberEmailAuth;
+--delete from memberEmailAuth;
 
 create table employee(
     id varchar2(20) primary key,
@@ -144,10 +158,11 @@ create sequence seq_food_num;
 운동법
 create table workout(
     num number primary key,
-    f_level varchar2(20),
+    w_level varchar2(20),
     title varchar2(100),
     w_date varchar2(50),
     contents varchar2(4000),
+    w_check varchar2(5)
 );
 
 create sequence seq_workout_num;

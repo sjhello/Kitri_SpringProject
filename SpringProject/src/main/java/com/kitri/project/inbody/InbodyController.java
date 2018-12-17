@@ -32,7 +32,7 @@ public class InbodyController {
 		return "redirect:/info/inbody";
 	}
 	
-	@RequestMapping(value = "inbody")
+	@RequestMapping(value = "inbody.do")
 	public String inbodyList(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("id");
 		ArrayList<Inbody> inbody = inbodyService.getInbody(id);

@@ -25,7 +25,7 @@ public class FitTestController {
 	@RequestMapping(value="/info/fitTest/add", method=RequestMethod.GET)
 	public void addForm() {}
 	
-	@RequestMapping(value = "fitTest")
+	@RequestMapping(value = "fitTest.do")
 	public String inbodyList(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("id");
 		ArrayList<FitTest> fitTest = fitTestService.getFitTest(id);
