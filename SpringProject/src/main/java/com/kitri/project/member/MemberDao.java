@@ -16,4 +16,6 @@ public interface MemberDao {
 	MemberEmailAuthJoin selectEmailConfirm(String id);
 	public int countMember();
 	public ArrayList<Member> selectMemberList(HashMap<String, Object> hashMap);
+	public int reservationCount();
+	public ArrayList<Member> reservationList(HashMap<String, Object> hashMap);
 }

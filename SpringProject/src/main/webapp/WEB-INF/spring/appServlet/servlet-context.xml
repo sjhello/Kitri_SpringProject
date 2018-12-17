@@ -57,20 +57,20 @@
 	<context:component-scan
 		base-package="com.kitri.project" />
 
-	<!-- dataSource -->
+	<!-- MariaDB JDBC DataSource -->
 	<beans:bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName">
-			<beans:value>oracle.jdbc.driver.OracleDriver</beans:value>
+			<beans:value>org.mariadb.jdbc.Driver</beans:value>
 		</beans:property>
 		<beans:property name="url">
-			<beans:value>jdbc:oracle:thin:@localhost:1521:XE</beans:value>
+			<beans:value>jdbc:mariadb://mariadb.ckpdxgukkdwo.ap-northeast-2.rds.amazonaws.com:3306/anyfit</beans:value>
 		</beans:property>
 		<beans:property name="username">
 			<beans:value>anyfit</beans:value>
 		</beans:property>
 		<beans:property name="password">
-			<beans:value>anyfit</beans:value>
+			<beans:value>wjdqhqhdks</beans:value>
 		</beans:property>
 	</beans:bean>
 

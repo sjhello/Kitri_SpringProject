@@ -48,7 +48,7 @@
 		  from (select rownum as rnum, Q_NUM, TITLE, CONTENT, REG_DATE
 		   		  from qa)
 		 WHERE rnum >= #{start} AND rnum <= #{end}
-	]]>
+		]]>
 	</select>
 	
 </mapper>
