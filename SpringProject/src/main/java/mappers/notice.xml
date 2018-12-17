@@ -43,4 +43,18 @@
 		delete notice
 		 where num = #{num}
 	</delete>
+	
+	<select id="countNotice" resultType="java.lang.Integer">
+		select count(*)
+		  from notice
+	</select>
+	
+	<select id="selectAll" parameterType="hashMap" resultMap="noticeResult">
+		<![CDATA[
+		select rnum, NUM, TITLE, CONTENT, REG_DATE, HITS
+		  from (select rownum as rnum, NUM, TITLE, CONTENT, REG_DATE, HITS
+		   		  from notice)
+		 WHERE rnum >= #{start} AND rnum <= #{end}
+		]]>
+	</select>
 </mapper>
