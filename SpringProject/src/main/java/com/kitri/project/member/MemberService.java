@@ -16,4 +16,6 @@ public interface MemberService {
 	boolean emailAuthConfirm(String id);
 	public int countMember();
 	public ArrayList<Member> selectMemberList(int start, int end);
+	public int reservationCount();
+	public ArrayList<Member> reservationList(int start, int end);
 }

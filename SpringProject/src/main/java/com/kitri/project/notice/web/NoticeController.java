@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kitri.project.comn.Paging;
 import com.kitri.project.notice.service.NoticeService;
 
 @Controller
@@ -18,9 +19,19 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@RequestMapping(value = "notice.do")
-	public String notice(Model model) {
-		ArrayList<Notice> n = noticeService.selectNoticeList();
+	public String notice(Model model, @RequestParam(defaultValue="1") int curPage) {
+		int count = noticeService.countNotice();
+		
+		Paging paging = new Paging(count, curPage);
+		
+		int start = paging.getPageBegin();
+		int end = paging.getPageEnd();
+		
+		ArrayList<Notice> n = noticeService.selectAll(start, end);
+		
 		model.addAttribute("list", n);
+		model.addAttribute("count", count);
+		model.addAttribute("paging", paging);
 		return "notice/notice.tiles";
 	}
 	

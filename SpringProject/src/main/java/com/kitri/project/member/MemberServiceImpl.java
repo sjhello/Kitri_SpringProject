@@ -112,6 +112,21 @@ public class MemberServiceImpl implements MemberService{
 		hashMap.put("end", end);
 		return dao.selectMemberList(hashMap);
 	}
+
+	@Override
+	public int reservationCount() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.reservationCount();
+	}
+
+	@Override
+	public ArrayList<Member> reservationList(int start, int end) {
+		dao = sqlSession.getMapper(MemberDao.class);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("start", start);
+		hashMap.put("end", end);
+		return dao.reservationList(hashMap);
+	}
 	
 	
 }

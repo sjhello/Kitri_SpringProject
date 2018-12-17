@@ -33,10 +33,19 @@ public class MBookController {
 	
 	/*예약자 리스트 보기*/
 	@RequestMapping(value="bookMember.do")
-	public ModelAndView bookMemberList() {	// 가입승인 대기자 목록
-		ArrayList<Member> list = memberService.getReservation();
+	public ModelAndView bookMemberList(@RequestParam(defaultValue="1") int curPage) {	// 가입승인 대기자 목록
+		int count = memberService.reservationCount();
+		Paging paging = new Paging(count, curPage);
+		
+		int start = paging.getPageBegin();
+		int end = paging.getPageEnd();
+		
+		ArrayList<Member> list = memberService.reservationList(start, end);
+		
 		ModelAndView mav = new ModelAndView("mBook/bookMember.admin");
 		mav.addObject("list", list);
+		mav.addObject("count",count);
+		mav.addObject("paging",paging);
 		return mav;
 	}
 	
