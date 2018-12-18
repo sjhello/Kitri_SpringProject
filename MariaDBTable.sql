@@ -17,9 +17,10 @@ insert into member values('kgi', 'kgi', 'kgi', '010-1234-1234', 'asdf', 'kgi@nav
 insert into member values('pny', 'pny', 'pny', '010-1234-1234', 'asdf', 'pny@naver.com', 'low', 'mid', 'o', 'm', '25', 65792);
 insert into member values('admin', 'admin', 'admin', '010-1234-1234', 'asdf', 'admin@naver.com', 'mid', 'mid', 'o', 'm', '50', 15792);
 
+
 select * from member;
 
-select * from memberemailauth;
+
 create table memberemailauth(
     id varchar(20),
     email varchar(50),
@@ -34,7 +35,12 @@ insert into memberemailauth values('kgi', 'kgi@naver.com', 'asdf1234', 'o');
 insert into memberemailauth values('pny', 'pny@naver.com', 'qwer1234', 'o');
 insert into memberemailauth values('admin', 'admin@gmail.com', 'zxcv1234', 'o');
 
+select * from memberemailauth;
 commit;
+show variables like 'c%';
+
+ALTER DATABASE anyfit DEFAULT COLLATE utf8_unicode_ci;
+ALTER DATABASE anyfit DEFAULT CHARACTER SET utf8;
 
 create table employee(
     id varchar(20),
@@ -154,6 +160,9 @@ create table notice(
     id varchar(20),
 	 foreign key (id) references member(id)
 );
+
+
+insert into notice values(1, '제목', '내용', curdate(), 2, 'kgi');
 
 
 create sequence seq_notice_num START WITH 1 INCREMENT BY 1;
