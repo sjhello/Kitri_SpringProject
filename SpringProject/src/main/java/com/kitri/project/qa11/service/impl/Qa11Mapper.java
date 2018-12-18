@@ -30,4 +30,6 @@ public interface Qa11Mapper {
 	
 	int countQa11ListAdNot();
 	ArrayList<Qa11> listAll(HashMap<String, Object> hashMap);
+	
+	int countQa11(String id);
 }

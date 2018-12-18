@@ -93,7 +93,7 @@
 	            	<div class="form-group row d-flex align-items-center mb-5 has-info">
                         <label class="col-lg-3 form-control-label">저체중 / 정상체중 / 과F체중 </label>
                         <div class="col-lg-9 select mb-3">
-						    <select name="f_level" class="custom-select form-control">
+						    <select name="w_level" class="custom-select form-control">
 						        <option value=1>저체중</option>
 						        <option value=2>정상체중</option>
 						        <option value=3>과체중</option>

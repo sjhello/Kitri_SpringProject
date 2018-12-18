@@ -29,4 +29,6 @@ public interface Qa11Service {
 	
 	int countQa11ListAdNot();
 	ArrayList<Qa11> listAll(int start, int end);
+	
+	int countQa11(String id);
 }

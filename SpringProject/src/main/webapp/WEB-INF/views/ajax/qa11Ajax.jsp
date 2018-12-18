@@ -15,7 +15,7 @@
 	 		"content"   : "${list.content }",
 	 		"id"		: "${list.id }",
 	 		"reg_date" 	: "${list.reg_date }",
-	 		"ad_check" 	: ${list.ad_check } 
+	 		"b2c_qa_check" 	: ${list.b2c_qa_check } 
 	 	 }
 	 	 </c:if>
 	 	 <c:if test="${status.index != 0 }">
@@ -27,7 +27,7 @@
 	 		"content"  	: "${list.content }",
 	 		"id"		: "${list.id }",
 	 		"reg_date" 	: "${list.reg_date }",
-	 		"ad_check" 	: ${list.ad_check } 
+	 		"b2c_qa_check" 	: ${list.b2c_qa_check } 
 	 	 }
 	 	 </c:if>
 	 	 

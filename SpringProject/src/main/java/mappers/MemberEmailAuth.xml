@@ -11,11 +11,11 @@
 	</resultMap>
 	
 	<insert id="createKey" parameterType="com.kitri.project.mail.MemberEmailAuth">
-		insert into memberEmailAuth values (#{id},#{email},#{user_authcode},default)
+		insert into memberemailauth values (#{id},#{email},#{user_authcode},default)
 	</insert>
 	
 	<update id="update" parameterType="com.kitri.project.mail.MemberEmailAuth">
-		update memberEmailAuth set auth_confirm='o' where email=#{email} and user_authcode=#{user_authcode}
+		update memberemailauth set auth_confirm='o' where email=#{email} and user_authcode=#{user_authcode}
 	</update>
 	
 </mapper>

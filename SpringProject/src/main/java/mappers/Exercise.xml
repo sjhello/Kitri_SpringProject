@@ -6,18 +6,18 @@
 
 	<resultMap id="ExerciseResult" type="com.kitri.project.exercise.Exercise">
 		<result column="num" property="num" />
-		<result column="f_level" property="f_level" />
+		<result column="w_level" property="w_level" />
 		<result column="title" property="title" />
 		<result column="w_date" property="w_date" />
 		<result column="contents" property="contents" />
 	</resultMap>
 
 	<insert id="insert" parameterType="com.kitri.project.exercise.Exercise">
-		insert into workout values(seq_workout_num.nextval, #{f_level}, #{title}, #{w_date}, #{contents})
+		insert into workout values(NEXTVAL(seq_workout_num), #{w_level}, #{title}, #{w_date}, #{contents})
 	</insert>
 	
 	<select id="select" parameterType="int" resultMap="ExerciseResult">
-		select * from workout where f_level = #{f_level}
+		select * from workout where w_level = #{w_level}
 	</select>
 	
 	<select id="selectAll" resultMap="ExerciseResult">
@@ -33,11 +33,12 @@
 	</update>
 	
 	<delete id="deleteAdExercise" parameterType="int">
-		delete workout where num = #{num}
+		delete
+		  from workout where num = #{num}
 	</delete>
 	
 	<select id="selectExerciseListF" parameterType="int" resultMap="ExerciseResult">
-		select * from workout where f_level = #{f_level}
+		select * from workout where w_level = #{w_level}
 	</select>
 	
 	<select id="selectExerciseDate" parameterType="String" resultMap="ExerciseResult">
@@ -50,9 +51,9 @@
 	
 	<select id="listAll" parameterType="hashMap" resultMap="ExerciseResult">
 	<![CDATA[
-		select num,f_level,title,w_date,contents 
-		  from (select rownum as rnum, num, f_level, title, w_date, contents 
-		   		  from workout where w_date=#{date})
+		select num,w_level,title,w_date,contents 
+		  from (select ROW_NUMBER() OVER(PARTITION BY num) as rnum, num, w_level, title, w_date, contents 
+		   		  from workout where w_date=#{date})w
 		 WHERE rnum >= #{start} AND rnum <= #{end}
 	]]>
 	</select>
