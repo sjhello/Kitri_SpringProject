@@ -10,9 +10,7 @@ public class CalendarController {
 	@RequestMapping(value = "calendar.do")
 	public String calendar() {
 		return "info/calendar.tiles";
-	}
-		
-		
+	}	
 		
 
 }

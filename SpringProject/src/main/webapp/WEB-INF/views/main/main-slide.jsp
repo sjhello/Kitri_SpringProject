@@ -9,7 +9,7 @@
 					<div class="container clearfix">
 						<div class="slider-caption slider-caption-center">
 							<h2 data-caption-animate="fadeInUp">NO.1 Health care</h2>
-							<p class="d-none d-sm-block" data-caption-animate="fadeInUp" data-caption-delay="200">애니 픽트는 당신의 건강 식단 운동을 책임집니다.</p>
+							<p class="d-none d-sm-block" data-caption-animate="fadeInUp" data-caption-delay="200">애니 핏트는 당신의 건강 식단 운동을 책임집니다.</p>
 						</div>
 					</div>
 				</div>
