@@ -80,11 +80,14 @@ public class MemberController {
 		boolean emailConfirm = memberService.emailAuthConfirm(m.getId());
 		
 		if(flag && emailConfirm) {
+			System.out.println("asd");
 			HttpSession session = req.getSession();
 			session.setAttribute("id", m.getId());
 			return "main/main.mTiles";
+		} else {
+			System.out.println("zxczxc");
+			return "login/login.tiles";
 		}
-		return "login/login.mTiles";
 	}
 	
 	@RequestMapping(value="memberEdit", method=RequestMethod.POST)
