@@ -20,8 +20,6 @@
 					var lnmAdres;
 					var rnAdres;
 					
-					
-						
 					if (arr[0].zipNo != "") {
 						str += "<tr>";
 						str += "<th>우편번호</th>";
