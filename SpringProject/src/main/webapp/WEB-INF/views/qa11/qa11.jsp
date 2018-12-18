@@ -40,6 +40,14 @@
 						  <tbody>
 						  	<c:forEach var="list" items="${list }">
 							  	<c:forEach var="count" items="${list1 }">
+							  		<c:if test="${list.originNo != count.code }">
+										<tr>
+										  <td>${list.code}</td>
+										  <td><a href="qaDetail11.do?code=${list.code }">${list.title }</a></td>
+										  <td>${list.id }</td>
+										  <td>${list.reg_date }</td>
+										</tr>
+									</c:if>
 							  		<c:if test="${list.originNo == count.code }">
 										<tr>
 										  <td>${list.code}</td>
