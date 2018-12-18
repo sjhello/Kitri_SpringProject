@@ -15,6 +15,7 @@ import com.kitri.project.comn.Paging;
 import com.kitri.project.member.Member;
 import com.kitri.project.member.MemberService;
 
+
 @Controller
 public class MBookController {
 	@Resource(name="memberService")
@@ -75,7 +76,6 @@ public class MBookController {
 		int end = paging.getPageEnd();
 		ArrayList<Member> list = memberService.selectMemberList(start, end);
 		
-		System.out.println(list);
 		mav.addObject("list",list);
 		mav.addObject("count",count);
 		mav.addObject("paging",paging);

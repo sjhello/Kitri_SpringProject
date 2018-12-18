@@ -74,6 +74,23 @@
 		</beans:property>
 	</beans:bean>
 
+	<!-- Oracle -->
+	<!-- <beans:bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName">
+			<beans:value>oracle.jdbc.driver.OracleDriver</beans:value>
+		</beans:property>
+		<beans:property name="url">
+			<beans:value>jdbc:oracle:thin:@localhost:1521:xe</beans:value>
+		</beans:property>
+		<beans:property name="username">
+			<beans:value>anyfit</beans:value>
+		</beans:property>
+		<beans:property name="password">
+			<beans:value>anyfit</beans:value>
+		</beans:property>
+	</beans:bean> -->
+
 	<!-- transactionManager -->
 	<beans:bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -107,8 +124,8 @@
 		class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<beans:property name="host" value="smtp.gmail.com" />
 		<beans:property name="port" value="587" />
-		<beans:property name="username" value="qkrshdbf2001@gmail.com" />
-		<beans:property name="password" value="dhkdwk20!!" />
+		<beans:property name="username" value="sjhello235@gmail.com" />
+		<beans:property name="password" value="rlatkdwls@35" />
 
 		<beans:property name="javaMailProperties">
 			<beans:props>
