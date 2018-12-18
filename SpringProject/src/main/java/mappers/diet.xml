@@ -9,16 +9,11 @@
 		<result column="f_level" property="f_level" />
 		<result column="f_date" property="f_date" />
 		<result column="mealtime" property="mealtime" />
-		<result column="f1" property="f1" />
-		<result column="f2" property="f2" />
-		<result column="f3" property="f3" />
-		<result column="f4" property="f4" />
-		<result column="f5" property="f5" />
-		<result column="f6" property="f6" />
+		<result column="f" property="f" />
 	</resultMap>
 
 	<insert id="insertDiet" parameterType="com.kitri.project.diet.web.Diet">
-		insert into food values(seq_food_num.nextval, #{f_level}, #{f_date}, #{mealtime}, #{f1}, #{f2}, #{f3}, #{f4}, #{f5}, #{f6})
+		insert into food values(NEXTVAL(seq_food_num), #{f_level}, #{f_date}, #{mealtime}, #{f})
 	</insert>	
 
 	<select id="selectDietList" resultMap="DietResult">
@@ -38,11 +33,13 @@
 	</select>
 	
 	<update id="updateDiet" parameterType="com.kitri.project.diet.web.Diet">
-		update food set f_level=#{f_level}, mealtime=#{mealtime}, f1=#{f1}, f2=#{f2}, f3=#{f3}, f4=#{f4}, f5=#{f5}, f6=#{f6} where num=#{num}
+		update food set f_level=#{f_level}, mealtime=#{mealtime}, f=#{f} where num=#{num}
 	</update>
 	
 	<delete id="deleteDiet" parameterType="int">
-		delete food where num=#{num}
+		delete 
+		  from food 
+		 where num=#{num}
 	</delete>
 	
 	<select id="countDietDate"  parameterType="String" resultType="java.lang.Integer">
@@ -51,9 +48,9 @@
 	
 	<select id="listAll" parameterType="hashMap" resultMap="DietResult">
 	<![CDATA[
-		select num, f_level, f_date, mealtime, f1, f2, f3, f4, f5, f6
-		  from (select rownum as rnum, num, f_level, f_date, mealtime, f1, f2, f3, f4, f5, f6
-		   		  from food where f_date=#{date})
+		select num, f_level, f_date, mealtime, f
+		  from (select ROW_NUMBER() OVER(PARTITION BY num) as rnum, num, f_level, f_date, mealtime, f
+		   		  from food where f_date=#{date})f1
 		 WHERE rnum >= #{start} AND rnum <= #{end}
 	]]>
 	</select>

@@ -80,17 +80,7 @@ public class DietController {
 		
 		Diet list = dietService.selectDiet(num);
 		
-		if (list.getF1() == null)
-			count++;
-		if (list.getF2() == null)
-			count++;
-		if (list.getF3() == null)
-			count++;
-		if (list.getF4() == null)
-			count++;
-		if (list.getF5() == null)
-			count++;
-		if (list.getF6() == null)
+		if (list.getF() == null)
 			count++;
 		
 		model.addAttribute("list", list);

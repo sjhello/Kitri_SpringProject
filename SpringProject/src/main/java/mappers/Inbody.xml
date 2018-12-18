@@ -16,7 +16,7 @@
 	</resultMap>
 	
 	<insert id="insert" parameterType="com.kitri.project.inbody.Inbody">
-		insert into inbody values(#{id}, sysdate, #{height}, #{weight}, #{muscle}, #{fat}, #{bmi})
+		insert into inbody values(#{id}, CURDATE(), #{height}, #{weight}, #{muscle}, #{fat}, #{bmi})
 	</insert>
 	
 	<select id="select" parameterType="com.kitri.project.inbody.Inbody" resultMap="inbodyResult">
@@ -28,11 +28,13 @@
 	</select>
 	
 	<update id="update" parameterType="com.kitri.project.inbody.Inbody">
-		update inbody set i_date=sysdate, height=#{height}, weight=#{weight}, muscle=#{muscle}, fat=#{fat}, bmi=#{bmi} where id=#{id}
+		update inbody set i_date=CURDATE(), height=#{height}, weight=#{weight}, muscle=#{muscle}, fat=#{fat}, bmi=#{bmi} where id=#{id}
 	</update>
 	
 	<delete id="delete" parameterType="String">
-		delete inbody where id=#{id}
+		delete
+		  from inbody 
+		 where id=#{id}
 	</delete>
 	
 </mapper>

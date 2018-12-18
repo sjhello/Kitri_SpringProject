@@ -15,7 +15,7 @@
 	</resultMap>
 	
 	<insert id="insert" parameterType="com.kitri.project.fitTest.FitTest">
-		insert into fittest values(#{id}, sysdate, #{pushup}, #{pullup}, #{squat}, #{situp}, #{burpee})
+		insert into fittest values(#{id}, CURDATE(), #{pushup}, #{pullup}, #{squat}, #{situp}, #{burpee})
 	</insert>
 	
 	<select id="select" parameterType="com.kitri.project.fitTest.FitTest" resultMap="fitTestResult">
@@ -27,11 +27,12 @@
 	</select>
 	
 	<update id="update" parameterType="com.kitri.project.fitTest.FitTest">
-		update fittest set fit_date=sysdate, pushup=#{pushup}, pullup=#{pullup}, squat=#{squat}, situp=#{situp}, burpee=#{burpee} where id=#{id}
+		update fittest set fit_date=CURDATE(), pushup=#{pushup}, pullup=#{pullup}, squat=#{squat}, situp=#{situp}, burpee=#{burpee} where id=#{id}
 	</update>
 	
 	<delete id="delete" parameterType="String">
-		delete fittest where id=#{id}
+		delete
+		  from fittest where id=#{id}
 	</delete>
 	
 </mapper>
