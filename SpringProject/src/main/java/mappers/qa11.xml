@@ -74,13 +74,13 @@
 	<insert id="insertQa11" parameterType="com.kitri.project.qa11.web.Qa11">
 		<![CDATA[
 		insert into b2c_qa
-		values ((select * from (select max(code)+1 from b2c_qa)next1), (select * from (select max(code)+1 from b2c_qa)next1), 0, #{title}, #{content}, #{id}, CURDATE(),0)
+		values((select * from (select max(code)+1 from b2c_qa)next1), (select * from (select max(code)+1 from b2c_qa)next1), 0, #{title}, #{content}, #{id}, CURDATE(),0)
 		]]>
 	</insert>
 	
 	<insert id="insertAdQa11" parameterType="com.kitri.project.qa11.web.Qa11">
 		insert into b2c_qa
-		values (NEXTVAL(seq_b2c_qa_num), #{originNo}, 1, #{title}, #{content}, #{id}, CURDATE(),0)
+		values ((select * from (select max(code)+1 from b2c_qa)next1), #{originNo}, 1, #{title}, #{content}, #{id}, CURDATE(),0)
 	</insert>
 	
 	<update id="updateQa11CheckTrue" parameterType="int">
