@@ -85,7 +85,7 @@
 							<c:if test="${status.index == 0}">
 								{
 									title: '${list.mealtime }',
-									description: '<c:if test="${list.f1 != null}"><h2>one</h2>${list.f1}<br></c:if><c:if test="${list.f2 != null}"><h2>two</h2>${list.f2}<br></c:if><c:if test="${list.f3 != null}"><h2>three</h2>${list.f3}<br></c:if><c:if test="${list.f4 != null}"><h2>four</h2>${list.f4}<br></c:if><c:if test="${list.f5 != null}"><h2>five</h2>${list.f5}<br></c:if><br><br><a href="adDieUpdateForm.do?num=${list.num }"><button type="button" class="btn btn-outline-success mr-1 mb-2">수정</button></a>&emsp;<a href="adDietDel.do?num=${list.num }"><button type="button" class="btn btn-outline-danger mr-1 mb-2">삭제</button></a>',
+									description: '<c:if test="${list.f != null}"></c:if><br><br><a href="adDieUpdateForm.do?num=${list.num }"><button type="button" class="btn btn-outline-success mr-1 mb-2">수정</button></a>&emsp;<a href="adDietDel.do?num=${list.num }"><button type="button" class="btn btn-outline-danger mr-1 mb-2">삭제</button></a>',
 									start: '<fmt:formatDate value="${parseRegDate}" pattern="yyyy-MM-dd"/>',
 									end: '<fmt:formatDate value="${parseRegDate}" pattern="yyyy-MM-dd"/>',
 									className: 'fc-bg-default',
@@ -95,7 +95,7 @@
 							<c:if test="${status.index != 0}">
 								,{
 									title: '${list.mealtime }',
-									description: '<c:if test="${list.f1 != null}"><h2>One</h2>${list.f1}<br></c:if><c:if test="${list.f2 != null}"><h2>Two</h2>${list.f2}<br></c:if><c:if test="${list.f3 != null}"><h2>Three</h2>${list.f3}<br></c:if><c:if test="${list.f4 != null}"><h2>Four</h2>${list.f4}<br></c:if><c:if test="${list.f5 != null}"><h2>Five</h2>${list.f5}<br></c:if><br><br><a href="adDieUpdateForm.do?num=${list.num }"><c:if test="${list.f6 != null}"><h2>Six</h2>${list.f6}<br></c:if><br><br><a href="adDieUpdateForm.do?num=${list.num }"><button type="button" class="btn btn-outline-success mr-1 mb-2">수정</button></a>&emsp;<a href="adDietDel.do?num=${list.num }"><button type="button" class="btn btn-outline-danger mr-1 mb-2">삭제</button></a>',
+									description: '<c:if test="${list.f != null}"></c:if><br><br><a href="adDieUpdateForm.do?num=${list.num }"><button type="button" class="btn btn-outline-success mr-1 mb-2">수정</button></a>&emsp;<a href="adDietDel.do?num=${list.num }"><button type="button" class="btn btn-outline-danger mr-1 mb-2">삭제</button></a>',
 									start: '<fmt:formatDate value="${parseRegDate}" pattern="yyyy-MM-dd"/>',
 									end: '<fmt:formatDate value="${parseRegDate}" pattern="yyyy-MM-dd"/>',
 									className: 'fc-bg-default',

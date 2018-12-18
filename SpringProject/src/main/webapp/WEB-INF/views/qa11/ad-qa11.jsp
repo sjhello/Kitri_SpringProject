@@ -25,13 +25,13 @@
 						html +=		"<td>" + this.reg_date + "</td>";
 						html +=		"<td class='td-actions'>";
 						
-						if (this.ad_check == 0) {
+						if (this.b2c_qa_check == 0) {
 							html +=	"<a href='adQa-Write11Form.do?code=" + this.code + "'><i class='la la-edit edit'></i></a>";
 						}
 						html +=			"<a href='adQa-Delete11.do?originNo=" + this.originNo + "'><i class='la la-close delete'></i></a>";
 						html +=		"</td>";
 					
-						if (this.ad_check == 1) {
+						if (this.b2c_qa_check == 1) {
 							html +="<td>";
 							html +=	"	<a href='adQa-Detail11.do?originNo=" + this.originNo + "'><button type='button' class='btn btn-danger ripple mr-1 mb-2'>보기</button></a>";
 							html +="</td>"
@@ -69,13 +69,13 @@
 						html +=		"<td>" + this.reg_date + "</td>";
 						html +=		"<td class='td-actions'>";
 						
-						if (this.ad_check == 0) {
+						if (this.b2c_qa_check == 0) {
 							html +="<a href='adQa-Write11Form.do?code=" + this.code + "'><i class='la la-edit edit'></i></a>";
 						}
 						html +=			"<a href='adQa-Delete11.do?originNo=" + this.originNo + "'><i class='la la-close delete'></i></a>";
 						html +=		"</td>";
 					
-						if (this.ad_check == 1) {
+						if (this.b2c_qa_check == 1) {
 							html +="<td>";
 							html +=	"	<a href='adQa-Detail11.do?originNo=" + this.originNo + "'><button type='button' class='btn btn-danger ripple mr-1 mb-2'>보기</button></a>";
 							html +="</td>"
@@ -148,12 +148,12 @@
 	                                <td>${list.id }</td>
 	                                <td>${list.reg_date }</td>
 	                                <td class="td-actions">
-	                                	 <c:if test="${list.ad_check == 0 }">
+	                                	 <c:if test="${list.b2c_qa_check == 0 }">
 	                                    <a href="adQa-Write11Form.do?code=${list.code }"><i class="la la-edit edit"></i></a>
 	                                    </c:if>
 	                                    <a href="adQa-Delete11.do?originNo=${list.originNo }"><i class="la la-close delete"></i></a>
 	                                </td>
-	                                <c:if test="${list.ad_check == 1 }">
+	                                <c:if test="${list.b2c_qa_check == 1 }">
 	                                <td>
 	                                	<a href="adQa-Detail11.do?originNo=${list.originNo }"><button type="button" class="btn btn-danger ripple mr-1 mb-2">보기</button></a>
 	                                </td>

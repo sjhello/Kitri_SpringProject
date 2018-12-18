@@ -5,29 +5,18 @@ public class Diet {
 	private String f_level;
 	private String f_date;
 	private String mealtime;
-	private String f1;
-	private String f2;
-	private String f3;
-	private String f4;
-	private String f5;
-	private String f6;
+	private String f;
 	
 	public Diet() {
 		
 	}
-
-	public Diet(int num, String f_level, String f_date, String mealtime, String f1, String f2, String f3, String f4,
-			String f5, String f6) {
+	
+	public Diet(int num, String f_level, String f_date, String mealtime, String f) {
 		this.num = num;
 		this.f_level = f_level;
 		this.f_date = f_date;
 		this.mealtime = mealtime;
-		this.f1 = f1;
-		this.f2 = f2;
-		this.f3 = f3;
-		this.f4 = f4;
-		this.f5 = f5;
-		this.f6 = f6;
+		this.f = f;
 	}
 
 	public int getNum() {
@@ -62,57 +51,17 @@ public class Diet {
 		this.mealtime = mealtime;
 	}
 
-	public String getF1() {
-		return f1;
+	public String getF() {
+		return f;
 	}
 
-	public void setF1(String f1) {
-		this.f1 = f1;
-	}
-
-	public String getF2() {
-		return f2;
-	}
-
-	public void setF2(String f2) {
-		this.f2 = f2;
-	}
-
-	public String getF3() {
-		return f3;
-	}
-
-	public void setF3(String f3) {
-		this.f3 = f3;
-	}
-
-	public String getF4() {
-		return f4;
-	}
-
-	public void setF4(String f4) {
-		this.f4 = f4;
-	}
-
-	public String getF5() {
-		return f5;
-	}
-
-	public void setF5(String f5) {
-		this.f5 = f5;
-	}
-
-	public String getF6() {
-		return f6;
-	}
-
-	public void setF6(String f6) {
-		this.f6 = f6;
+	public void setF(String f) {
+		this.f = f;
 	}
 
 	@Override
 	public String toString() {
-		return "Diet [num=" + num + ", f_level=" + f_level + ", f_date=" + f_date + ", mealtime=" + mealtime + ", f1="
-				+ f1 + ", f2=" + f2 + ", f3=" + f3 + ", f4=" + f4 + ", f5=" + f5 + ", f6=" + f6 + "]";
+		return "Diet [num=" + num + ", f_level=" + f_level + ", f_date=" + f_date + ", mealtime=" + mealtime + ", f="
+				+ f + "]";
 	}
 }
