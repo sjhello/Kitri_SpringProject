@@ -127,4 +127,10 @@ public class Qa11ServiceImpl implements Qa11Service{
 		hashMap.put("end", end);
 		return qa11Mapper.listAll(hashMap);
 	}
+
+	@Override
+	public int countQa11(String id) {
+		qa11Mapper = sqlSession.getMapper(Qa11Mapper.class);
+		return qa11Mapper.countQa11(id);
+	}
 }

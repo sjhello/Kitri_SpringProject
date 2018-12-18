@@ -4,16 +4,16 @@ import java.sql.Date;
 
 public class Exercise {
 	private int num;
-	private String f_level;
+	private String w_level;
 	private String title;
 	private String w_date;
 	private String contents;
 	
 	public Exercise() {}
 	
-	public Exercise(int num, String f_level, String title, String w_date, String contents) {
+	public Exercise(int num, String w_level, String title, String w_date, String contents) {
 		this.num = num;
-		this.f_level = f_level;
+		this.w_level = w_level;
 		this.title = title;
 		this.w_date = w_date;
 		this.contents = contents;
@@ -27,12 +27,12 @@ public class Exercise {
 		this.num = num;
 	}
 
-	public String getF_level() {
-		return f_level;
+	public String getW_level() {
+		return w_level;
 	}
 
-	public void setF_level(String f_level) {
-		this.f_level = f_level;
+	public void setW_level(String w_level) {
+		this.w_level = w_level;
 	}
 
 	public String getTitle() {
@@ -61,7 +61,8 @@ public class Exercise {
 
 	@Override
 	public String toString() {
-		return "AdExercise [num=" + num + ", f_level=" + f_level + ", title=" + title + ", w_date=" + w_date
+		return "Exercise [num=" + num + ", w_level=" + w_level + ", title=" + title + ", w_date=" + w_date
 				+ ", contents=" + contents + "]";
 	}
+	
 }
