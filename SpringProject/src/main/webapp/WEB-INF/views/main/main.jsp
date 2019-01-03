@@ -6,9 +6,9 @@
 
 			<div class="col-xl-5">
 				<div class="heading-block topmargin">
-					<h1>한달 4만으로<br>매일 매일 당신을 체크합니다.</h1>
+					<h1>한달 4만원으로<br>당신의 건강을 관리해 드립니다.</h1>
 				</div>
-				<p class="lead">애니 픽트는 항상 당신을 위해 움직입니다. <br>한달 4만원의 요금!  최대의 서비스! <br> 지금 바로 신청하세요!</p>
+				<p class="lead">애니핏은 항상 당신을 위해 움직입니다. <br>한달 4만원의 요금!  최대의 서비스! <br> 지금 바로 신청하세요!</p>
 			</div>
 
 			<div class="col-xl-7">
@@ -30,7 +30,7 @@
 					<a href="#"><i class="icon-line-monitor"></i></a>
 				</div>
 				<h3>헬스케어 솔루션</h3>
-				<p>애니핏트는 회원님의 건강을 관리하는 솔루션입니다. 매일 체질에 맞게 식단과 운동법을 제시하며 건강을 체크합니다.</p>
+				<p>애니핏은 회원님의 건강을 관리하는 솔루션입니다. 매일 체질에 맞게 식단과 운동법을 제시하며 건강을 체크합니다.</p>
 			</div>
 		</div>
 
@@ -50,7 +50,7 @@
 					<a href="#"><i class="icon-line-star"></i></a>
 				</div>
 				<h3>알림 시스템</h3>
-				<p>고객님이 직접 달력에 운동과 식단을 체크하며, 소식이 없을시 전화해서 알려드립니다.</p>
+				<p>고객님이 직접 달력에 운동과 식단을 선택하며, 소식이 없을시 계속해서 연락해 드립니다.</p>
 			</div>
 		</div>
 
@@ -62,7 +62,7 @@
 					<a href="#"><i class="icon-line-play"></i></a>
 				</div>
 				<h3>운동법</h3>
-				<p> 최고의 유명 트레이너가 직접 회원님의 운동법을 짜드립니다.</p>
+				<p> 최고의 유명 트레이너가 직접 회원님의 운동법을 알려드립니다.</p>
 			</div>
 		</div>
 
@@ -72,7 +72,7 @@
 					<a href="#"><i class="icon-params"></i></a>
 				</div>
 				<h3>식단</h3>
-				<p>영양관리사가 회원님의 체질에 맞게 여러가지 식단을 제공하면서 골라서 선택할 수 있도록 해드립니다.</p>
+				<p>영양사가 회원님의 체질에 맞게 여러가지 식단을 제공하여, 회원님이 식단을 선택할 수 있도록 해드립니다.</p>
 			</div>
 		</div>
 
@@ -82,7 +82,7 @@
 					<a href="#"><i class="icon-line-circle-check"></i></a>
 				</div>
 				<h3>최고의 가성비</h3>
-				<p>한달 3만원으로 회원님의 식단과 운동법, 몸상태 측정을 해드립니다.</p>
+				<p>한달 4만원으로 회원님의 식단과 운동법, 몸상태 측정을 해드립니다.</p>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -118,7 +118,7 @@
 	<div class="container clearfix">
 
 		<div class="heading-block topmargin-lg center">
-			<h2>애니핏트 사용법</h2>
+			<h2>애니핏 사용법</h2>
 			<span class="divcenter">헬스 케어 솔루션 100% 즐기기</span>
 		</div>
 
@@ -289,7 +289,7 @@
 								<img src="images/team/2.jpg" alt="Josh Clark">
 							</div>
 							<div class="team-desc team-desc-bg">
-								<div class="team-title"><h4>박영양</h4><span>영양관리사</span></div>
+								<div class="team-title"><h4>박영양</h4><span>영양사</span></div>
 								<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 									<i class="icon-facebook"></i>
 									<i class="icon-facebook"></i>
@@ -314,7 +314,7 @@
 								<img src="images/team/8.jpg" alt="Mary Jane">
 							</div>
 							<div class="team-desc team-desc-bg">
-								<div class="team-title"><h4>넌헬스</h4><span>헬스트레이너</span></div>
+								<div class="team-title"><h4>박트레이너</h4><span>헬스트레이너</span></div>
 								<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
 									<i class="icon-facebook"></i>
 									<i class="icon-facebook"></i>
