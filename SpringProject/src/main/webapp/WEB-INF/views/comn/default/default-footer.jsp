@@ -42,7 +42,7 @@
 							
 							(박노율) &nbsp;<abbr title="Email Address"><strong>Email:</strong></abbr> qkrshdbf2001@naver.com <br>
 							(김상진) &nbsp;<abbr title="Email Address"><strong>Email:</strong></abbr> 미등록 <br>
-							(경규일) &nbsp;<abbr title="Email Address"><strong>Email:</strong></abbr> 미등록 <br>
+							(경규일) &nbsp;<abbr title="Email Address"><strong>Email:</strong></abbr> rudrbdlf1123@naver.com <br>
 							(박창순) &nbsp;<abbr title="Email Address"><strong>Email:</strong></abbr> jkkl748@naver.com <br>
 							(정한길) &nbsp;<abbr title="Email Address"><strong>Email:</strong></abbr> 미등록 <br>
 							

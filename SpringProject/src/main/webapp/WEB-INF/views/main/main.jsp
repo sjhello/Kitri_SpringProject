@@ -8,7 +8,7 @@
 				<div class="heading-block topmargin">
 					<h1>한달 4만원으로<br>당신의 건강을 관리해 드립니다.</h1>
 				</div>
-				<p class="lead">애니핏은 항상 당신을 위해 움직입니다. <br>한달 4만원의 요금!  최대의 서비스! <br> 지금 바로 신청하세요!</p>
+				<p class="lead">애니핏은 항상 당신을 위해 움직입니다. <br>한달 4만원의 요금!&nbsp;최대의 서비스! <br> 지금 바로 신청하세요!</p>
 			</div>
 
 			<div class="col-xl-7">
@@ -30,7 +30,7 @@
 					<a href="#"><i class="icon-line-monitor"></i></a>
 				</div>
 				<h3>헬스케어 솔루션</h3>
-				<p>애니핏은 회원님의 건강을 관리하는 솔루션입니다. 매일 체질에 맞게 식단과 운동법을 제시하며 건강을 체크합니다.</p>
+				<p>애니핏은 회원님의 건강을 관리하는 솔루션입니다. 매일 체질에 맞게 식단과 운동법을 제시하여 건강관리를 해드립니다.</p>
 			</div>
 		</div>
 
@@ -62,7 +62,7 @@
 					<a href="#"><i class="icon-line-play"></i></a>
 				</div>
 				<h3>운동법</h3>
-				<p> 최고의 유명 트레이너가 직접 회원님의 운동법을 알려드립니다.</p>
+				<p> 최고의 유명 트레이너가 직접 회원님의 운동방법을 알려드립니다.</p>
 			</div>
 		</div>
 
@@ -102,7 +102,7 @@
 								<a href="#"><img src="images/testimonials/3.jpg" alt="Customer Testimonails"></a>
 							</div>
 							<div class="testi-content">
-								<p>건강을 유지하는 건 참 어렵고 그만큼 돈도 많이듭니다. 하지만 애니핏트와 함께라면 그것은 가능합니다. </p>
+								<p>건강을 유지하는 건 참 어렵고 그만큼 돈도 많이듭니다. <br>하지만 애니핏과 함께라면 가능합니다. </p>
 								<div class="testi-meta">
 									김대표
 									<span>CEO</span>
@@ -131,7 +131,7 @@
 						<a href="#"><i class="icon-line-heart"></i></a>
 					</div>
 					<h3>1. 예약하기</h3>
-					<p>신청 및 회원가입을 하시면 작성한 전화번호로 예약일정을 잡아드립니다.</p>
+					<p>회원가입후 예약 신청을 하시면 고객님의 전화번호로 상담 연락 드립니다.</p>
 				</div>
 
 				<div class="feature-box fbox-right topmargin" data-animate="fadeIn" data-delay="200">
@@ -139,7 +139,7 @@
 						<a href="#"><i class="icon-line-paper"></i></a>
 					</div>
 					<h3>2. 체력측정 & 건강검진 </h3>
-					<p>예약 날짜에 오시면 전문가들이 측정 및 검사를 해드립니다.</p>
+					<p>예약 날짜에 오시면 최고의 전문가들이 측정 및 검사를 도와드립니다.</p>
 				</div>
 
 				<div class="feature-box fbox-right topmargin" data-animate="fadeIn" data-delay="400">
@@ -171,7 +171,7 @@
 						<a href="#"><i class="icon-line-check"></i></a>
 					</div>
 					<h3>5. 운동법 보기</h3>
-					<p>달력을 보며 운동법을 확인하고 운동을 했으면 체크를 눌러 확인을 한다.</p>
+					<p>달력을 보며 운동법을 확인하고 그날의 운동을 마친후 체크를 한다.</p>
 				</div>
 
 				<div class="feature-box topmargin" data-animate="fadeIn" data-delay="400">
@@ -179,7 +179,7 @@
 						<a href="#"><i class="icon-bulb"></i></a>
 					</div>
 					<h3>6. 매월 건강검진 및 체력측정</h3>
-					<p>운동과 식단을 통해 변화된 몸을 매월 측정하러 간다.</p>
+					<p>운동과 식단을 통해 변화된 몸을 보기위해 매월 기관으로 측정하러 간다.</p>
 				</div>
 
 			</div>
