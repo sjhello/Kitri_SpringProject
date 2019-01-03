@@ -62,17 +62,33 @@
 		where mea.id = #{id}
 	</select>
 	
-	<select id="countMember"  resultType="java.lang.Integer">
+	<select id="countMember" resultType="java.lang.Integer">
 		select count(*) 
 		  from member 
 	</select>
 	
-	<select id="selectMemberList"  parameterType="hashMap" resultMap="memResult">
+	<select id="selectMemberList" parameterType="hashMap" resultMap="memResult">
 		<![CDATA[
 		select rnum, ID, PWD, NAME, TEL, ADDRESS, EMAIL, F_LEVEL, W_LEVEL, ADMIN_CONFIRM, SEX, AGE, POSTNUM 
-		  from (select rownum as rnum, ID, PWD, NAME, TEL, ADDRESS, EMAIL, F_LEVEL, W_LEVEL, ADMIN_CONFIRM, SEX, AGE, POSTNUM 
-		   		  from member)
+		  from (select ROW_NUMBER() OVER() as rnum, ID, PWD, NAME, TEL, ADDRESS, EMAIL, F_LEVEL, W_LEVEL, ADMIN_CONFIRM, SEX, AGE, POSTNUM 
+		   		  from member)m
 		 WHERE rnum >= #{start} AND rnum <= #{end}
 	]]>
+	</select>
+	
+	<select id="reservationCount" resultType="java.lang.Integer">
+		select count(*) 
+		  from member 
+		 where admin_confirm='x'
+	</select>
+	
+	<select id="reservationList" parameterType="hashMap" resultMap="memResult">
+		<![CDATA[
+			select rnum, ID, PWD, NAME, TEL, ADDRESS, EMAIL, F_LEVEL, W_LEVEL, ADMIN_CONFIRM, SEX, AGE, POSTNUM 
+			  from (select ROW_NUMBER() OVER() as rnum, ID, PWD, NAME, TEL, ADDRESS, EMAIL, F_LEVEL, W_LEVEL, ADMIN_CONFIRM, SEX, AGE, POSTNUM 
+			   		  from member
+			   		 where admin_confirm='x')m
+			 WHERE rnum >= #{start} AND rnum <= #{end}
+		]]>
 	</select>
 </mapper>

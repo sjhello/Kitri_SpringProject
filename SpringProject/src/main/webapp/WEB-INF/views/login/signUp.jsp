@@ -1,7 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$('#searchValue').change(function(){
+			var searchValue = $('#searchValue').val();
+			var param = "searchValue="+searchValue;
+			$.ajax({
+				type:"GET",
+				url:"${pageContext.request.contextPath}/postSearchAjax",
+				data:param,
+				success:function(data){
+					var arr = eval('('+data+')');
+					var str = "";
+					str = "<table border=1>";
+					
+					var zipNo;
+					var lnmAdres;
+					var rnAdres;
+					
+					if (arr[0].zipNo != "") {
+						str += "<tr>";
+						str += "<th>우편번호</th>";
+						str += "<th>도로명주소</th>";
+						str += "<th>지번주소</th>";
+						str += "</tr>";
+						for(i=0; i<arr.length; i++){
+							zipNo = arr[i].zipNo;
+							lnmAdres = arr[i].lnmAdres;
+							rnAdres = arr[i].rnAdres;
+							
+							str += "<tr>";
+							str += "<td>"+zipNo+"</td>";
+							str += "<td><a href='javascript:;' onclick=\"address("+zipNo+",'"+lnmAdres+"')\">"+lnmAdres+"</a></td>";
+							str += "<td><a href='javascript:;' onclick=\"address("+zipNo+",'"+rnAdres+"')\">"+rnAdres+"</a></td>";
+							str += "</tr>"
+						}
+						str += "</table>";
+						$('#result').html(str);
+					} else {
+						$('#result').html("");
+					}
+				}
+			});
+		});
+	});
+</script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#btnAdd').click(function(){
@@ -200,11 +245,27 @@
 								<!-- <input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp">
 								<br> -->
 								<div style="width:100%">
-									<input type="text" class="form-control" id="postnum" name="postnum" placeholder="우편번호" style="width:30%;float:left">
-		                            <input type="button" style="width:110px;" class="btn btn-primary mt-3" onclick="postCode()" value="우편번호 찾기">
+									<input type="text" class="form-control" id="postnum" name="postnum" placeholder="우편번호" style="width:30%;float:left" readonly>
+		                            <a href="#myModal1" data-lightbox="inline" class="button button-large button-rounded" style=" margin: 0px; height: 38px; margin-left: 6px; line-height: 40px; ">우편번호찾기</a>
                             	</div>
-		                            <input type="text" class="form-control" id="signAddress1" name="signAddress1" placeholder="도로명주소">
-		                            <input type="text" class="form-control" id="signAddress2" name="signAddress2" placeholder="상세주소">
+                            	
+                            	
+                            	
+                            	<!-- Modal -->
+								<div class="modal1 mfp-hide" id="myModal1">
+									<div class="block divcenter" style="background-color: #FFF; max-width: 500px;">
+										<div class="center" style="padding: 50px;">
+											주소 입력 : <input type="text" id="searchValue"><br>
+											<div id="result">
+											</div>
+										</div>
+										<div class="section center nomargin" style="padding: 30px;">
+											<a href="#" class="button" onClick="$.magnificPopup.close();return false;">Close this Modal</a>
+										</div>
+									</div>
+								</div>
+	                            <input type="text" class="form-control" id="signAddress1" name="signAddress1" placeholder="도로명주소" readonly>
+	                            <input type="text" class="form-control" id="signAddress2" name="signAddress2" placeholder="상세주소">
 							</div>
 							<button type="submit" class="btn btn-primary mt-3" id="btnAdd">신청</button>
 							<button type="submit" class="btn btn-primary mt-3">취소</button>
@@ -214,46 +275,16 @@
 			</div>
 		</section><!-- #content end -->
 
-<!-- 도로명 API -->
-<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+
 <script>
-    function sample6_execDaumPostcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                var fullAddr = ''; // 최종 주소 변수
-                var extraAddr = ''; // 조합형 주소 변수
-                // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-                    fullAddr = data.roadAddress;
-                } else { // 사용자가 지번 주소를 선택했을 경우(J)
-                    fullAddr = data.jibunAddress;
-                }
-                // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
-                if(data.userSelectedType === 'R'){
-                    //법정동명이 있을 경우 추가한다.
-                    if(data.bname !== ''){
-                        extraAddr += data.bname;
-                    }
-                    // 건물명이 있을 경우 추가한다.
-                    if(data.buildingName !== ''){
-                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                    }
-                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
-                }
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('postnum').value = data.zonecode; //5자리 새우편번호 사용
-                document.getElementById('signAddress1').value = fullAddr;
-                // 커서를 상세주소 필드로 이동한다.
-                document.getElementById('signAddress2').focus();
-            }
-        }).open();
-    }
-</script> -->
-<script>
+	function address(no, data){
+		$('#postnum').val(no);
+		$('#signAddress1').val(data);
+		$.magnificPopup.close();
+		return false;
+	};
+
 	function postCode(){
 		var win = null;
 		win = window.open("${pageContext.request.contextPath}/postSearch", "win", "width=500, height=500, top=200, left=200");			

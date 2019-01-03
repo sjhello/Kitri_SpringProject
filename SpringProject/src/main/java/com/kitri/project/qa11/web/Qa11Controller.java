@@ -26,6 +26,7 @@ public class Qa11Controller {
 			ArrayList<Qa11> qa11 = qa11Service.selectQa11Id(id);
 			
 			if (qa11 != null) {
+				int count = qa11Service.countQa11(id);
 				ArrayList<Qa11> list =  qa11Service.uaSelectQa(id);
 				model.addAttribute("list", list);
 				model.addAttribute("list1", list);
@@ -77,6 +78,7 @@ public class Qa11Controller {
 		Qa11 qa11 = qa11Service.detailQa11(originNo);
 		Qa11 adQa11 = qa11Service.detailAdQa11(originNo);
 		model.addAttribute("qa11", qa11);
+		System.out.println(adQa11);
 		model.addAttribute("adQa11", adQa11);
 		return "qa11/adQa-Detail.admin";
 	}
@@ -120,7 +122,7 @@ public class Qa11Controller {
 		int end = paging.getPageEnd();
 		
 		ArrayList<Qa11> list =  qa11Service.listAll(start, end);
-		
+		System.out.println(list);
 		model.addAttribute("list", list);
 		model.addAttribute("count", count);
 		model.addAttribute("paging", paging);

@@ -1,6 +1,7 @@
 package com.kitri.project.notice.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -39,16 +40,34 @@ public class NoticeServiceImpl implements NoticeService{
 
 	@Override
 	public void updateNotice(Notice n) {
+		noticeMapper = sqlSession.getMapper(NoticeMapper.class);
 		noticeMapper.updateNotice(n);
 	}
 
 	@Override
 	public void addHits(Notice n) {
+		noticeMapper = sqlSession.getMapper(NoticeMapper.class);
 		noticeMapper.addHits(n);
 	}
 
 	@Override
 	public void deleteNotice(int num) {
+		noticeMapper = sqlSession.getMapper(NoticeMapper.class);
 		noticeMapper.deleteNotice(num);
+	}
+
+	@Override
+	public int countNotice() {
+		noticeMapper = sqlSession.getMapper(NoticeMapper.class);
+		return noticeMapper.countNotice();
+	}
+
+	@Override
+	public ArrayList<Notice> selectAll(int start, int end) {
+		noticeMapper = sqlSession.getMapper(NoticeMapper.class);
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("start", start);
+		hashMap.put("end", end);
+		return noticeMapper.selectAll(hashMap);
 	}
 }

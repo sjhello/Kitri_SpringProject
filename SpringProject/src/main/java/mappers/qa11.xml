@@ -11,13 +11,13 @@
 		<result column="content" property="content" />
 		<result column="id" property="id" />
 		<result column="reg_date" property="reg_date" />
-		<result column="ad_check" property="ad_check" />
+		<result column="b2c_qa_check" property="b2c_qa_check" />
 	</resultMap>
 	
 	<select id="selectQa11ListAdNot" resultMap="qa11Result">
 		select *
 		  from b2c_qa	
-	     where id not in 'admin'
+	     where not id='admin'
 	</select>
 	
 	<select id="selectQa11List" resultMap="qa11Result">
@@ -36,14 +36,14 @@
 	<select id="selectQa11Ad" parameterType="int" resultMap="qa11Result">
 		select *
 		  from b2c_qa
-		 where ad_check = #{i} and id not in 'admin'
+		 where b2c_qa_check = #{i} and not id='admin'
 		
 	</select>
 	
 	<select id="adSelectQa11Id" parameterType="String" resultMap="qa11Result">
 		select *
 		  from b2c_qa
-		 where id like '%' || #{id} || '%' and id not in 'admin'
+		 where id like '%' || #{id} || '%' and not id='admin'
 		
 	</select>
 	
@@ -72,18 +72,20 @@
 	</select>
 	
 	<insert id="insertQa11" parameterType="com.kitri.project.qa11.web.Qa11">
-		insert into b2c_qa 
-		values (SEQ_B2C_QA_NUM.nextval, SEQ_B2C_QA_NUM.nextval, 0, #{title}, #{content}, #{id}, sysdate,0)
+		<![CDATA[
+		insert into b2c_qa
+		values((select * from (select max(code)+1 from b2c_qa)next1), (select * from (select max(code)+1 from b2c_qa)next1), 0, #{title}, #{content}, #{id}, CURDATE(),0)
+		]]>
 	</insert>
 	
 	<insert id="insertAdQa11" parameterType="com.kitri.project.qa11.web.Qa11">
 		insert into b2c_qa
-		values (SEQ_B2C_QA_NUM.nextval, #{originNo}, 1, #{title}, #{content}, #{id}, sysdate,0)
+		values ((select * from (select max(code)+1 from b2c_qa)next1), #{originNo}, 1, #{title}, #{content}, #{id}, CURDATE(),0)
 	</insert>
 	
 	<update id="updateQa11CheckTrue" parameterType="int">
 		update b2c_qa
-		   set ad_check = 1
+		   set b2c_qa_check = 1
 		 where code = #{code}
 	</update>
 	
@@ -95,17 +97,19 @@
 	
 	<update id="updateupdateQa11CheckFalse" parameterType="int">
 		update b2c_qa
-		   set ad_check = 0
+		   set b2c_qa_check = 0
 		 where code = #{code}
 	</update>
 	
 	<delete id="deleteQa11" parameterType="int">
-		delete b2c_qa
+		delete 
+		  from b2c_qa
 		 where code = #{code}
 	</delete>
 	
 	<delete id="uaDeleteQa11" parameterType="int">
-		delete b2c_qa
+		delete 
+		  from b2c_qa
 		 where originNo = #{originNo}
 	</delete>
 	
@@ -116,12 +120,17 @@
 	
 	<select id="listAll" parameterType="hashMap" resultMap="qa11Result">
 		<![CDATA[
-		select rnum, CODE, ORIGINNO, GROUPORD, TITLE, CONTENT, ID, REG_DATE, AD_CHECK 
-		  from (select rownum as rnum, CODE, ORIGINNO, GROUPORD, TITLE, CONTENT, ID, REG_DATE, AD_CHECK 
-		   		  from b2c_qa)
-		 WHERE rnum >= #{start} AND rnum <= #{end}
-	]]>
+		select rnum, code, originno, groupord, title, content, id, reg_date, b2c_qa_check 
+		  from (select row_number() over(partition by code) as rnum, code, originno, groupord, title, content, id, reg_date, b2c_qa_check 
+		   		  from b2c_qa)q
+		 where rnum >= #{start} and rnum <= #{end}
+		]]>
 	</select>
 	
+	<select id="countQa11"  parameterType="String" resultType="java.lang.Integer">
+		select count(*) 
+		  from b2c_qa 
+		  where id = #{id} or id = 'admin'
+	</select>
 	
 </mapper>

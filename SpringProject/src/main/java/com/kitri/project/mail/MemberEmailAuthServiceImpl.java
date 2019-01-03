@@ -27,13 +27,13 @@ public class MemberEmailAuthServiceImpl implements MemberEmailAuthService{
 		MailHandler sendMail = new MailHandler(mailSender);
 		sendMail.setSubject("[ANYFIR 이메일 인증]");
 		sendMail.setText(new StringBuffer().append("<h1>메일인증<h1>")
-										.append("<a href='http://localhost:8080/project/emailConfirm?email=")
+										.append("<a href='http://localhost:8787/project/emailConfirm?email=")
 										.append(mea.getEmail())
 										.append("&key=")
 										.append(mea.getUser_authcode())
 										.append("' target='_blenk'>이메일 인증 확인</a>")
 										.toString());
-		sendMail.setFrom("qkrshdbf2001@gmail.com","ANYFIT");
+		sendMail.setFrom("sjhello235@gmail.com","ANYFIT");
 		sendMail.setTo(mea.getEmail());
 		sendMail.send();
 	}

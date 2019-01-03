@@ -45,76 +45,6 @@
 			}
 		 	
 		});
-        $('#summernote2').summernote({
-       	    lang : 'ko-KR',
-       	 	height: 300,
-			callbacks: {
-				onImageUpload: function(files, welEditabl) {
-					for (var i = files.length - 1; i >= 0; i--) {
-					sendFile(files[i], this);
-					}
-				}
-			}
-        });
-        $('#summernote3').summernote({
-       	    lang : 'ko-KR',
-       	 	height: 300,
-			callbacks: {
-				onImageUpload: function(files, welEditabl) {
-					for (var i = files.length - 1; i >= 0; i--) {
-					sendFile(files[i], this);
-					}
-				}
-			}
-        });
-        $('#summernote4').summernote({
-       	    lang : 'ko-KR',
-       	 	height: 300,
-			callbacks: {
-				onImageUpload: function(files, welEditabl) {
-					for (var i = files.length - 1; i >= 0; i--) {
-					sendFile(files[i], this);
-					}
-				}
-			}
-        });
-        $('#summernote5').summernote({
-       	    lang : 'ko-KR',
-       	 	height: 300,
-			callbacks: {
-				onImageUpload: function(files, welEditabl) {
-					for (var i = files.length - 1; i >= 0; i--) {
-					sendFile(files[i], this);
-					}
-				}
-			}
-        });
-        $('#summernote6').summernote({
-        	lang : 'ko-KR',
-        	height: 300,
-			callbacks: {
-				onImageUpload: function(files, welEditabl) {
-					for (var i = files.length - 1; i >= 0; i--) {
-					sendFile(files[i], this);
-					}
-				}
-			}
-        });
-        
-        //개수만큼 전송
-        $('#select').change(function() {
-        	for (var a=1; a<7; a++) {
-        		$('#divContent'+a).attr('style','display:none!important');
-        	}
-        	var optionSelected = $(this).find("option:selected");
-            var valueSelected  = optionSelected.val();
-            
-            
-            for (var a=0; a<valueSelected; a++) {
-        		$('#divContent'+(a+1)).attr('style','display:flex!important');
-        	}
-            
-        });
         
         $('#dietButton').click(function() {
         	var numChar;
@@ -125,25 +55,11 @@
         	var optionSelected = $('#select').find("option:selected");
             var valueSelected  = optionSelected.val();
             
-            for (var i = 0; i < valueSelected; i++) {
-            	numChar = $('#summernote'+(i+1)).summernote('code').length;
-    	    	maxNum = 4000;
-    	    	charRemain = maxNum - numChar;
     	    	
-    	    	if (charRemain < 0) {
-    	    		alert((i+1)+"번째 게시물을 4000자 이하로 입력해주세요.");
-    	    		check=1;
-    	    		return;
-    			} 
-    	    	
-    			var strBr = $('#summernote'+(i+1)).summernote('code');
-    			var str = strBr.replace("\n", "\\n" );
-    			$('textarea[name="f' + (i+1) + '"]').val(str);
-            }
+   			var strBr = $('#summernote1').summernote('code');
+   			var str = strBr.replace("\n", "\\n" );
+   			$('textarea[name="f"]').val(str);
             
-            if (check == 1) {
-            	return;
-            }
             $('#dietWriteForm').submit();
         });
         
@@ -191,59 +107,11 @@
 						    </select>
 						</div>
                     </div>
-                    <div class="form-group row d-flex align-items-center mb-5 has-info">
-                        <label class="col-lg-3 form-control-label">작성할 게시물의 개수</label>
-                        <div class="col-lg-9 select mb-3">
-						    <select id="select" class="custom-select form-control">
-						        <option value=1 selected="selected">1개</option>
-						        <option value=2>2개</option>
-						        <option value=3>3개</option>
-						        <option value=4>4개</option>
-						        <option value=5>5개</option>
-						        <option value=6>6개</option>
-						    </select>
-						</div>
-                    </div>
                     <div class="form-group row d-flex align-items-center mb-5 has-info" id="divContent1">
                         <label class="col-lg-3 form-control-label">선택1</label>
-                        <textarea id="f1" name="f1" style="display: none;"></textarea>
+                        <textarea id="f" name="f" style="display: none;"></textarea>
                         <div class="col-lg-9">
                            	<div id="summernote1" style="height:300px"><p>Hello Summernote</p></div>
-                        </div>
-                    </div>
-                    <div class="form-group row d-flex align-items-center mb-5 has-info" id="divContent2" style="display:none!important">
-                        <label class="col-lg-3 form-control-label">선택2</label>
-                        <textarea id="f2" name="f2" style="display: none;"></textarea>
-                        <div class="col-lg-9">
-                           	<div id="summernote2" style="height:300px"><p>Hello Summernote</p></div>
-                        </div>
-                    </div>
-                    <div class="form-group row d-flex align-items-center mb-5 has-info" id="divContent3" style="display:none!important">
-                        <label class="col-lg-3 form-control-label">선택3</label>
-                        <textarea id="f3" name="f3" style="display: none;"></textarea>
-                        <div class="col-lg-9">
-                           	<div id="summernote3" style="height:300px"><p>Hello Summernote</p></div>
-                        </div>
-                    </div>
-                    <div class="form-group row d-flex align-items-center mb-5 has-info" id="divContent4" style="display:none!important">
-                        <label class="col-lg-3 form-control-label">선택4</label>
-                        <textarea id="f4" name="F4" style="display: none;"></textarea>
-                        <div class="col-lg-9">
-                           	<div id="summernote4" style="height:300px"><p>Hello Summernote</p></div>
-                        </div>
-                    </div>
-                    <div class="form-group row d-flex align-items-center mb-5 has-info" id="divContent5" style="display:none!important">
-                        <label class="col-lg-3 form-control-label">선택5</label>
-                        <textarea id="f5" name="f5" style="display: none;"></textarea>
-                        <div class="col-lg-9">
-                           	<div id="summernote5" style="height:300px"><p>Hello Summernote</p></div>
-                        </div>
-                    </div>
-                    <div class="form-group row d-flex align-items-center mb-5 has-info" id="divContent6" style="display:none!important">
-                        <label class="col-lg-3 form-control-label">선택6</label>
-                        <textarea id="f6" name="f6" style="display: none;"></textarea>
-                        <div class="col-lg-9">
-                           	<div id="summernote6" style="height:300px"><p>Hello Summernote</p></div>
                         </div>
                     </div>
                     <button type="button" class="btn btn-success btn-square mr-1 mb-2" id="dietButton">작성</button>

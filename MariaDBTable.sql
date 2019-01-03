@@ -1,4 +1,4 @@
-create table member(
+﻿create table member(
     id varchar(20) primary key,
     pwd varchar(20) not null,
     name varchar(20) not null,
@@ -17,9 +17,11 @@ insert into member values('kgi', 'kgi', 'kgi', '010-1234-1234', 'asdf', 'kgi@nav
 insert into member values('pny', 'pny', 'pny', '010-1234-1234', 'asdf', 'pny@naver.com', 'low', 'mid', 'o', 'm', '25', 65792);
 insert into member values('admin', 'admin', 'admin', '010-1234-1234', 'asdf', 'admin@naver.com', 'mid', 'mid', 'o', 'm', '50', 15792);
 
+
 select * from member;
 
 select * from memberemailauth;
+
 create table memberemailauth(
     id varchar(20),
     email varchar(50),
@@ -34,7 +36,12 @@ insert into memberemailauth values('kgi', 'kgi@naver.com', 'asdf1234', 'o');
 insert into memberemailauth values('pny', 'pny@naver.com', 'qwer1234', 'o');
 insert into memberemailauth values('admin', 'admin@gmail.com', 'zxcv1234', 'o');
 
+select * from memberemailauth;
 commit;
+show variables like 'c%';
+
+ALTER DATABASE anyfit DEFAULT COLLATE utf8_unicode_ci;
+ALTER DATABASE anyfit DEFAULT CHARACTER SET utf8;
 
 create table employee(
     id varchar(20),
@@ -122,15 +129,15 @@ create sequence seq_food_num START WITH 1 INCREMENT BY 1;
 
 commit;
 
-
 create table workout(
     num int primary key,
     w_level varchar(20),
     title varchar(100),
     w_date varchar(50),
-    contents text,
-    w_check varchar(5)
+    contents text
 );
+
+select * from workout;
 
 create sequence seq_workout_num START WITH 1 INCREMENT BY 1;
 
@@ -140,9 +147,10 @@ create table workout_check(
     work_num int references workout(num),
     work_check varchar(20) default 'x',
     work_date date,
-    foreign key (id) references member(id) on delete cascade,
-    foreign key (work_num) references workout(num) 
+    foreign key (id) references member(id) on delete cascade
 );
+
+commit;
 
 create table notice(
     num int primary key,
@@ -154,6 +162,8 @@ create table notice(
     foreign key (id) references member(id)
 );
 
+
+insert into notice values(1, '제목', '내용', curdate(), 2, 'kgi');
 
 create sequence seq_notice_num START WITH 1 INCREMENT BY 1;
 
@@ -189,4 +199,11 @@ commit;
 select m.id,m.email,mea.auth_confirm from member m join memberEmailAuth mea on m.id=mea.id where mea.id='pny';
 
 select * from memberEmailAuth;
+
 select * from member;
+
+select rnum, num, title, content, reg_date, hits, id
+        from (select ROW_NUMBER() OVER() as rnum, num, title, content, reg_date, hits, id 
+                 from notice)n
+       WHERE rnum >= 1 AND rnum <= 8;
+       

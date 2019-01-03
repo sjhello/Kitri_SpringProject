@@ -23,7 +23,7 @@
 	
 	<insert id="insertQa" parameterType="com.kitri.project.qa.web.Qa">
 		insert into qa 
-		values (seq_qa_num.nextval, #{title}, #{content}, sysdate)
+		values (NEXTVAL(seq_qa_num), #{title}, #{content}, CURDATE(), 'admin')
 	</insert>
 	
 	<update id="updateQa" parameterType="com.kitri.project.qa.web.Qa">
@@ -33,7 +33,8 @@
 	</update>
 	
 	<delete id="deleteQa" parameterType="int">
-		delete qa 
+		delete 
+		  from qa 
 		 where q_num = #{q_num}
 	</delete>
 	
@@ -45,10 +46,10 @@
 	<select id="listAll" parameterType="hashMap" resultMap="qaResult">
 		<![CDATA[
 		select rnum, Q_NUM, TITLE, CONTENT, REG_DATE
-		  from (select rownum as rnum, Q_NUM, TITLE, CONTENT, REG_DATE
-		   		  from qa)
+		  from (select ROW_NUMBER() OVER(PARTITION BY q_num) as rnum, Q_NUM, TITLE, CONTENT, REG_DATE
+		   		  from qa)q
 		 WHERE rnum >= #{start} AND rnum <= #{end}
-	]]>
+		]]>
 	</select>
 	
 </mapper>

@@ -73,10 +73,6 @@
 		
 						<div class="tab-content clearfix" id="tabs-1">
 							매일 새로운 운동법을 알려드립니다. 해당하는 시간을 클릭하시오.
-							<a class="button button-3d button-rounded button-amber">취소</a>
-							<a class="button button-3d button-rounded">체크</a>
-							<a class="button button-3d button-mini button-rounded button-green">미션완료</a>
-							<a class="button button-3d button-mini button-rounded button-teal">미션실패</a>
 						</div>
 						<c:forEach var="list" items="${list}" varStatus="status">
 							<div class="tab-content clearfix" id="tabs-${status.count+1}">

@@ -10,7 +10,7 @@ public class Qa11 {
 	private String content;
 	private String id;
 	private Date reg_date;
-	private int ad_check;
+	private int b2c_qa_check;
 
 	public Qa11() {}
 
@@ -23,7 +23,7 @@ public class Qa11 {
 		this.content = content;
 		this.id = id;
 		this.reg_date = reg_date;
-		this.ad_check = ad_check;
+		this.b2c_qa_check = ad_check;
 	}
 
 	public int getCode() {
@@ -82,18 +82,18 @@ public class Qa11 {
 		this.reg_date = reg_date;
 	}
 	
-	public int getAd_check() {
-		return ad_check;
+	public int getB2c_qa_check() {
+		return b2c_qa_check;
 	}
 
-	public void setAd_check(int ad_check) {
-		this.ad_check = ad_check;
+	public void setB2c_qa_check(int ad_check) {
+		this.b2c_qa_check = ad_check;
 	}
 
 	@Override
 	public String toString() {
 		return "Qa11 [code=" + code + ", originNo=" + originNo + ", groupOrd=" + groupOrd + ", title=" + title
-				+ ", content=" + content + ", id=" + id + ", reg_date=" + reg_date + ", ad_check=" + ad_check + "]";
+				+ ", content=" + content + ", id=" + id + ", reg_date=" + reg_date + ", b2c_qa_check=" + b2c_qa_check + "]";
 	}
 	
 }

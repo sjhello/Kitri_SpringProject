@@ -146,8 +146,8 @@
 					<div class="fbox-icon">
 						<a href="#"><i class="icon-line-layers"></i></a>
 					</div>
-					<h3>Parallax Support</h3>
-					<p>Display your Content attractively using Parallax Sections with HTML5 Videos.</p>
+					<h3>3. 체질에 따른 등급 배정</h3>
+					<p>정확하게 측정된 체력과 검진을 통해서 등급을 배정해줍니다.</p>
 				</div>
 
 			</div>
@@ -162,24 +162,24 @@
 					<div class="fbox-icon">
 						<a href="#"><i class="icon-line-power"></i></a>
 					</div>
-					<h3>HTML5 Video</h3>
-					<p>Canvas provides support for Native HTML5 Videos that can be added to a Background.</p>
+					<h3>4. 식단표 보기</h3>
+					<p>체질에 맞게 배정된 식단을 참고해서 식사를 한다.</p>
 				</div>
 
 				<div class="feature-box topmargin" data-animate="fadeIn" data-delay="200">
 					<div class="fbox-icon">
 						<a href="#"><i class="icon-line-check"></i></a>
 					</div>
-					<h3>Endless Possibilities</h3>
-					<p>Complete control on each &amp; every element that provides endless customization.</p>
+					<h3>5. 운동법 보기</h3>
+					<p>달력을 보며 운동법을 확인하고 운동을 했으면 체크를 눌러 확인을 한다.</p>
 				</div>
 
 				<div class="feature-box topmargin" data-animate="fadeIn" data-delay="400">
 					<div class="fbox-icon">
 						<a href="#"><i class="icon-bulb"></i></a>
 					</div>
-					<h3>Light &amp; Dark Color Schemes</h3>
-					<p>Change your Website's Primary Scheme instantly by simply adding the dark class.</p>
+					<h3>6. 매월 건강검진 및 체력측정</h3>
+					<p>운동과 식단을 통해 변화된 몸을 매월 측정하러 간다.</p>
 				</div>
 
 			</div>
@@ -235,14 +235,14 @@
 		<div class="col_two_third bottommargin-sm col_last">
 
 			<div class="heading-block topmargin-sm">
-				<h3>Optimized for Mobile &amp; Touch Enabled Devices.</h3>
+				<h3>전문 영양사의 식단 &amp; 최고 트레이너의 운동법</h3>
 			</div>
 
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero quod consequuntur quibusdam, enim expedita sed quia nesciunt incidunt accusamus necessitatibus modi adipisci officia libero accusantium esse hic, obcaecati, ullam, laboriosam!</p>
+			<p>영양사는 개인/단체/지역사회를 대상으로 질병예방과 건강증진을 위하여 급식관리 및 영양서비스를 수행하는 전문인이자 국민의 생명,건강 및 다중의 보건위생을 다루는 보건전문인력입니다. 국가시험에 합격한 후 보건복지부장관 명의의 면허를 받은 영양사가 직접 식단을 만들어드립니다.</p>
 
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti vero, animi suscipit id facere officia. Aspernatur, quo, quos nisi dolorum aperiam fugiat deserunt velit rerum laudantium cum magnam.</p>
+			<p>운동을 전문적으로 배우기를 원하는 회원 혹은 고객에게 1:1 또는 1:다수로 트레이닝 방법을 교수하는 전문 헬스트레이너 입니다. 당신의 헬스 방법을 맨날 생각하고 있는 헬스트레이너가 직접 운동법을 찾아 만들어줍니다.</p>
 
-			<a href="#" class="button button-border button-dark button-rounded button-large noleftmargin topmargin-sm">Learn more</a>
+			<a href="signUp.do" class="button button-border button-dark button-rounded button-large noleftmargin topmargin-sm">신청하러 가기</a>
 
 		</div>
 

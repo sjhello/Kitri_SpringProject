@@ -15,11 +15,7 @@ import com.kitri.project.qa11.web.Qa11;
 
 
 @Controller
-public class AdminController {	
-	
-	@Resource(name="qa11Service")
-	private Qa11Service qa11Service;
-	
+public class AdminController {		
 	@RequestMapping(value = "admin.do")
 	public String admin(Model model) {
 		return "admin/admin.admin";

@@ -213,9 +213,9 @@
                     </div>
                     <div class="form-group row d-flex align-items-center mb-5 has-info" id="divContent1">
                         <label class="col-lg-3 form-control-label">선택1</label>
-                        <textarea id="f1" name="f1" style="display: none;"></textarea>
+                        <textarea id="f" name="f" style="display: none;"></textarea>
                         <div class="col-lg-9">
-                           	<div id="summernote1" style="height:300px">${list.f1 }</div>
+                           	<div id="summernote1" style="height:300px">${list.f }</div>
                         </div>
                     </div>
                     <div class="form-group row d-flex align-items-center mb-5 has-info" id="divContent2" style="display:none!important">

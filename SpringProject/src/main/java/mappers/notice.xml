@@ -24,7 +24,7 @@
 	
 	<insert id="insertNotice" parameterType="com.kitri.project.notice.web.Notice">
 		insert into notice 
-		values (seq_notice_num.nextval, #{title}, #{content}, sysdate, 0)
+		values (NEXTVAL(seq_notice_num), #{title}, #{content}, CURDATE(), 0, 'admin')
 	</insert>
 
 	<update id="updateNotice" parameterType="com.kitri.project.notice.web.Notice">
@@ -40,7 +40,22 @@
 	</update>
 	
 	<delete id="deleteNotice" parameterType="int">
-		delete notice
+		delete 
+		  from notice
 		 where num = #{num}
 	</delete>
+	
+	<select id="countNotice" resultType="java.lang.Integer">
+		select count(*)
+		  from notice
+	</select>
+	
+	<select id="selectAll" parameterType="hashMap" resultMap="noticeResult">
+		<![CDATA[
+		select rnum, num, title, content, reg_date, hits, id
+		  from (select ROW_NUMBER() OVER(PARTITION BY num) as rnum, num, title, content, reg_date, hits, id
+		   		  from notice)n
+		 WHERE rnum >= #{start} AND rnum <= #{end}
+		]]>
+	</select>
 </mapper>
